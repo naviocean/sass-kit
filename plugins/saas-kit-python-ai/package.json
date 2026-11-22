@@ -1,0 +1,14 @@
+{
+  "name": "@saas-kit/python-ai",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Senior AI Engineer & Python Backend Engineer for LangGraph, RAG, LLM evaluation, FastAPI microservices, and async Python workers.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/naviocean/sass-kit.git"
+  },
+  "peerDependencies": {
+    "@saas-kit/core": "^2.0.0"
+  }
+}

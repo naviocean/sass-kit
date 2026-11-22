@@ -1,0 +1,11 @@
+{
+  "name": "saas-kit-devops-infra",
+  "version": "2.0.0",
+  "description": "Senior DevOps & SRE Engineer for GitHub Actions, Docker, Kubernetes, Helm, Terraform, Prometheus, Grafana, and SLO tracking.",
+  "author": {
+    "name": "naviocean",
+    "url": "https://github.com/naviocean"
+  },
+  "repository": "https://github.com/naviocean/sass-kit",
+  "license": "MIT"
+}

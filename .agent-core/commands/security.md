@@ -20,7 +20,7 @@ Security Auditor
 
 ```bash
 npx ecc-agentshield scan                              # full project
-npx ecc-agentshield scan --path .opencode/             # agent configs only
+npx ecc-agentshield scan --path plugins/saas-kit-core/             # agent configs only
 npx ecc-agentshield scan --supply-chain                # audit MCP & supply chain risks
 npx ecc-agentshield scan --compliance all              # compliance mapping (SOC2, PCI, ISO)
 npx ecc-agentshield scan --taint                       # data flow tracking analysis
@@ -28,7 +28,7 @@ npx ecc-agentshield scan --verbose                     # explain each finding
 npx ecc-agentshield scan --fix                         # auto-fix safe issues
 ```
 
-**Why multiple modes?** Different scan depths catch different issues: `--supply-chain` protects against MCP supply-chain / typosquatting attacks, `--compliance` maps findings to audit frameworks, and `--path .opencode/` audits agent configs.
+**Why multiple modes?** Different scan depths catch different issues: `--supply-chain` protects against MCP supply-chain / typosquatting attacks, `--compliance` maps findings to audit frameworks, and `--path plugins/saas-kit-core/` audits agent configs.
 
 ### 2. Interpret Findings
 
@@ -65,7 +65,7 @@ After `/security`:
 
 | Output | Path | Template |
 |---|---|---|
-| Security report | `_workspace/07_security_audit.md` | `.opencode/standards/security-review-template.md` |
+| Security report | `_workspace/07_security_audit.md` | `standards/security-review-template.md` |
 
 ## Anti-patterns (BLOCKING)
 

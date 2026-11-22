@@ -100,9 +100,9 @@ After `/plan`:
 
 | Output | Path | Template |
 |---|---|---|
-| PRD | `docs/prds/{feature}-prd.md` | `.opencode/standards/prd-template.md` |
-| Design Doc | `docs/designs/{feature}-design.md` | `.opencode/standards/design-doc-template.md` |
-| Plan | `docs/plans/{feature}-plan.md` | `.opencode/standards/plan-template.md` |
+| PRD | `docs/prds/{feature}-prd.md` | `standards/prd-template.md` |
+| Design Doc | `docs/designs/{feature}-design.md` | `standards/design-doc-template.md` |
+| Plan | `docs/plans/{feature}-plan.md` | `standards/plan-template.md` |
 
 All documents must follow templates. Do not skip required sections.
 

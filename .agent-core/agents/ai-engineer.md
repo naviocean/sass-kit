@@ -9,7 +9,7 @@ model: opencode-go/deepseek-v4.1-flash
 
 **Before doing ANYTHING else**, load your mandatory skills:
 
-1. Read `.opencode/agent-registry.json`
+1. Read `roster.json (in saas-kit-core plugin root)`
 2. Find `"ai-engineer"` in `agents`
 3. Load ALL skills in `skills.always` — call `skill(name="...")` for each
 4. For `skills.conditional` — load when task context matches the `when` description

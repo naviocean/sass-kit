@@ -15,7 +15,7 @@ tools:
 
 **Before doing ANYTHING else**, load your mandatory skills:
 
-1. Read `.opencode/agent-registry.json`
+1. Read `roster.json (in saas-kit-core plugin root)`
 2. Find `"pm"` in `agents`
 3. Load ALL skills in `skills.always` — call `skill(name="...")` for each
 4. For `skills.conditional` — load when task context matches the `when` description
@@ -341,14 +341,14 @@ Load skills via `skill(name="skill-name")` when their context matches. Organized
 
 ## Document Standards
 
-Use these templates from `.opencode/standards/` when creating artifacts:
+Use these templates from `standards/` when creating artifacts:
 
 | Template                 | When to Use                                                     |
 | ------------------------ | --------------------------------------------------------------- |
 | `prd-template.md`        | Writing Product Requirement Documents after Socratic interviews |
 | `design-doc-template.md` | Writing design documents for complex features                   |
 
-Load via `read(filePath=".opencode/standards/<template>")` and fill in the template fields.
+Load via `read(filePath="standards/<template>")` and fill in the template fields.
 
 ## Tools Integration
 

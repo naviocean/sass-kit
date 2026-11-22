@@ -1,0 +1,92 @@
+{
+  "$schema": "./agent-models.schema.json",
+  "default_fallback": [
+    "opencode-go/deepseek-v4.1-flash"
+  ],
+  "agents": {
+    "tech-lead": {
+      "model": "opencode-go/deepseek-v4-pro",
+      "fallback": [
+        "opencode-go/deepseek-v4.1-flash"
+      ]
+    },
+    "pm": {
+      "model": "opencode-go/deepseek-v4-pro",
+      "fallback": [
+        "opencode-go/deepseek-v4.1-flash"
+      ]
+    },
+    "designer": {
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fallback": [
+        "opencode-go/deepseek-v4.1-flash"
+      ]
+    },
+    "frontend": {
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fallback": [
+        "opencode-go/deepseek-v4.1-flash"
+      ]
+    },
+    "nestjs": {
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fallback": [
+        "opencode-go/deepseek-v4.1-flash"
+      ]
+    },
+    "rustacean": {
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fallback": [
+        "opencode-go/deepseek-v4.1-flash"
+      ]
+    },
+    "qa": {
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fallback": [
+        "opencode-go/deepseek-v4.1-flash"
+      ]
+    },
+    "security-auditor": {
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fallback": [
+        "opencode-go/deepseek-v4.1-flash"
+      ]
+    },
+    "ai-engineer": {
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fallback": [
+        "opencode-go/deepseek-v4.1-flash"
+      ]
+    },
+    "python-backend": {
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fallback": [
+        "opencode-go/deepseek-v4.1-flash"
+      ]
+    },
+    "devops": {
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fallback": [
+        "opencode-go/deepseek-v4.1-flash"
+      ]
+    },
+    "mobile": {
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fallback": [
+        "opencode-go/deepseek-v4.1-flash"
+      ]
+    },
+    "swift-macos": {
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fallback": [
+        "opencode-go/deepseek-v4.1-flash"
+      ]
+    },
+    "document-specialist": {
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fallback": [
+        "opencode-go/deepseek-v4.1-flash"
+      ]
+    }
+  }
+}

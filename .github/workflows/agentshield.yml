@@ -1,4 +1,4 @@
-name: AgentShield Security Gate
+name: Plugin Build, Tests & AgentShield Gate
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
     branches: [main, master]
 
 jobs:
-  security-scan:
-    name: AgentShield Security Audit
+  verify-and-security:
+    name: Build Drift, Test Suite & AgentShield
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -19,16 +19,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
-      - name: Install dependencies
-        run: |
-          if [ -f package-lock.json ]; then
-            npm ci || npm install
-          fi
-          if [ -d .opencode ] && [ -f .opencode/package.json ]; then
-            cd .opencode && npm install && cd ..
-          fi
+      - name: Verify Plugin Build Drift
+        run: npm run build:check && npm run verify:plugins
+
+      - name: Run Full Test Suite & Eval Harness
+        run: npm test && npm run eval
 
       - name: Run AgentShield Local Gate
         run: node scripts/security-gate.mjs --min-grade=B

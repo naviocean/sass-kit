@@ -1,0 +1,11 @@
+{
+  "name": "saas-kit-document-office",
+  "version": "2.0.0",
+  "description": "Senior Document Specialist for pure-Python/Node.js DOCX, XLSX, PPTX, PDF automation and local LaTeX/BibTeX compilation without LibreOffice.",
+  "author": {
+    "name": "naviocean",
+    "url": "https://github.com/naviocean"
+  },
+  "repository": "https://github.com/naviocean/sass-kit",
+  "license": "MIT"
+}

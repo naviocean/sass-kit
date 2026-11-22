@@ -102,7 +102,7 @@ After `/review`:
 | Output | Path | Template |
 |---|---|---|
 | Code review | `_workspace/05_review_code.md` | — |
-| Security review | `_workspace/05_review_security.md` | `.opencode/standards/security-review-template.md` |
+| Security review | `_workspace/05_review_security.md` | `standards/security-review-template.md` |
 
 ## Anti-patterns (BLOCKING)
 

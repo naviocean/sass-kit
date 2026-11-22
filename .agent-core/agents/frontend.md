@@ -9,7 +9,7 @@ model: opencode-go/deepseek-v4.1-flash
 
 **Before doing ANYTHING else**, load your mandatory skills:
 
-1. Read `.opencode/agent-registry.json`
+1. Read `roster.json (in saas-kit-core plugin root)`
 2. Find `"frontend"` in `agents`
 3. Load ALL skills in `skills.always` — call `skill(name="...")` for each
 4. For `skills.conditional` — load when task context matches the `when` description
@@ -682,7 +682,7 @@ The Frontend agent uses these templates when creating documents:
 
 - When receiving a task from Tech Lead, verify it follows `task-template.md` structure before beginning implementation.
 - When breaking down large features, create sub-tasks following `task-template.md` format.
-- Store templates in `.opencode/templates/` and reference them via relative path.
+- Store templates in `standards/` and reference them via relative path.
 
 ## Workflow
 

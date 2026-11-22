@@ -109,7 +109,7 @@ After Tech Lead approval, hand off to `devops` agent to execute release pipeline
 | Output | Path | Template |
 |---|---|---|
 | QA report | `_workspace/06_qa_ship.md` | — |
-| Security report | `_workspace/06_security_ship.md` | `.opencode/standards/security-review-template.md` |
+| Security report | `_workspace/06_security_ship.md` | `standards/security-review-template.md` |
 
 ## Anti-patterns (BLOCKING)
 

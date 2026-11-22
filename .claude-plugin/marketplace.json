@@ -1,0 +1,64 @@
+{
+  "name": "saas-kit",
+  "owner": {
+    "name": "naviocean",
+    "url": "https://github.com/naviocean"
+  },
+  "description": "Plugin-first multi-agent SaaS development team kit for Claude Code, Antigravity, and OpenCode — 14 Senior Experts across 9 Squad Plugins.",
+  "plugins": [
+    {
+      "name": "saas-kit-core",
+      "version": "2.0.0",
+      "description": "2-mode orchestration brain (saas-help, saas-mode), 13 lazy playbooks (incl. saas-swarm, automate-me, reflect, correct), Tech Lead, PM, QA, Security Auditor, multi-harness AgentShield hooks, and dynamic model presets.",
+      "source": "./plugins/saas-kit-core"
+    },
+    {
+      "name": "saas-kit-web-frontend",
+      "version": "2.0.0",
+      "description": "Senior Frontend Engineer & UI/UX Designer for Next.js, React, Tailwind CSS v4, Shadcn, design systems, and Stitch/Pencil workflows.",
+      "source": "./plugins/saas-kit-web-frontend"
+    },
+    {
+      "name": "saas-kit-nestjs-backend",
+      "version": "2.0.0",
+      "description": "Senior NestJS Backend Engineer for NestJS architecture, Prisma ORM, PostgreSQL schema design, JWT auth, and OpenAPI REST/GraphQL.",
+      "source": "./plugins/saas-kit-nestjs-backend"
+    },
+    {
+      "name": "saas-kit-python-ai",
+      "version": "2.0.0",
+      "description": "Senior AI Engineer & Python Backend Engineer for LangGraph, RAG, LLM evaluation, FastAPI microservices, and async Python workers.",
+      "source": "./plugins/saas-kit-python-ai"
+    },
+    {
+      "name": "saas-kit-rust-systems",
+      "version": "2.0.0",
+      "description": "Senior Rustacean Engineer for Tokio async runtime, Axum web services, memory safety, RTK TDD, and Tauri v2 desktop apps.",
+      "source": "./plugins/saas-kit-rust-systems"
+    },
+    {
+      "name": "saas-kit-mobile-native",
+      "version": "2.0.0",
+      "description": "Senior Mobile Engineer for React Native New Architecture (Fabric/TurboModules), Reanimated, FlashList, iOS/Android native bridging, and Fastlane.",
+      "source": "./plugins/saas-kit-mobile-native"
+    },
+    {
+      "name": "saas-kit-swift-macos",
+      "version": "2.0.0",
+      "description": "Senior Swift/macOS Engineer for Swift 6 strict concurrency, SwiftUI, AppKit, NSStatusItem menu bar apps, SwiftData, and Sparkle auto-update.",
+      "source": "./plugins/saas-kit-swift-macos"
+    },
+    {
+      "name": "saas-kit-devops-infra",
+      "version": "2.0.0",
+      "description": "Senior DevOps & SRE Engineer for GitHub Actions, Docker, Kubernetes, Helm, Terraform, Prometheus, Grafana, and SLO tracking.",
+      "source": "./plugins/saas-kit-devops-infra"
+    },
+    {
+      "name": "saas-kit-document-office",
+      "version": "2.0.0",
+      "description": "Senior Document Specialist for pure-Python/Node.js DOCX, XLSX, PPTX, PDF automation and local LaTeX/BibTeX compilation without LibreOffice.",
+      "source": "./plugins/saas-kit-document-office"
+    }
+  ]
+}

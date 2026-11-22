@@ -85,7 +85,7 @@ After `/test`:
 
 | Output | Path | Template |
 |---|---|---|
-| Test task docs | `docs/tasks/{test-name}-task.md` | `.opencode/standards/task-template.md` |
+| Test task docs | `docs/tasks/{test-name}-task.md` | `standards/task-template.md` |
 
 ## Anti-patterns (BLOCKING)
 

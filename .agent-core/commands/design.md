@@ -81,7 +81,7 @@ After `/design`:
 
 | Output | Path | Template |
 |---|---|---|
-| Design doc | `docs/designs/{feature}-design.md` | `.opencode/standards/design-doc-template.md` |
+| Design doc | `docs/designs/{feature}-design.md` | `standards/design-doc-template.md` |
 
 ## Anti-patterns (BLOCKING)
 

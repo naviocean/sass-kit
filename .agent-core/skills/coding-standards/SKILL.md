@@ -7,7 +7,7 @@ description: TypeScript coding standards — strict mode, naming conventions, im
 
 ## Description
 
-TypeScript coding standards for all agents in the opencode-saas-kit project. Consistent code style, type safety, and best practices across the entire codebase.
+TypeScript coding standards for all agents in the saas-kit project. Consistent code style, type safety, and best practices across the entire codebase.
 
 ## When to Trigger
 

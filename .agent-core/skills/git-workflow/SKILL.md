@@ -7,7 +7,7 @@ description: Git conventions — branch naming, conventional commits, merge stra
 
 ## Description
 
-Git conventions for all agents in the opencode-saas-kit project. Standardized branching, committing, merging, and PR practices to maintain a clean repository history.
+Git conventions for all agents in the saas-kit project. Standardized branching, committing, merging, and PR practices to maintain a clean repository history.
 
 ## When to Trigger
 

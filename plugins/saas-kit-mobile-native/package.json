@@ -1,0 +1,14 @@
+{
+  "name": "@saas-kit/mobile-native",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Senior Mobile Engineer for React Native New Architecture (Fabric/TurboModules), Reanimated, FlashList, iOS/Android native bridging, and Fastlane.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/naviocean/sass-kit.git"
+  },
+  "peerDependencies": {
+    "@saas-kit/core": "^2.0.0"
+  }
+}

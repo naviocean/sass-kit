@@ -3,7 +3,7 @@
 /**
  * Behavioral Compliance Evaluation Suite (eval-harness.mjs)
  *
- * Evaluates 5 behavioral compliance dimensions of the OpenCode SaaS Kit harness:
+ * Evaluates 5 behavioral compliance dimensions of the SaaS Kit harness:
  *   1. socratic-sizing     — Risk-aware triage sizing & command HARD-GATEs
  *   2. runtime-security    — PreToolUse interception (attacks blocked, safe allowed)
  *   3. domain-ownership    — Agent specs frontmatter, Startup hooks & cross-domain rules
@@ -200,22 +200,34 @@ function evaluateEvidenceHonesty(rootDir, scenarios) {
 }
 
 function evaluateMultiHarnessParity(rootDir) {
-  const dim = makeDimension('multi-harness-parity', 'Multi-Harness Adapter Parity');
+  const dim = makeDimension('multi-harness-parity', 'Multi-Harness Plugin Parity');
   const coreCommandsDir = join(rootDir, '.agent-core', 'commands');
-  const expectedCommands = existsSync(coreCommandsDir)
+  const expectedPlaybooks = existsSync(coreCommandsDir)
     ? readdirSync(coreCommandsDir).filter((f) => f.endsWith('.md')).sort()
     : [];
 
-  for (const adapter of ['.opencode', '.agents', '.claude']) {
-    const cmdDir = join(rootDir, adapter, 'commands');
-    const actual = existsSync(cmdDir)
-      ? readdirSync(cmdDir).filter((f) => f.endsWith('.md')).sort()
-      : [];
-    recordCheck(
-      dim,
-      JSON.stringify(actual) === JSON.stringify(expectedCommands),
-      `Adapter ${adapter}/commands mismatch (expected ${expectedCommands.length}, got ${actual.length})`
-    );
+  const refsDir = join(rootDir, 'plugins', 'saas-kit-core', 'skills', 'saas-mode', 'references');
+  const actualPlaybooks = existsSync(refsDir)
+    ? readdirSync(refsDir).filter((f) => f.endsWith('.md')).sort()
+    : [];
+  recordCheck(
+    dim,
+    JSON.stringify(actualPlaybooks) === JSON.stringify(expectedPlaybooks),
+    `saas-kit-core lazy playbooks mismatch (expected ${expectedPlaybooks.length}, got ${actualPlaybooks.length})`
+  );
+
+  for (const rel of ['.claude-plugin/marketplace.json', '.agents/plugins/marketplace.json']) {
+    const full = join(rootDir, rel);
+    const ok = existsSync(full) && JSON.parse(readFileSync(full, 'utf-8')).plugins?.length === 9;
+    recordCheck(dim, ok, `Marketplace manifest ${rel} missing or does not list 9 plugins`);
+  }
+
+  for (const rel of [
+    'plugins/saas-kit-core/hooks.json',
+    'plugins/saas-kit-core/hooks/hooks.json',
+    'plugins/saas-kit-core/index.mjs',
+  ]) {
+    recordCheck(dim, existsSync(join(rootDir, rel)), `Missing multi-harness runtime artifact: ${rel}`);
   }
 
   for (const docFile of ['AGENTS.md', 'CLAUDE.md']) {

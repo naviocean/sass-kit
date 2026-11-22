@@ -1,0 +1,353 @@
+{
+  "version": "2.0.0",
+  "marketplace": {
+    "name": "saas-kit",
+    "repo": "naviocean/sass-kit",
+    "owner": {
+      "name": "naviocean",
+      "url": "https://github.com/naviocean"
+    }
+  },
+  "squads": {
+    "core": {
+      "pluginId": "saas-kit-core",
+      "name": "SaaS Kit Core (Orchestration & Quality Gate)",
+      "description": "2-mode orchestration brain (saas-help, saas-mode), 13 lazy playbooks (incl. saas-swarm, automate-me, reflect, correct), Tech Lead, PM, QA, Security Auditor, multi-harness AgentShield hooks, and dynamic model presets.",
+      "defaultEnabled": true,
+      "agents": ["tech-lead", "pm", "qa", "security-auditor"],
+      "routerSkills": ["saas-help", "saas-mode", "core-engineering", "qa-security-expert"]
+    },
+    "web-frontend": {
+      "pluginId": "saas-kit-web-frontend",
+      "name": "Web Frontend & UI/UX Design Squad",
+      "description": "Senior Frontend Engineer & UI/UX Designer for Next.js, React, Tailwind CSS v4, Shadcn, design systems, and Stitch/Pencil workflows.",
+      "defaultEnabled": false,
+      "agents": ["frontend", "designer"],
+      "routerSkills": ["frontend-expert", "designer-expert"]
+    },
+    "nestjs-backend": {
+      "pluginId": "saas-kit-nestjs-backend",
+      "name": "NestJS & TypeScript Backend Squad",
+      "description": "Senior NestJS Backend Engineer for NestJS architecture, Prisma ORM, PostgreSQL schema design, JWT auth, and OpenAPI REST/GraphQL.",
+      "defaultEnabled": false,
+      "agents": ["nestjs"],
+      "routerSkills": ["nestjs-expert"]
+    },
+    "python-ai": {
+      "pluginId": "saas-kit-python-ai",
+      "name": "Python & AI Engineering Squad",
+      "description": "Senior AI Engineer & Python Backend Engineer for LangGraph, RAG, LLM evaluation, FastAPI microservices, and async Python workers.",
+      "defaultEnabled": false,
+      "agents": ["ai-engineer", "python-backend"],
+      "routerSkills": ["ai-engineer-expert", "python-backend-expert"]
+    },
+    "rust-systems": {
+      "pluginId": "saas-kit-rust-systems",
+      "name": "Rust Systems & Desktop Squad",
+      "description": "Senior Rustacean Engineer for Tokio async runtime, Axum web services, memory safety, RTK TDD, and Tauri v2 desktop apps.",
+      "defaultEnabled": false,
+      "agents": ["rustacean"],
+      "routerSkills": ["rustacean-expert"]
+    },
+    "mobile-native": {
+      "pluginId": "saas-kit-mobile-native",
+      "name": "Bare React Native & Mobile Squad",
+      "description": "Senior Mobile Engineer for React Native New Architecture (Fabric/TurboModules), Reanimated, FlashList, iOS/Android native bridging, and Fastlane.",
+      "defaultEnabled": false,
+      "agents": ["mobile"],
+      "routerSkills": ["mobile-expert"]
+    },
+    "swift-macos": {
+      "pluginId": "saas-kit-swift-macos",
+      "name": "Native macOS & Apple Systems Squad",
+      "description": "Senior Swift/macOS Engineer for Swift 6 strict concurrency, SwiftUI, AppKit, NSStatusItem menu bar apps, SwiftData, and Sparkle auto-update.",
+      "defaultEnabled": false,
+      "agents": ["swift-macos"],
+      "routerSkills": ["swift-macos-expert"]
+    },
+    "devops-infra": {
+      "pluginId": "saas-kit-devops-infra",
+      "name": "DevOps & SRE Infrastructure Squad",
+      "description": "Senior DevOps & SRE Engineer for GitHub Actions, Docker, Kubernetes, Helm, Terraform, Prometheus, Grafana, and SLO tracking.",
+      "defaultEnabled": false,
+      "agents": ["devops"],
+      "routerSkills": ["devops-expert"]
+    },
+    "document-office": {
+      "pluginId": "saas-kit-document-office",
+      "name": "Office, PDF & LaTeX Document Squad",
+      "description": "Senior Document Specialist for pure-Python/Node.js DOCX, XLSX, PPTX, PDF automation and local LaTeX/BibTeX compilation without LibreOffice.",
+      "defaultEnabled": false,
+      "agents": ["document-specialist"],
+      "routerSkills": ["document-specialist-expert"]
+    }
+  },
+  "experts": {
+    "tech-lead": {
+      "squad": "core",
+      "pluginId": "saas-kit-core",
+      "role": "Staff Tech Lead & Multi-Agent Orchestrator",
+      "routerSkill": "core-engineering",
+      "ownedPaths": ["docs/plans/", "docs/adr/", ".agent-memory/decisions.md"],
+      "triggers": ["architecture", "plan", "orchestrate", "dispatch", "code review", "approve", "ship", "meeting", "rfc"],
+      "sandbox": {
+        "enableWriteTools": true,
+        "enableSubagentTools": true,
+        "enableMCPTools": true,
+        "workspace": "inherit"
+      },
+      "defaultModelTier": {
+        "antigravity": "pro",
+        "claude": "opus",
+        "opencode": "pro"
+      }
+    },
+    "pm": {
+      "squad": "core",
+      "pluginId": "saas-kit-core",
+      "role": "Senior Product Manager & Socratic Spec Lead",
+      "routerSkill": "core-engineering",
+      "ownedPaths": ["docs/prds/"],
+      "triggers": ["new feature", "prd", "requirements", "scope", "prioritization", "user story", "acceptance criteria"],
+      "sandbox": {
+        "enableWriteTools": true,
+        "enableSubagentTools": false,
+        "enableMCPTools": true,
+        "workspace": "inherit"
+      },
+      "defaultModelTier": {
+        "antigravity": "pro",
+        "claude": "opus",
+        "opencode": "pro"
+      }
+    },
+    "qa": {
+      "squad": "core",
+      "pluginId": "saas-kit-core",
+      "role": "Senior QA & Runtime Verification Engineer",
+      "routerSkill": "qa-security-expert",
+      "ownedPaths": ["docs/verification/", "tests/", "e2e/", "__tests__/"],
+      "triggers": ["test", "coverage", "vitest", "playwright", "flaky", "regression", "tdd", "verify", "feature map"],
+      "sandbox": {
+        "enableWriteTools": true,
+        "enableSubagentTools": false,
+        "enableMCPTools": true,
+        "workspace": "branch"
+      },
+      "defaultModelTier": {
+        "antigravity": "flash",
+        "claude": "sonnet",
+        "opencode": "flash"
+      }
+    },
+    "security-auditor": {
+      "squad": "core",
+      "pluginId": "saas-kit-core",
+      "role": "Principal Security Auditor & AgentShield Gatekeeper",
+      "routerSkill": "qa-security-expert",
+      "ownedPaths": [],
+      "triggers": ["security", "audit", "scan", "cve", "secret", "owasp", "prompt injection", "agentshield", "vulnerability"],
+      "sandbox": {
+        "enableWriteTools": false,
+        "enableSubagentTools": false,
+        "enableMCPTools": true,
+        "workspace": "inherit"
+      },
+      "defaultModelTier": {
+        "antigravity": "flash",
+        "claude": "sonnet",
+        "opencode": "pro"
+      }
+    },
+    "designer": {
+      "squad": "web-frontend",
+      "pluginId": "saas-kit-web-frontend",
+      "role": "Principal UI/UX & Design Systems Architect",
+      "routerSkill": "designer-expert",
+      "ownedPaths": ["docs/designs/", "DESIGN.md"],
+      "triggers": ["ui", "ux", "design tokens", "wireframe", "stitch", "pencil", "design.md", "layout", "typography"],
+      "sandbox": {
+        "enableWriteTools": true,
+        "enableSubagentTools": false,
+        "enableMCPTools": true,
+        "workspace": "branch"
+      },
+      "defaultModelTier": {
+        "antigravity": "flash",
+        "claude": "sonnet",
+        "opencode": "flash"
+      }
+    },
+    "frontend": {
+      "squad": "web-frontend",
+      "pluginId": "saas-kit-web-frontend",
+      "role": "Senior Next.js & React Frontend Engineer",
+      "routerSkill": "frontend-expert",
+      "ownedPaths": ["apps/web/", "libs/ui/"],
+      "triggers": ["nextjs", "react", "shadcn", "tailwind", "apps/web", "component", "page", "rtk query", "frontend"],
+      "sandbox": {
+        "enableWriteTools": true,
+        "enableSubagentTools": false,
+        "enableMCPTools": true,
+        "workspace": "branch"
+      },
+      "defaultModelTier": {
+        "antigravity": "flash",
+        "claude": "sonnet",
+        "opencode": "flash"
+      }
+    },
+    "nestjs": {
+      "squad": "nestjs-backend",
+      "pluginId": "saas-kit-nestjs-backend",
+      "role": "Senior NestJS, Prisma & PostgreSQL Backend Engineer",
+      "routerSkill": "nestjs-expert",
+      "ownedPaths": ["apps/api/", "prisma/"],
+      "triggers": ["nestjs", "prisma", "postgresql", "rest", "graphql", "jwt", "apps/api", "dto", "migration", "backend"],
+      "sandbox": {
+        "enableWriteTools": true,
+        "enableSubagentTools": false,
+        "enableMCPTools": true,
+        "workspace": "branch"
+      },
+      "defaultModelTier": {
+        "antigravity": "flash",
+        "claude": "sonnet",
+        "opencode": "flash"
+      }
+    },
+    "ai-engineer": {
+      "squad": "python-ai",
+      "pluginId": "saas-kit-python-ai",
+      "role": "Senior AI & LLM Agentic Systems Engineer",
+      "routerSkill": "ai-engineer-expert",
+      "ownedPaths": ["apps/ai/", "agents/", "pipelines/"],
+      "triggers": ["llm", "langchain", "langgraph", "rag", "prompt engineering", "eval", "stategraph", "agentic"],
+      "sandbox": {
+        "enableWriteTools": true,
+        "enableSubagentTools": false,
+        "enableMCPTools": true,
+        "workspace": "branch"
+      },
+      "defaultModelTier": {
+        "antigravity": "flash",
+        "claude": "sonnet",
+        "opencode": "flash"
+      }
+    },
+    "python-backend": {
+      "squad": "python-ai",
+      "pluginId": "saas-kit-python-ai",
+      "role": "Senior Python FastAPI & Async Backend Engineer",
+      "routerSkill": "python-backend-expert",
+      "ownedPaths": ["services/", "workers/", "apps/python-api/"],
+      "triggers": ["python", "fastapi", "sqlalchemy", "alembic", "celery", "pydantic", "uvicorn", "uv"],
+      "sandbox": {
+        "enableWriteTools": true,
+        "enableSubagentTools": false,
+        "enableMCPTools": true,
+        "workspace": "branch"
+      },
+      "defaultModelTier": {
+        "antigravity": "flash",
+        "claude": "sonnet",
+        "opencode": "flash"
+      }
+    },
+    "rustacean": {
+      "squad": "rust-systems",
+      "pluginId": "saas-kit-rust-systems",
+      "role": "Senior Rust Systems, Axum & Tauri v2 Engineer",
+      "routerSkill": "rustacean-expert",
+      "ownedPaths": ["apps/desktop/", "src-tauri/", "crates/"],
+      "triggers": ["rust", "tauri", "axum", "tokio", "cargo", "crates", "ipc", "systems"],
+      "sandbox": {
+        "enableWriteTools": true,
+        "enableSubagentTools": false,
+        "enableMCPTools": true,
+        "workspace": "branch"
+      },
+      "defaultModelTier": {
+        "antigravity": "flash",
+        "claude": "sonnet",
+        "opencode": "flash"
+      }
+    },
+    "mobile": {
+      "squad": "mobile-native",
+      "pluginId": "saas-kit-mobile-native",
+      "role": "Senior React Native & Mobile Systems Engineer",
+      "routerSkill": "mobile-expert",
+      "ownedPaths": ["apps/mobile/", "ios/", "android/"],
+      "triggers": ["react native", "fabric", "turbomodules", "reanimated", "apps/mobile", "fastlane", "ios", "android"],
+      "sandbox": {
+        "enableWriteTools": true,
+        "enableSubagentTools": false,
+        "enableMCPTools": true,
+        "workspace": "branch"
+      },
+      "defaultModelTier": {
+        "antigravity": "flash",
+        "claude": "sonnet",
+        "opencode": "flash"
+      }
+    },
+    "swift-macos": {
+      "squad": "swift-macos",
+      "pluginId": "saas-kit-swift-macos",
+      "role": "Senior Native macOS, Swift 6 & SwiftUI Engineer",
+      "routerSkill": "swift-macos-expert",
+      "ownedPaths": ["apps/macos/", "apps/desktop-swift/"],
+      "triggers": ["swift", "swiftui", "appkit", "macos", "nsstatusitem", "sparkle", "xcodebuild", "swiftdata"],
+      "sandbox": {
+        "enableWriteTools": true,
+        "enableSubagentTools": false,
+        "enableMCPTools": true,
+        "workspace": "branch"
+      },
+      "defaultModelTier": {
+        "antigravity": "flash",
+        "claude": "sonnet",
+        "opencode": "flash"
+      }
+    },
+    "devops": {
+      "squad": "devops-infra",
+      "pluginId": "saas-kit-devops-infra",
+      "role": "Senior DevOps, Kubernetes & Cloud SRE Engineer",
+      "routerSkill": "devops-expert",
+      "ownedPaths": [".github/", "infra/", "k8s/", "terraform/", "Dockerfile", "docker-compose.yml"],
+      "triggers": ["ci/cd", "github actions", "docker", "kubernetes", "helm", "terraform", "prometheus", "grafana", "slo"],
+      "sandbox": {
+        "enableWriteTools": true,
+        "enableSubagentTools": false,
+        "enableMCPTools": true,
+        "workspace": "branch"
+      },
+      "defaultModelTier": {
+        "antigravity": "flash",
+        "claude": "sonnet",
+        "opencode": "flash"
+      }
+    },
+    "document-specialist": {
+      "squad": "document-office",
+      "pluginId": "saas-kit-document-office",
+      "role": "Senior Office, PDF & LaTeX Automation Specialist",
+      "routerSkill": "document-specialist-expert",
+      "ownedPaths": ["docs/exports/", "templates/", "manuscripts/"],
+      "triggers": ["pdf", "docx", "xlsx", "pptx", "latex", "overleaf", ".tex", ".bib", "pdflatex", "openpyxl", "pptxgenjs"],
+      "sandbox": {
+        "enableWriteTools": true,
+        "enableSubagentTools": false,
+        "enableMCPTools": true,
+        "workspace": "branch"
+      },
+      "defaultModelTier": {
+        "antigravity": "flash",
+        "claude": "sonnet",
+        "opencode": "flash"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "@saas-kit/rust-systems",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Senior Rustacean Engineer for Tokio async runtime, Axum web services, memory safety, RTK TDD, and Tauri v2 desktop apps.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/naviocean/sass-kit.git"
+  },
+  "peerDependencies": {
+    "@saas-kit/core": "^2.0.0"
+  }
+}

@@ -97,7 +97,7 @@ describe('[Feature] API', () => {
 ## 6. Code Quality Checklist
 
 - [ ] TypeScript strict mode (no `any`)
-- [ ] Follows coding standards (`.opencode/rules/coding-standards.md`)
+- [ ] Follows coding standards (`standards/conventions.md`)
 - [ ] Error handling implemented
 - [ ] Input validation added
 - [ ] Tests written and passing

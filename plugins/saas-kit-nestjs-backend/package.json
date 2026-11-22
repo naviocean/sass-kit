@@ -1,0 +1,14 @@
+{
+  "name": "@saas-kit/nestjs-backend",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Senior NestJS Backend Engineer for NestJS architecture, Prisma ORM, PostgreSQL schema design, JWT auth, and OpenAPI REST/GraphQL.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/naviocean/sass-kit.git"
+  },
+  "peerDependencies": {
+    "@saas-kit/core": "^2.0.0"
+  }
+}

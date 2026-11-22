@@ -9,7 +9,7 @@ model: opencode-go/deepseek-v4.1-flash
 
 **Before doing ANYTHING else**, load your mandatory skills:
 
-1. Read `.opencode/agent-registry.json`
+1. Read `roster.json (in saas-kit-core plugin root)`
 2. Find `"qa"` in `agents`
 3. Load ALL skills in `skills.always` — call `skill(name="...")` for each
 4. For `skills.conditional` — load when task context matches the `when` description
@@ -313,7 +313,7 @@ Use these templates when creating project documentation:
 | `task-template.md`            | When creating test task specifications — structured format for test requirements, coverage goals, acceptance criteria.     |
 | `security-review-template.md` | When performing security-focused test reviews — vulnerability assessment, attack surface analysis, security test coverage. |
 
-Templates are located in `.opencode/templates/`. Follow their structure to maintain consistency across all documentation.
+Templates are located in `standards/`. Follow their structure to maintain consistency across all documentation.
 
 ## Workflow
 

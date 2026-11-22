@@ -13,7 +13,7 @@ Run AgentShield security scanning on agent configurations, MCP servers, and code
 
 - Before shipping any release (mandatory gate)
 - On every PR review
-- When agent configurations change (AGENTS.md, .opencode/ configs)
+- When agent configurations change (AGENTS.md, plugins/saas-kit-core/ configs)
 - When adding or modifying MCP server configurations
 - When hooks or permission rules are updated
 - User says "security scan", "check security", "agentship", "before ship"
@@ -36,7 +36,7 @@ npx ecc-agentshield scan --category hooks
 npx ecc-agentshield scan --category mcp-servers
 
 # Scan specific directory
-npx ecc-agentshield scan --path .opencode/
+npx ecc-agentshield scan --path plugins/saas-kit-core/
 ```
 
 ### Severity Levels and Actions
@@ -144,15 +144,15 @@ $ npx ecc-agentshield scan
 AgentShield Security Scan v1.2.0
 ================================
 
-[CRITICAL] Secrets: API key found in .opencode/mcp/stripe.json:3
+[CRITICAL] Secrets: API key found in plugins/saas-kit-core/mcp/stripe.json:3
   → stripe_api_key: "sk_live_..."
   → Fix: Move to environment variable
 
-[MEDIUM] Permissions: Agent has root filesystem access in .opencode/agents/frontend.json:12
+[MEDIUM] Permissions: Agent has root filesystem access in plugins/saas-kit-core/agents/frontend.json:12
   → "allowed_paths": ["/"]
   → Fix: Restrict to ["./src", "./public"]
 
-[INFO] Hooks: Pre-commit hook runs without sandbox in .opencode/hooks/pre-commit.sh:5
+[INFO] Hooks: Pre-commit hook runs without sandbox in plugins/saas-kit-core/hooks/pre-commit.sh:5
   → Consider adding sandbox restrictions
 
 Grade: D → Fix 1 critical, 1 medium issue before shipping
@@ -167,7 +167,7 @@ $ npx ecc-agentshield scan --diff
 # Fast feedback on new code only
 
 [MEDIUM] Permissions: New MCP server added with broad access
-  → .opencode/mcp/database.json allows read+write to all tables
+  → plugins/saas-kit-core/mcp/database.json allows read+write to all tables
   → Suggestion: Restrict to specific tables
 ```
 

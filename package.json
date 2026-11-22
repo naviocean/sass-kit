@@ -1,66 +1,57 @@
 {
-  "name": "opencode-saas-kit",
-  "version": "1.8.0",
-  "description": "Universal multi-agent development team kit for OpenCode, Claude Code, Antigravity, and Codex.",
+  "name": "saas-kit",
+  "version": "2.0.0",
+  "description": "Plugin-first multi-agent SaaS development team marketplace for Claude Code, Antigravity, and OpenCode.",
   "keywords": [
     "opencode",
     "claude-code",
-    "codex",
     "antigravity",
     "ai-agents",
+    "plugins",
+    "marketplace",
     "saas",
     "nextjs",
     "nestjs",
-    "prisma",
-    "monorepo",
-    "nx"
+    "rust",
+    "swift",
+    "react-native"
   ],
-  "homepage": "https://github.com/naviocean/opencode-kit",
+  "homepage": "https://github.com/naviocean/sass-kit",
   "bugs": {
-    "url": "https://github.com/naviocean/opencode-kit/issues"
+    "url": "https://github.com/naviocean/sass-kit/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/naviocean/opencode-kit.git"
+    "url": "git+https://github.com/naviocean/sass-kit.git"
   },
   "license": "MIT",
   "author": "naviocean",
-  "bin": {
-    "opencode-saas-kit": "./bin/cli.js"
-  },
   "files": [
-    "bin/",
-    ".agent-core/",
-    ".agent-memory/",
-    "scripts/",
-    "AGENTS.md",
-    "opencode.json",
+    ".claude-plugin/",
+    ".agents/plugins/",
+    "plugins/",
+    "scripts/configure-models.mjs",
+    "scripts/security-gate.mjs",
     "README.md"
   ],
   "scripts": {
-    "test": "node scripts/__tests__/skill-registry.test.mjs && node scripts/__tests__/dispatch.test.mjs && node scripts/__tests__/verify.test.mjs && node scripts/__tests__/security-gate.test.mjs && node scripts/__tests__/pre-tool-guard.test.mjs && node scripts/__tests__/sync-kit.test.mjs && node scripts/__tests__/context-marker.test.mjs && node scripts/__tests__/repo-scanner.test.mjs && node scripts/__tests__/triage-sizer.test.mjs && node scripts/__tests__/skill-pack-manager.test.mjs && node scripts/__tests__/agent-skills-audit.test.mjs && node scripts/__tests__/cli.test.mjs && node scripts/__tests__/gitnexus-contract.test.mjs && node scripts/__tests__/verification-fixture.test.mjs && node scripts/__tests__/harness-state.test.mjs && node scripts/__tests__/eval-harness.test.mjs && node scripts/__tests__/harness-surface.test.mjs && node scripts/__tests__/experience-library.test.mjs && node scripts/__tests__/propose-probe-compose.test.mjs",
+    "build:plugins": "node scripts/build-plugins.mjs --clean",
+    "build:check": "node scripts/build-plugins.mjs --check",
+    "verify:plugins": "node scripts/verify-plugins.mjs",
+    "configure:models": "node scripts/configure-models.mjs",
+    "test": "node scripts/__tests__/roster.test.mjs && node scripts/__tests__/configure-models.test.mjs && node scripts/__tests__/build-plugins.test.mjs && node scripts/__tests__/security-gate.test.mjs && node scripts/__tests__/pre-tool-guard.test.mjs && node scripts/__tests__/repo-scanner.test.mjs && node scripts/__tests__/triage-sizer.test.mjs && node scripts/__tests__/agent-skills-audit.test.mjs && node scripts/__tests__/gitnexus-contract.test.mjs && node scripts/__tests__/verification-fixture.test.mjs && node scripts/__tests__/harness-state.test.mjs && node scripts/__tests__/eval-harness.test.mjs && node scripts/__tests__/harness-surface.test.mjs && node scripts/__tests__/experience-library.test.mjs && node scripts/__tests__/propose-probe-compose.test.mjs",
+    "test:roster": "node scripts/__tests__/roster.test.mjs",
+    "test:models": "node scripts/__tests__/configure-models.test.mjs",
+    "test:plugins": "node scripts/__tests__/build-plugins.test.mjs",
     "test:fixture": "node scripts/__tests__/verification-fixture.test.mjs",
     "test:gitnexus": "node scripts/__tests__/gitnexus-contract.test.mjs",
-    "test:cli": "node scripts/__tests__/cli.test.mjs",
-    "test:registry": "node scripts/__tests__/skill-registry.test.mjs",
-    "test:dispatch": "node scripts/__tests__/dispatch.test.mjs",
-    "test:verify": "node scripts/__tests__/verify.test.mjs",
     "test:security": "node scripts/__tests__/security-gate.test.mjs",
     "test:guard": "node scripts/__tests__/pre-tool-guard.test.mjs",
-    "test:sync": "node scripts/__tests__/sync-kit.test.mjs",
-    "test:marker": "node scripts/__tests__/context-marker.test.mjs",
     "test:scanner": "node scripts/__tests__/repo-scanner.test.mjs",
     "test:sizer": "node scripts/__tests__/triage-sizer.test.mjs",
-    "test:packs": "node scripts/__tests__/skill-pack-manager.test.mjs",
     "test:audit": "node scripts/__tests__/agent-skills-audit.test.mjs",
-    "sync": "node scripts/sync-kit.mjs",
-    "clean": "node scripts/sync-kit.mjs --clean",
-    "verify": "node scripts/verify.mjs",
-    "verify:cli": "node bin/cli.js verify",
-    "registry": "node scripts/skill-registry.mjs",
-    "health": "node scripts/model-health-check.mjs",
     "eval": "node scripts/eval-harness.mjs",
-    "test:all": "npm test && npm run verify && npm run verify:cli && npm run eval"
+    "test:all": "npm run build:plugins && npm run verify:plugins && npm run build:check && npm test && npm run eval"
   },
   "engines": {
     "node": ">=18.0.0"

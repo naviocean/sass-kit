@@ -9,7 +9,7 @@ model: opencode-go/deepseek-v4.1-flash
 
 **Before doing ANYTHING else**, load your mandatory skills:
 
-1. Read `.opencode/agent-registry.json`
+1. Read `roster.json (in saas-kit-core plugin root)`
 2. Find `"nestjs"` in `agents`
 3. Load ALL skills in `skills.always` — call `skill(name="...")` for each
 4. For `skills.conditional` — load when task context matches the `when` description
@@ -152,7 +152,7 @@ Use these templates when creating project documentation:
 | `task-template.md` | When creating task specifications — structured format for requirements, acceptance criteria, technical notes. |
 | `adr-template.md`  | When recording architecture decisions — context, decision, consequences, alternatives considered.             |
 
-Templates are located in `.opencode/standards/`. Follow their structure to maintain consistency across all documentation.
+Templates are located in `standards/`. Follow their structure to maintain consistency across all documentation.
 
 ## Tech Stack Specifics
 

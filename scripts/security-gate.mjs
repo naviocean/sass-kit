@@ -10,9 +10,9 @@
  *   1 = BLOCKED (Grade < minGrade or secrets detected)
  *
  * Usage:
- *   node .opencode/scripts/security-gate.mjs [options]
- *   node .opencode/scripts/security-gate.mjs --min-grade=B --output=_workspace/06_security_ship.md
- *   node .opencode/scripts/security-gate.mjs --scope=changed
+ *   node scripts/security-gate.mjs [options]
+ *   node scripts/security-gate.mjs --min-grade=B --output=_workspace/06_security_ship.md
+ *   node scripts/security-gate.mjs --scope=changed
  */
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
@@ -244,7 +244,7 @@ export function runScan(options) {
   // Construct npx ecc-agentshield command (v1.6.0+ format)
   let scanPath = '.';
   if (options.scope === 'config') {
-    scanPath = '.opencode/';
+    scanPath = 'plugins/saas-kit-core/';
   }
   let cmd = `npx --yes ecc-agentshield scan --format json --path "${scanPath}"`;
   if (options.supplyChain) {
@@ -374,7 +374,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
 AgentShield Security Gate CLI
 
 Usage:
-  node .opencode/scripts/security-gate.mjs [options]
+  node scripts/security-gate.mjs [options]
 
 Options:
   --min-grade=<A|B|C|D|F>   Minimum grade required to pass (default: B)

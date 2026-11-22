@@ -1,0 +1,13 @@
+{
+  "name": "saas-kit-core",
+  "version": "2.0.0",
+  "description": "2-mode orchestration brain (saas-help, saas-mode), 13 lazy playbooks (incl. saas-swarm, automate-me, reflect, correct), Tech Lead, PM, QA, Security Auditor, multi-harness AgentShield hooks, and dynamic model presets.",
+  "author": {
+    "name": "naviocean",
+    "url": "https://github.com/naviocean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/naviocean/sass-kit"
+  }
+}

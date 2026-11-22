@@ -82,13 +82,13 @@ Promotion rules:
    - Set initial confidence: 0.5
    - Tag appropriately
    ↓
-5. Store in .opencode/memory/instincts.json
+5. Store in .agent-memory/instincts.json
 ```
 
 ### Storage Format
 
 ```json
-// .opencode/memory/instincts.json
+// .agent-memory/instincts.json
 {
   "version": "1.0",
   "instincts": [
@@ -133,10 +133,10 @@ Promotion rules:
 
 ```bash
 # Export instincts for team
-cp .opencode/memory/instincts.json ./shared-instincts.json
+cp .agent-memory/instincts.json ./shared-instincts.json
 
 # Import from team
-cat shared-instincts.json >> .opencode/memory/instincts.json
+cat shared-instincts.json >> .agent-memory/instincts.json
 # Deduplicate by ID
 
 # Merge strategy:
@@ -151,7 +151,7 @@ When an instinct reaches high confidence (0.8+) with 10+ uses:
 
 ```markdown
 # 1. Create SKILL.md from instinct
-mkdir -p .opencode/skills/{instinct-name}
+mkdir -p .agent-core/skills/{instinct-name}
 
 # 2. Write SKILL.md with:
 #    - name, description, when to trigger

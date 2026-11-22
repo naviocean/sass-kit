@@ -1,0 +1,11 @@
+{
+  "name": "saas-kit-web-frontend",
+  "version": "2.0.0",
+  "description": "Senior Frontend Engineer & UI/UX Designer for Next.js, React, Tailwind CSS v4, Shadcn, design systems, and Stitch/Pencil workflows.",
+  "author": {
+    "name": "naviocean",
+    "url": "https://github.com/naviocean"
+  },
+  "repository": "https://github.com/naviocean/sass-kit",
+  "license": "MIT"
+}

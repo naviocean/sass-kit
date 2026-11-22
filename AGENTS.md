@@ -1,4 +1,4 @@
-# OpenCode SaaS Kit — Agent Instructions
+# SaaS Kit — Agent Instructions
 
 **You are an agent in a multi-agent SaaS development team.** This file is your entry point. It is intentionally short. For depth, follow the file map below.
 
@@ -88,39 +88,35 @@ Project-specific memory persists across sessions in `.agent-memory/` (and via IC
 
 For command details, read `.agents/commands/<name>.md` (or `.agent-core/commands/<name>.md`).
 
-## Quick Start
+## Quick Start (v2.0 Plugin-First Marketplace)
 
 ```bash
-# Install kit
-npx opencode-saas-kit init
+# Claude Code
+/plugin marketplace add naviocean/sass-kit
+/plugin install saas-kit-core@saas-kit
 
-# Verify installation
-npx opencode-saas-kit verify
+# Antigravity
+agy plugin install https://github.com/naviocean/sass-kit
 
-# Start building
-/plan "Build a SaaS dashboard with user auth, analytics, and billing"
+# Configure model presets (5 OpenCode presets, Claude, Antigravity)
+npm run configure:models -- --preset opencode-cc-pro --apply-opencode
+
+# Maintainer: compile & verify all 9 squad plugins from .agent-core/ SSoT
+npm run build:plugins && npm run test:all
 ```
 
-## Skill Packs & Modular Presets (Agent-Centric)
+## 9 Squad Plugins (1 Marketplace → ≤ 20 Eager Router Skills)
 
-The kit groups skills strictly by the **Agents & Squads** that require them (`.agent-core/skill-packs.json`), ensuring zero missing skills and clean AI context:
-- `core`: Core Leadership & Quality Gate (`tech-lead`, `pm`, `qa`, `security-auditor`) — 75 skills.
-- `web-frontend`: Frontend & UI/UX Design Squad (`frontend`, `designer`) — 42 skills.
-- `nestjs-backend`: NestJS & TypeScript Backend Squad (`nestjs`) — 20 skills.
-- `python-ai`: Python & AI Engineering Squad (`ai-engineer`, `python-backend`) — 29 skills.
-- `rust-systems`: Rust Systems & High-Performance Squad (`rustacean`) — 10 skills.
-- `devops-infra`: DevOps & SRE Infrastructure Squad (`devops`) — 16 skills.
-- `mobile-native`: Bare React Native & Mobile Systems Squad (`mobile`) — 17 skills.
-- `swift-macos`: Native macOS & Apple Systems Squad (`swift-macos`) — 21 skills.
-- `document-office`: Office & Document Processing Squad (`document-specialist`) — 10 skills.
-
-Manage packs via CLI:
-```bash
-npx opencode-saas-kit pack list
-npx opencode-saas-kit pack add <pack-name>
-npx opencode-saas-kit pack remove <pack-name>
-npx opencode-saas-kit pack auto
-```
+All 14 Senior Experts are packaged into 9 modular plugins under `plugins/saas-kit-*` (built from `.agent-core/roster.json` & `.agent-core/skill-packs.json`), capping total eager skills at **14** even when all 9 squads are enabled simultaneously:
+- `saas-kit-core` (enabled by default): `tech-lead`, `pm`, `qa`, `security-auditor` + `saas-help` & `saas-mode` + 13 lazy playbooks (`plan`, `build`, `review`, `ship`, `hotfix`, `meeting`, `design`, `test`, `security`, `swarm`, `automate-me`, `reflect`, `correct`).
+- `saas-kit-web-frontend` (`disabled: true`): `frontend`, `designer`
+- `saas-kit-nestjs-backend` (`disabled: true`): `nestjs`
+- `saas-kit-python-ai` (`disabled: true`): `ai-engineer`, `python-backend`
+- `saas-kit-rust-systems` (`disabled: true`): `rustacean`
+- `saas-kit-mobile-native` (`disabled: true`): `mobile`
+- `saas-kit-swift-macos` (`disabled: true`): `swift-macos`
+- `saas-kit-devops-infra` (`disabled: true`): `devops`
+- `saas-kit-document-office` (`disabled: true`): `document-specialist`
 
 For human-facing documentation (installation, configuration, troubleshooting), see `README.md`.
 
@@ -128,6 +124,7 @@ For human-facing documentation (installation, configuration, troubleshooting), s
 
 | Version | Date | Change |
 |---|---|---|
+| 2.0.0 | 2026-11-22 | **Plugin-First Multi-Harness Marketplace Cutover**: Migrated from monolithic CLI copy/symlink (`bin/cli.js`, `sync-kit.mjs`, `skill-pack-manager.mjs` removed) to 1 Marketplace Repo → 9 Squad Plugins (`plugins/saas-kit-*`) compiled from `.agent-core/` SSoT via `scripts/build-plugins.mjs` + `scripts/verify-plugins.mjs` for Claude Code, Antigravity, and OpenCode. Added 2-skill universal entrypoint (`saas-help`, `saas-mode`) with 13 lazy playbooks (`plan`, `build`, `review`, `ship`, `hotfix`, `meeting`, `design`, `test`, `security`, `swarm`, `automate-me`, `reflect`, `correct`), Router Skill + lazy `references/` architecture (reducing eager catalog from ~326 to 14 skills and compiled output to 8.6 MB (including 16 bundled helper script suites)), native Antigravity sandboxed `subagents/*.json` (DAG + read-only `security-auditor` + branch isolation), multi-harness `pre-tool-guard.mjs` (`--harness antigravity|claude` + OpenCode `index.mjs`), Roster-Locked Parallel Dispatch (`roster-guard.md`, `roster.json`), and external multi-preset model manager (`scripts/configure-models.mjs` → `~/.config/saas-kit/models.json`). |
 | 1.8.0 | 2026-11-10 | Add 14th specialized agent `document-specialist` (Office, PDF & LaTeX automation for `.pdf`, `.docx`, `.dotx`, `.xlsx`, `.xlsm`, `.pptx`, `.tex`/`.bib` in pure Python, Node.js & local TeX with zero LibreOffice dependency) and modular skill pack `document-office` (10 skills). Integrated cleaned `docx`, `xlsx`, `pptx`, `pdf` skills plus clean-room `latex-paper-writing` (IEEE/ACM/arXiv starter scaffolding, BibTeX guide, `compile.sh`/`check_latex_env.sh`, total 326 skills) with pure-Python `validate_formulas.py`, OOXML unpack/pack scripts, Office/PDF + LaTeX detection in `repo-scanner.mjs`, and safe missing-agent backfill in `sync-kit.mjs`. 106 unit tests + 165 verification checks pass. |
 | 1.7.0 | 2026-10-19 | Add 13th specialized agent `swift-macos` (Native macOS Desktop, Swift 6 Concurrency, SwiftUI, AppKit, NSStatusItem menu bar apps, SwiftData, Liquid Glass settings, Sparkle auto-update) and modular skill pack `swift-macos` (22 skills). Sourced 14 battle-tested community skills from skills.sh into `.agent-core/skills/` (total 321 skills). Added Swift/Xcode stack detection in `repo-scanner.mjs`. 98 unit tests + 154 verification checks pass. |
 | 1.6.0 | 2026-10-19 | Integrate PStack Engineering Rigor & Runtime Verification Suite: add SSoT `.agent-core/standards/engineering-principles.md` (24 Staff-level engineering principles with explicit boundaries), add `create-verification-skill` & `maintain-verification-skill` for real-surface verification and Feature Map scaffolding under `docs/verification/`, add `adversarial-review`, `comment-quality`, `benchmark-checklist`, `runtime-forensics`, `trace-forensics`, update `/hotfix`, `/build`, `/review`, and `/ship` gates, add `fixtures/sample-app/` runnable surface with automated regression detection test. 98 unit tests across 14 suites + 143 verification checks pass with 0 failures. |

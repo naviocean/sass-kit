@@ -155,8 +155,10 @@ export function checkToolInvocation(toolName, toolArgs = {}) {
     const target =
       toolArgs.TargetFile ||
       toolArgs.targetFile ||
+      toolArgs.Path ||
       toolArgs.path ||
       toolArgs.filePath ||
+      toolArgs.file_path ||
       toolArgs.file;
 
     if (isSensitiveFile(target)) {
@@ -209,11 +211,21 @@ export function checkToolInvocation(toolName, toolArgs = {}) {
   return { blocked: false };
 }
 
+export const evaluateToolCall = checkToolInvocation;
+
+function parseHarnessArg(argv) {
+  for (let i = 2; i < argv.length; i++) {
+    if (argv[i] === '--harness' && argv[i + 1]) return argv[i + 1].toLowerCase();
+    if (argv[i].startsWith('--harness=')) return argv[i].split('=')[1].toLowerCase();
+  }
+  return null;
+}
+
 // ──────────────────────────────────────────────
 // CLI Hook Entry Point (if invoked via hook pipe)
 // ──────────────────────────────────────────────
 if (process.argv[1] && process.argv[1].endsWith('pre-tool-guard.mjs')) {
-  // Read JSON payload from stdin if available
+  const explicitHarness = parseHarnessArg(process.argv);
   let inputData = '';
   process.stdin.setEncoding('utf-8');
 
@@ -223,19 +235,53 @@ if (process.argv[1] && process.argv[1].endsWith('pre-tool-guard.mjs')) {
 
   process.stdin.on('end', () => {
     if (!inputData.trim()) {
+      if (explicitHarness === 'antigravity') {
+        console.log(JSON.stringify({ decision: 'allow' }));
+      }
       process.exit(0);
     }
 
     try {
       const payload = JSON.parse(inputData);
-      const result = checkToolInvocation(payload.toolName || payload.tool, payload.args || payload.parameters);
+      const harness =
+        explicitHarness ||
+        (payload.toolCall ? 'antigravity' : payload.tool_name ? 'claude' : 'generic');
 
+      if (harness === 'antigravity') {
+        const toolName = payload.toolCall?.name || payload.toolName || payload.tool;
+        const toolArgs = payload.toolCall?.args || payload.args || {};
+        const result = checkToolInvocation(toolName, toolArgs);
+        console.log(
+          JSON.stringify(
+            result.blocked
+              ? { decision: 'deny', reason: result.reason }
+              : { decision: 'allow' },
+          ),
+        );
+        process.exit(0);
+      }
+
+      if (harness === 'claude') {
+        const toolName = payload.tool_name || payload.toolName || payload.tool;
+        const toolArgs = payload.tool_input || payload.args || {};
+        const result = checkToolInvocation(toolName, toolArgs);
+        if (result.blocked) {
+          console.error(`🚨 AgentShield Runtime Guard Block: ${result.reason}`);
+          process.exit(2);
+        }
+        process.exit(0);
+      }
+
+      const result = checkToolInvocation(payload.toolName || payload.tool, payload.args || payload.parameters);
       if (result.blocked) {
         console.error(`🚨 AgentShield Runtime Guard Block: ${result.reason}`);
         process.exit(1);
       }
       process.exit(0);
     } catch {
+      if (explicitHarness === 'antigravity') {
+        console.log(JSON.stringify({ decision: 'allow' }));
+      }
       process.exit(0);
     }
   });

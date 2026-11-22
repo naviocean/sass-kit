@@ -157,7 +157,8 @@ test('agent-skills-audit: skill-packs.json covers 100% of agent skills with zero
     assert.ok(packEntry, `Agent [${agentName}] must belong to a pack in skill-packs.json`);
 
     const [packId, pack] = packEntry;
-    const packSkills = new Set(pack.skills || []);
+    const coreSkills = new Set(packsData.core?.skills || []);
+    const packSkills = new Set([...(pack.skills || []), ...coreSkills]);
 
     for (const skill of requiredSkills) {
       if (!packSkills.has(skill)) {
@@ -165,7 +166,7 @@ test('agent-skills-audit: skill-packs.json covers 100% of agent skills with zero
           agent: agentName,
           pack: packId,
           skill,
-          error: `Skill [${skill}] required by agent [${agentName}] is missing from pack [${packId}]`
+          error: `Skill [${skill}] required by agent [${agentName}] is missing from pack [${packId}] (and core)`
         });
       }
     }
@@ -178,24 +179,19 @@ test('agent-skills-audit: skill-packs.json covers 100% of agent skills with zero
   );
 });
 
-test('agent-skills-audit: skills resolve without dangling symlinks across harnesses', () => {
-  if (existsSync(OPENCODE_SKILLS)) {
-    const opencodeEntries = readdirSync(OPENCODE_SKILLS);
-    assert.ok(opencodeEntries.length >= 100, '.opencode/skills must have entries');
-    for (const entry of opencodeEntries) {
-      const real = realpathSync(join(OPENCODE_SKILLS, entry));
-      assert.ok(existsSync(real), `.opencode/skills/${entry} must not be a broken symlink`);
+test('agent-skills-audit: compiled plugins expose Router Skills without broken files', () => {
+  const pluginsDir = join(ROOT, 'plugins');
+  assert.ok(existsSync(pluginsDir), 'plugins/ directory must exist');
+  let routerCount = 0;
+  for (const pluginId of readdirSync(pluginsDir)) {
+    const skillsDir = join(pluginsDir, pluginId, 'skills');
+    if (!existsSync(skillsDir)) continue;
+    for (const entry of readdirSync(skillsDir)) {
+      const skillFile = join(skillsDir, entry, 'SKILL.md');
+      if (existsSync(skillFile)) routerCount++;
     }
   }
-
-  if (existsSync(AGENTS_SKILLS)) {
-    const agentsEntries = readdirSync(AGENTS_SKILLS);
-    assert.ok(agentsEntries.length >= 100, '.agents/skills must have entries');
-    for (const entry of agentsEntries) {
-      const real = realpathSync(join(AGENTS_SKILLS, entry));
-      assert.ok(existsSync(real), `.agents/skills/${entry} must not be a broken symlink`);
-    }
-  }
+  assert.ok(routerCount > 0 && routerCount <= 20, `Expected 1..20 compiled Router Skills, got ${routerCount}`);
 });
 
 test('agent-skills-audit: zero orphan skills in .agent-core/skills (every skill belongs to a pack)', () => {

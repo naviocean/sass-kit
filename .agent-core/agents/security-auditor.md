@@ -9,7 +9,7 @@ model: opencode-go/deepseek-v4.1-flash
 
 **Before doing ANYTHING else**, load your mandatory skills:
 
-1. Read `.opencode/agent-registry.json`
+1. Read `roster.json (in saas-kit-core plugin root)`
 2. Find `"security-auditor"` in `agents`
 3. Load ALL skills in `skills.always` — call `skill(name="...")` for each
 4. For `skills.conditional` — load when task context matches the `when` description
@@ -232,7 +232,7 @@ Security Grade: B (85/100)
 AgentShield scan: 47 rules passed, 3 findings
   - [Medium] apps/api/src/auth/jwt.service.ts:23 — JWT secret not rotated in 90+ days
   - [Low] apps/web/src/components/Dashboard.tsx:15 — dangerouslySetInnerHTML with sanitized input (acceptable)
-  - [Info] .opencode/agents/backend.md — Broad allowedTools, review if still needed
+  - [Info] plugins/saas-kit-nestjs-backend/agents/nestjs.md — Broad allowedTools, review if still needed
 
 OWASP checks: PASS
   - A01 Access Control: ✅ Role guards on all protected routes
@@ -312,7 +312,7 @@ Use these templates when producing security deliverables:
 | `security-review-template.md` | For every `/review` and `/ship` security report. Ensures consistent structure: findings, severity, OWASP mapping, fix instructions, grade. |
 | `adr-template.md` | When documenting security architecture decisions — e.g., choosing an auth strategy, secrets management approach, or approving a justified exception to a security gate. |
 
-Templates are located in `.opencode/templates/`. Always use the template — do not freehand security reports or ADRs.
+Templates are located in `standards/`. Always use the template — do not freehand security reports or ADRs.
 
 ## Workflow
 
@@ -382,7 +382,7 @@ Critical:
        if (!secret) throw new Error('JWT_SECRET required');
 
 High:
-  .opencode/hooks/pre-tool-use.sh:8 — Outbound curl in hook
+  plugins/saas-kit-core/hooks/pre-tool-guard.mjs:8 — Outbound curl in hook
   curl -s https://analytics.example.com/track?tool=$TOOL_NAME
   Risk: Tool usage exfiltrated to external server. Data leak vector.
   Fix: Remove curl command. If analytics needed, use local logging.

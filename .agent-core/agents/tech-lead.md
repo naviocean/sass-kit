@@ -9,7 +9,7 @@ model: opencode-go/deepseek-v4-pro
 
 **Before doing ANYTHING else**, load your mandatory skills:
 
-1. Read `.opencode/agent-registry.json`
+1. Read `roster.json (in saas-kit-core plugin root)`
 2. Find `"tech-lead"` in `agents`
 3. Load ALL skills in `skills.always` — call `skill(name="...")` for each
 4. For `skills.conditional` — load when task context matches the `when` description
@@ -186,7 +186,7 @@ When a user sends a plain-text request (no slash command), you are the single en
 
 1. Ask **1–2 clarifying questions** (not 7). Confirm scope and expected behavior.
 2. Pick the right agent based on task keywords (see table below).
-3. **Read `.opencode/agent-registry.json`** → look up the target agent's `model` and `skills.always`.
+3. **Read `roster.json (in saas-kit-core plugin root)`** → look up the target agent's `model` and `skills.always`.
 4. Dispatch the agent with:
    - Concrete file paths and acceptance criteria
    - **Model hint**: "Use model: `{model}` (fallback: `{fallback[0]}` → `{fallback[1]}`)"
@@ -311,7 +311,7 @@ Load skills via `skill(name="skill-name")` when their context matches. Organized
 
 ## Document Standards
 
-Use these templates from `.opencode/standards/` when creating artifacts:
+Use these templates from `standards/` when creating artifacts:
 
 | Template | When to Use |
 |---|---|
@@ -321,7 +321,7 @@ Use these templates from `.opencode/standards/` when creating artifacts:
 | `task-template.md` | Formatting individual tasks for agent dispatch |
 | `security-review-template.md` | Security review checklists for sensitive changes |
 
-Load via `read(filePath=".opencode/standards/<template>")` and fill in the template fields.
+Load via `read(filePath="standards/<template>")` and fill in the template fields.
 
 ## Workflow
 

@@ -148,7 +148,7 @@ Tech Lead dispatches only the specialists whose domains are touched by the appro
 
 **Why last?** Security scan is fast (regex + config audit). QA is slow. Fail fast on expensive checks first.
 
-- Runs `npx ecc-agentshield scan` on `.opencode/`
+- Runs `npx ecc-agentshield scan` on `plugins/saas-kit-core/`
 - Scans `_workspace/02_*` for hardcoded secrets
 - Validates permission boundaries against `agent-models.json`
 - Reports by severity: CRITICAL (block) / HIGH (warn) / MEDIUM (note) / LOW (FYI)
@@ -169,7 +169,7 @@ After `/build`:
 
 | Output | Path | Template |
 |---|---|---|
-| Task docs | `docs/tasks/{name}-task.md` | `.opencode/standards/task-template.md` |
+| Task docs | `docs/tasks/{name}-task.md` | `standards/task-template.md` |
 | Intermediate | `_workspace/0{phase}_{agent}_{artifact}.{ext}` | — |
 | QA report | `_workspace/03_qa_report.md` | — |
 | Security report | `_workspace/04_security_report.md` | — |

@@ -164,3 +164,59 @@ test('pre-tool-guard: isSensitiveFile handles nested paths and templates accurat
   assert.equal(isSensitiveFile('.env.example'), false);
   assert.equal(isSensitiveFile('apps/web/src/app.tsx'), false);
 });
+
+// ──────────────────────────────────────────────
+// Multi-Harness CLI Contract Tests (Antigravity, Claude Code, OpenCode)
+// ──────────────────────────────────────────────
+import { spawnSync } from 'node:child_process';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __guardTestDir = dirname(fileURLToPath(import.meta.url));
+const GUARD_SCRIPT = join(__guardTestDir, '..', '..', '.agent-core', 'hooks', 'pre-tool-guard.mjs');
+
+test('pre-tool-guard --harness antigravity: parses camelCase toolCall and outputs { decision, reason }', () => {
+  const blockedRun = spawnSync(process.execPath, [GUARD_SCRIPT, '--harness', 'antigravity'], {
+    input: JSON.stringify({
+      hookEventName: 'PreToolUse',
+      toolCall: { id: 'toolu_1', name: 'run_command', args: { CommandLine: 'cat .env' } },
+    }),
+    encoding: 'utf8',
+  });
+  assert.equal(blockedRun.status, 0, 'Antigravity hooks communicate deny via JSON stdout with exit 0');
+  const blockedOut = JSON.parse(blockedRun.stdout);
+  assert.equal(blockedOut.decision, 'deny');
+  assert.match(blockedOut.reason, /credential/i);
+
+  const allowedRun = spawnSync(process.execPath, [GUARD_SCRIPT, '--harness', 'antigravity'], {
+    input: JSON.stringify({
+      hookEventName: 'PreToolUse',
+      toolCall: { id: 'toolu_2', name: 'run_command', args: { CommandLine: 'npm test' } },
+    }),
+    encoding: 'utf8',
+  });
+  assert.equal(allowedRun.status, 0);
+  const allowedOut = JSON.parse(allowedRun.stdout);
+  assert.equal(allowedOut.decision, 'allow');
+});
+
+test('pre-tool-guard --harness claude: parses tool_name/tool_input and exits 2 on block', () => {
+  const blockedRun = spawnSync(process.execPath, [GUARD_SCRIPT, '--harness', 'claude'], {
+    input: JSON.stringify({
+      tool_name: 'Bash',
+      tool_input: { command: 'rm -rf /' },
+    }),
+    encoding: 'utf8',
+  });
+  assert.equal(blockedRun.status, 2, 'Claude Code PreToolUse blocks with exit code 2');
+  assert.match(blockedRun.stderr, /AgentShield/i);
+
+  const allowedRun = spawnSync(process.execPath, [GUARD_SCRIPT, '--harness', 'claude'], {
+    input: JSON.stringify({
+      tool_name: 'Write',
+      tool_input: { file_path: 'src/index.ts' },
+    }),
+    encoding: 'utf8',
+  });
+  assert.equal(allowedRun.status, 0);
+});

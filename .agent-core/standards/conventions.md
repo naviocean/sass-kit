@@ -298,7 +298,7 @@ Closes: #456
 
 We enforce a **Multi-Tier Defense Architecture** inspired by the latest ECC (Everything Claude Code):
 
-1. **Runtime Guard Hook** (`.opencode/hooks/pre-tool-guard.mjs`):
+1. **Runtime Guard Hook** (`plugins/saas-kit-core/hooks/pre-tool-guard.mjs`):
    - Intercepts dangerous operations before tool execution (modifying `.env*`, `rm -rf /`, `curl | bash`, dumping credentials).
 2. **Programmatic Gate CLI** (`node scripts/security-gate.mjs`):
    - Computes an overall Security Score (0–100) and Letter Grade (A, B, C, D, F) based on AgentShield findings.
@@ -353,7 +353,7 @@ We enforce a **Multi-Tier Defense Architecture** inspired by the latest ECC (Eve
 
 ### Permission Audits
 
-When reviewing a PR that changes `.opencode/agents/*.md`:
+When reviewing a PR that changes `.agent-core/agents/*.md`:
 
 - Reject `allowedTools: ["*"]` — too broad
 - Reject new `Bash()` patterns that allow destructive commands

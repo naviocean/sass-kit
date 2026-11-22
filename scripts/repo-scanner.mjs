@@ -13,7 +13,56 @@
 
 import fs from 'fs';
 import path from 'path';
-import { detectRecommendedPacks } from './skill-pack-manager.mjs';
+
+export function detectRecommendedPacks(scanResults = {}) {
+  const recommended = new Set(['core']);
+  const langs = (scanResults.languages || []).map(l => l.toLowerCase());
+  const frameworks = (scanResults.frameworks || []).map(f => f.toLowerCase());
+  const pkgMgr = (scanResults.primaryPackageManager || '').toLowerCase();
+
+  if (
+    langs.includes('typescript') ||
+    langs.includes('javascript') ||
+    frameworks.some(f => ['next.js', 'react', 'vue', 'tailwind css', 'tailwind'].includes(f))
+  ) {
+    recommended.add('web-frontend');
+  }
+  if (
+    frameworks.some(f => ['nest.js', 'nestjs'].includes(f)) ||
+    (scanResults.database && scanResults.database.length > 0 && langs.includes('typescript'))
+  ) {
+    recommended.add('nestjs-backend');
+  }
+  if (
+    langs.includes('python') ||
+    frameworks.some(f => ['fastapi', 'django', 'flask', 'langgraph', 'langchain'].includes(f)) ||
+    ['uv', 'poetry', 'pipenv'].includes(pkgMgr)
+  ) {
+    recommended.add('python-ai');
+  }
+  if (langs.includes('rust') || ['cargo'].includes(pkgMgr) || frameworks.some(f => ['axum', 'tokio', 'tauri'].includes(f))) {
+    recommended.add('rust-systems');
+  }
+  if (frameworks.some(f => ['react native', 'react-native'].includes(f))) {
+    recommended.add('mobile-native');
+  }
+  if (
+    langs.includes('swift') ||
+    pkgMgr === 'spm' ||
+    frameworks.some(f => ['swiftui', 'appkit', 'macos'].includes(f))
+  ) {
+    recommended.add('swift-macos');
+  }
+  if (
+    frameworks.some(f => ['office / pdf processing', 'office-pdf', 'latex', 'openpyxl', 'reportlab', 'pptxgenjs', 'docx', 'xlsx', 'pptx', 'pdf'].includes(f))
+  ) {
+    recommended.add('document-office');
+  }
+  if (scanResults.docker || scanResults.monorepo) {
+    recommended.add('devops-infra');
+  }
+  return Array.from(recommended);
+}
 
 /**
  * Safely reads and parses JSON from a file path.

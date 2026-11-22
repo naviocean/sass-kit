@@ -1,0 +1,39 @@
+{
+  "mcpServers": {
+    "icm": {
+      "command": "icm",
+      "args": [
+        "serve"
+      ]
+    },
+    "gitnexus": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "gitnexus@latest",
+        "mcp"
+      ]
+    },
+    "context7": {
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "grep-app": {
+      "url": "https://mcp.grep.app"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest",
+        "--headless"
+      ]
+    },
+    "prisma": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "prisma",
+        "mcp"
+      ]
+    }
+  }
+}

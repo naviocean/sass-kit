@@ -1,0 +1,112 @@
+# /review
+
+Code review + security audit before merge. Use after `/build` completes, before `/ship`. Do NOT use for: implementation (`/build`), final deploy gate (`/ship`), security-only audit (`/security`).
+
+**HARD-GATE:** Only run on actual changes. If `gitnexus_detect_changes({repo: "<current-repo>"})` shows no diff, return: "No changes to review."
+
+## Execution Mode: Subagents in Parallel
+
+| Phase | Mode | Why |
+|---|---|---|
+| Phase 0: Context Check | (orchestrator) | Verify diff exists, no wasted scan |
+| Phase 1: Code Review | **Subagent** (Tech Lead) | Reads files, evaluates patterns |
+| Phase 2: Security Audit | **Subagent** (Security Auditor) | AgentShield + OWASP, independent of code review |
+| Phase 3: Verdict | (orchestrator) | Synthesize both reports |
+
+Parallel (not sequential) because code review and security audit look at different concerns. Code review = patterns/quality. Security = vulnerabilities. They don't depend on each other's findings.
+
+## Agent Flow
+
+```
+Tech Lead + Security Auditor (parallel)
+```
+
+## Phase 0: Context Check
+
+1. **Check FSM gate** (when `_workspace/harness-state.json` is active):
+   ```bash
+   node scripts/harness-state.mjs check-gate --phase=review
+   ```
+   - Exit code `1` → return HARD-GATE error with the reported reason
+2. Run `gitnexus_detect_changes({repo: "<current-repo>"})` — confirm there ARE changes
+3. If no changes → return HARD-GATE error
+4. List changed files for review scope
+
+## Phase 1: Tech Lead — Code Review
+
+Two-stage review (Superpowers pattern):
+
+**Stage 1 — Automated:**
+1. `gitnexus_impact({target, direction: "upstream", repo: "<current-repo>"})` — blast radius per change
+2. Scope check: Does diff match the assigned task? Scope creep = reject.
+3. Pattern check: New patterns without justification = reject.
+
+**Stage 2 — Deep:**
+- Read changed files. Evaluate against:
+  - Patterns: follow codebase conventions
+  - Architecture: respect module boundaries
+  - Quality: no `any`, no `@ts-ignore`, no disabled lint
+  - Comment Quality: strip trivial diff comments (`comment-quality`), preserve invariant & security comments
+  - Testing: business logic has tests
+  - Real-Surface Evidence: verify that touched features in `docs/verification/feature-map.md` have status `VERIFIED` with fresh evidence in `docs/verification/evidence/` (recorded code commit has zero application code diff against `HEAD`, allowing evidence-only commits; zero `REGRESSED` or `BLOCKED`)
+  - Security: no hardcoded secrets, proper input validation
+
+**Stage 3 — Triggered Adversarial Review (`adversarial-review`):**
+- **Trigger:** `gitnexus_impact` reports HIGH/CRITICAL blast radius, or diff touches auth/billing/cryptography/multi-actor concurrency.
+- **Action:** Dispatch an independent, read-only reviewer subagent with the `adversarial-review` skill.
+- **Probing:** Aggressively hunts for race conditions (TOCTOU), state desynchronization, unhandled error paths, and resource leaks.
+- **Verdict Integration:**
+  - `MUST-FIX`: Review is **BLOCKED** until fixed.
+  - `CONSIDER`: Documented for follow-up.
+  - `REJECT`: Dismissed with technical justification.
+- **Honesty Rule:** If the current harness cannot dispatch an independent reviewer, state `LIMITATION: Independent adversarial review unavailable`. Never fake a pass.
+
+## Phase 2: Security Auditor — Security Review
+
+Runs in parallel:
+
+- **AgentShield Automated Gate**:
+  ```bash
+  node scripts/security-gate.mjs --scope=changed --output=_workspace/05_review_security.md
+  ```
+- Programmatic exit code check:
+  - Exit code `0` (Grade A/B, 0 secrets) → Security passes.
+  - Exit code `1` (Grade C/D/F or secret leak) → Automatically sets verdict to **Blocked**.
+- Secret detection across changed files
+- Permission boundary validation
+- OWASP checks: A01 (access control), A03 (injection), A07 (XSS)
+- Prompt injection in agent configs
+
+**Why in parallel?** Security scan takes time (full project scan). Running after code review doubles wall-clock. They look at different concerns anyway.
+
+## Phase 3: Verdict
+
+| Tech Lead | Security | Verdict |
+|---|---|---|
+| ✅ | ✅ (A or B) | **Approved** |
+| ⚠️ Changes Requested | ✅ | **Changes Requested** (with fix list) |
+| ✅ | ⚠️ Medium | **Approved with notes** |
+| ❌ | ❌ Critical | **Blocked** |
+
+## Output
+
+After `/review`:
+1. ✅ Code review feedback (`_workspace/05_review_code.md`)
+2. ✅ Security findings (`_workspace/05_review_security.md`)
+3. ✅ Verdict: Approved / Changes Requested / Blocked
+
+**Next:** If Approved, run `/ship`. If Changes Requested, fix and re-run `/build` then `/review`.
+
+## Document Standards
+
+| Output | Path | Template |
+|---|---|---|
+| Code review | `_workspace/05_review_code.md` | — |
+| Security review | `_workspace/05_review_security.md` | `standards/security-review-template.md` |
+
+## Anti-patterns (BLOCKING)
+
+- ❌ Reviewing unchanged code (waste, HARD-GATE)
+- ❌ Approving without running `gitnexus_impact` (incomplete review)
+- ❌ Approving Critical security findings (block)
+- ❌ Sequential code + security review (slower, no benefit)
