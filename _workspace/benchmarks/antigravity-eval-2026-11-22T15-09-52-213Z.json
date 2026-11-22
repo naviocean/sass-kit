@@ -1,0 +1,24 @@
+{
+  "mode": "live",
+  "passed": 1,
+  "total": 1,
+  "results": [
+    {
+      "id": "core-01-plan-architecture",
+      "squad": "core",
+      "category": "domain-routing-2hop",
+      "passed": true,
+      "durationMs": 56847,
+      "refsRead": [
+        "references/architecture-decision-records.md"
+      ],
+      "tokenUsage": {
+        "inputTokens": 87642,
+        "outputTokens": 4116,
+        "cacheReadTokens": 0
+      },
+      "responsePreview": "ion:** Context is explicit; all viable options considered; honest pros/cons; positive \\u0026 negative consequences documented; related ADRs linked.\\n- **During Review:** Reviewed by ≥ 2 senior engineers; affected teams consulted; security, cost, and reversibility assessed.\\n- **After Acceptance:** Never mutate an accepted ADR (supersede with a new ADR instead); update `docs/adr/README.md` index and create implementation tickets.\\n\",\"duration_seconds\":50.73815,\"num_turns\":1,\"usage\":{\"input_tokens\":43821,\"output_tokens\":2058,\"thinking_tokens\":790,\"cache_read_tokens\":25251,\"total_tokens\":45879}}}",
+      "details": "exit=0, expert=ok, 2-hop/guard=ok, refs_seen=1, tok=87642in/4116out, 56.8s"
+    }
+  ]
+}

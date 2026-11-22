@@ -1,0 +1,31 @@
+{
+  "mode": "live",
+  "passed": 2,
+  "total": 3,
+  "results": [
+    {
+      "id": "core-01-plan-architecture",
+      "squad": "core",
+      "category": "domain-routing-2hop",
+      "passed": false,
+      "durationMs": 20973,
+      "details": "exit=0, expert=miss, 2-hop/guard=miss, refs_seen=0, 21.0s"
+    },
+    {
+      "id": "core-02-qa-verification",
+      "squad": "core",
+      "category": "domain-routing-2hop",
+      "passed": true,
+      "durationMs": 96208,
+      "details": "exit=0, expert=ok, 2-hop/guard=ok, refs_seen=2, 96.2s"
+    },
+    {
+      "id": "web-01-nextjs-rsc",
+      "squad": "web-frontend",
+      "category": "domain-routing-2hop",
+      "passed": true,
+      "durationMs": 43136,
+      "details": "exit=0, expert=ok, 2-hop/guard=ok, refs_seen=3, 43.1s"
+    }
+  ]
+}

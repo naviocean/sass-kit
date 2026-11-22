@@ -51,6 +51,8 @@
     "test:sizer": "node scripts/__tests__/triage-sizer.test.mjs",
     "test:audit": "node scripts/__tests__/agent-skills-audit.test.mjs",
     "eval": "node scripts/eval-harness.mjs",
+    "benchmark:context": "node scripts/benchmark-context.mjs",
+    "benchmark:agy": "node scripts/benchmark-antigravity-eval.mjs",
     "test:all": "npm run build:plugins && npm run verify:plugins && npm run build:check && npm test && npm run eval"
   },
   "engines": {

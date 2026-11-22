@@ -194,25 +194,26 @@ function splitSquadSkillsForRouters(squadKey, routerSkills, skillsList) {
 
 function buildMcpConfigs(pluginDir) {
   const opencodePath = join(ROOT, 'opencode.json');
-  const mcpServers = {};
+  const claudeServers = {};
+  const antigravityServers = {};
   if (existsSync(opencodePath)) {
     const oc = JSON.parse(readFileSync(opencodePath, 'utf8'));
     for (const [name, cfg] of Object.entries(oc.mcp || {})) {
       if (cfg.type === 'local' && Array.isArray(cfg.command) && cfg.command.length > 0) {
-        mcpServers[name] = {
+        const localCfg = {
           command: cfg.command[0],
           args: cfg.command.slice(1),
         };
+        claudeServers[name] = localCfg;
+        antigravityServers[name] = localCfg;
       } else if (cfg.type === 'remote' && cfg.url) {
-        mcpServers[name] = {
-          url: cfg.url,
-        };
+        claudeServers[name] = { url: cfg.url };
+        antigravityServers[name] = { serverUrl: cfg.url };
       }
     }
   }
-  const payload = { mcpServers };
-  writeJson(join(pluginDir, '.mcp.json'), payload);
-  writeJson(join(pluginDir, 'mcp_config.json'), payload);
+  writeJson(join(pluginDir, '.mcp.json'), { mcpServers: claudeServers });
+  writeJson(join(pluginDir, 'mcp_config.json'), { mcpServers: antigravityServers });
 }
 
 function buildCoreExtras(pluginDir, roster) {
