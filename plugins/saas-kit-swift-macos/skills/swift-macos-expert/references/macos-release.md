@@ -153,7 +153,7 @@ This repo includes a Go CLI that automates steps 4-8 (DMG creation through GitHu
 
 ### Setup
 
-1. Create a `release.json` in your project root (see `cli/release.example.json`):
+1. Create a `release.json` in your project root (see `macos-release/cli/release.example.json`):
 
 ```json
 {

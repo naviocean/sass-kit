@@ -124,7 +124,7 @@ spec:
           port: 53
 ```
 
-**Reference:** See `assets/network-policy-template.yaml`
+**Reference:** See `k8s-security-policies/assets/network-policy-template.yaml`
 
 ## RBAC Configuration
 
@@ -176,7 +176,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-**Reference:** See `references/rbac-patterns.md`
+**Reference:** See `k8s-security-policies/references/rbac-patterns.md`
 
 ## Pod Security Context
 

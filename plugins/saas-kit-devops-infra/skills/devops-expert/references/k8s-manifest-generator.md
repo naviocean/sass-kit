@@ -25,7 +25,7 @@ Use this skill when you need to:
 
 ## Detailed patterns and worked examples
 
-Detailed pattern documentation lives in `references/details.md`. Read that file when the navigation tier above is insufficient.
+Detailed pattern documentation lives in `k8s-manifest-generator/references/details.md`. Read that file when the navigation tier above is insufficient.
 
 ## Best Practices Summary
 

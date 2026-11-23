@@ -9,8 +9,8 @@ description: Create, inspect, edit, and restyle PowerPoint presentations (.pptx)
 
 | Situation | Action |
 |-----------|--------|
-| User attaches or references a `.pptx` file | Read [editing.md](editing.md) — edit the template directly |
-| No `.pptx` provided — create from scratch | Read [creating.md](creating.md) — use PptxGenJS templates |
+| User attaches or references a `.pptx` file | Read [editing.md](pptx/editing.md) — edit the template directly |
+| No `.pptx` provided — create from scratch | Read [creating.md](pptx/creating.md) — use PptxGenJS templates |
 | Read/analyze an existing presentation | See Reading Content below |
 
 **When in doubt:** If ANY `.pptx` file is attached or mentioned, use the

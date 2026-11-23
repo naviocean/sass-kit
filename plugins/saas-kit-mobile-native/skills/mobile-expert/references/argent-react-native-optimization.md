@@ -34,12 +34,12 @@ Optimization Progress:
 ### Phase 1: Lint sweep
 
 Run ESLint once at the project root with a comprehensive RN performance ruleset. Dispatch sub-agents to fix results — one per file.
-See [references/lint-rules.md](references/lint-rules.md) for ruleset and procedure.
+See [argent-react-native-optimization/references/lint-rules.md](argent-react-native-optimization/references/lint-rules.md) for ruleset and procedure.
 
 ### Phase 2: Semantic sweep
 
 Review each area requiring judgment — memoization, list rendering, animations, async patterns, effect cleanup, state hygiene, context architecture. Dispatch one sub-agent per checklist item.
-See [references/semantic-checklist.md](references/semantic-checklist.md) for full checklist.
+See [argent-react-native-optimization/references/semantic-checklist.md](argent-react-native-optimization/references/semantic-checklist.md) for full checklist.
 
 ### Phase 3: Visual profiling
 

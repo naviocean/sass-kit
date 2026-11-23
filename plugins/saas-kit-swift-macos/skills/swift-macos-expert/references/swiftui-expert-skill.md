@@ -8,13 +8,13 @@ description: Use when writing, reviewing, or refactoring SwiftUI code for iOS or
 ## Operating Rules
 
 - Treat each `View` type as an invalidation boundary: give it only the data it reads and keep frequently changing dependencies close to the smallest affected subtree
-- Search `references/latest-apis.md` when writing, reviewing, or migrating API usage; look up only the APIs relevant to the task
-- Replace hard-deprecated APIs with modern equivalents. During feature work, flag soft-deprecated APIs and leave them in place (see `references/soft-deprecation.md`)
+- Search `swiftui-expert-skill/references/latest-apis.md` when writing, reviewing, or migrating API usage; look up only the APIs relevant to the task
+- Replace hard-deprecated APIs with modern equivalents. During feature work, flag soft-deprecated APIs and leave them in place (see `swiftui-expert-skill/references/soft-deprecation.md`)
 - Prefer native SwiftUI APIs over UIKit/AppKit bridging unless bridging is necessary
 - Focus on correctness and performance; do not enforce specific architectures (MVVM, VIPER, etc.)
 - Encourage separating business logic from views for testability without mandating how
 - Follow Apple's Human Interface Guidelines and API design patterns
-- Only adopt Liquid Glass when explicitly requested by the user (see `references/liquid-glass.md`)
+- Only adopt Liquid Glass when explicitly requested by the user (see `swiftui-expert-skill/references/liquid-glass.md`)
 - Present performance optimizations as suggestions, not requirements
 - Use `#available` gating with sensible fallbacks for version-specific APIs
 - For layout and rendering inputs, read the value nearest the SwiftUI view that consumes it; do not substitute process-global screen state
@@ -23,17 +23,17 @@ description: Use when writing, reviewing, or refactoring SwiftUI code for iOS or
 
 ### Review existing SwiftUI code
 - Read the code under review and identify which topics apply
-- Flag deprecated APIs (compare against `references/latest-apis.md`); replace hard-deprecated APIs, and flag soft-deprecated APIs without rewriting them unless the user asked to migrate
+- Flag deprecated APIs (compare against `swiftui-expert-skill/references/latest-apis.md`); replace hard-deprecated APIs, and flag soft-deprecated APIs without rewriting them unless the user asked to migrate
 - Run the Topic Router below for each relevant topic
 - Validate `#available` gating and fallback paths for version-specific features
 - For broad codebase reviews, first identify smaller focus areas and present them one at a time; if the user requests a whole-codebase review, divide it into a TODO list
 
 ### Improve existing SwiftUI code
 - Audit current implementation against the Topic Router topics
-- Replace hard-deprecated APIs with modern equivalents from `references/latest-apis.md`; flag soft-deprecated APIs and do not rewrite them during feature work
+- Replace hard-deprecated APIs with modern equivalents from `swiftui-expert-skill/references/latest-apis.md`; flag soft-deprecated APIs and do not rewrite them during feature work
 - Refactor hot paths to reduce unnecessary state updates
 - Extract complex view bodies into separate subviews
-- Suggest image downsampling when `UIImage(data:)` is encountered (optional optimization, see `references/image-optimization.md`)
+- Suggest image downsampling when `UIImage(data:)` is encountered (optional optimization, see `swiftui-expert-skill/references/image-optimization.md`)
 
 ### Implement new SwiftUI feature
 - Design data flow first: identify owned vs injected state
@@ -43,13 +43,13 @@ description: Use when writing, reviewing, or refactoring SwiftUI code for iOS or
 - Gate version-specific APIs with `#available` and provide fallbacks
 
 ### Record a new Instruments trace
-Trigger when the user asks to "record a trace", "profile the app", "capture a session", etc. Full reference: `references/trace-recording.md`.
+Trigger when the user asks to "record a trace", "profile the app", "capture a session", etc. Full reference: `swiftui-expert-skill/references/trace-recording.md`.
 
 1. **Confirm target** — attach to a running app, launch an app, or record all processes? If the user didn't say, ask. List connected devices when useful:
    ```bash
    python3 "${SKILL_DIR}/scripts/record_trace.py" --list-devices
    ```
-2. **Pick a template based on target kind** — the `SwiftUI` template populates the SwiftUI lane on any **real device**: a physical iOS/iPadOS device **or the host Mac**. The only exception is the **iOS Simulator**, where the SwiftUI lane comes back empty — switch to `--template "Time Profiler"` in that case (still gives Time Profiler + Hangs + Animation Hitches). Always check `--list-devices`: `simulators` kind → `Time Profiler`; `devices` kind (real devices and the host Mac) → default `SwiftUI`. Full decision table in `references/trace-recording.md`.
+2. **Pick a template based on target kind** — the `SwiftUI` template populates the SwiftUI lane on any **real device**: a physical iOS/iPadOS device **or the host Mac**. The only exception is the **iOS Simulator**, where the SwiftUI lane comes back empty — switch to `--template "Time Profiler"` in that case (still gives Time Profiler + Hangs + Animation Hitches). Always check `--list-devices`: `simulators` kind → `Time Profiler`; `devices` kind (real devices and the host Mac) → default `SwiftUI`. Full decision table in `swiftui-expert-skill/references/trace-recording.md`.
 3. **Start the recording**. For agent-driven sessions where the user says "I'll tell you when I'm done", start in the background and use a stop-file:
    ```bash
    python3 "${SKILL_DIR}/scripts/record_trace.py" \
@@ -63,7 +63,7 @@ Trigger when the user asks to "record a trace", "profile the app", "capture a se
 ### Trace-driven improvement (Instruments `.trace` provided)
 Trigger whenever the user's request references a `.trace` file. A target SwiftUI source file is **optional** — if given, cite specific lines; if not, recommend where to look based on view names and symbols the trace already reveals.
 
-Full reference: `references/trace-analysis.md`. Summary of the composition pattern:
+Full reference: `swiftui-expert-skill/references/trace-analysis.md`. Summary of the composition pattern:
 
 1. **Scope the analysis.** Ask yourself: does the user want the whole trace, or a slice?
    - "focus on X / after X / between X and Y / during X" → **resolve to a window first** (see step 2).
@@ -83,7 +83,7 @@ Full reference: `references/trace-analysis.md`. Summary of the composition patte
    python3 "${SKILL_DIR}/scripts/analyze_trace.py" --trace <path> \
        --json-only --top 10 [--window START_MS:END_MS]
    ```
-4. **Interpret with `references/trace-analysis.md`** — key diagnostics:
+4. **Interpret with `swiftui-expert-skill/references/trace-analysis.md`** — key diagnostics:
    - `main_running_coverage_pct` inside each correlation (<25% = blocked; ≥75% = CPU-bound).
    - `swiftui-causes.top_sources` reveals *why* updates keep happening — high-edge-count sources like `UserDefaultObserver.send()` or wide `EnvironmentWriter` entries are structural invalidation bugs. Fixing one often collapses many downstream hot views.
 5. **When a specific view shows as expensive, ask who's invalidating it.** Use `--fanin-for "<view name>"` to get the ranked list of source nodes driving the updates.
@@ -97,39 +97,39 @@ Consult the reference file for each topic relevant to the current task:
 
 | Topic | Reference |
 |-------|-----------|
-| State management | `references/state-management.md` |
-| Environment and `@Entry` | `references/environment-patterns.md` |
-| View composition | `references/view-structure.md` |
-| View modifiers and identity | `references/modifier-patterns.md` |
-| Performance | `references/performance-patterns.md` |
-| Lists and ForEach | `references/list-patterns.md` |
-| Resizable layout, safe areas, two-column reflow, foldable grids, arrangements, and reserved regions | `references/layout-best-practices.md` |
-| iPhone Duo, foldable, or large-display screens (read first to choose the technique) | `references/iphone-duo.md` |
-| Sheets, navigation, `NavigationSplitView` on large displays, and tab bar/sidebar (`sidebarAdaptable`) | `references/sheet-navigation-patterns.md` |
-| ScrollView, scroll position, and scroll geometry | `references/scroll-patterns.md` |
-| Focus management | `references/focus-patterns.md` |
-| Animations (basics) | `references/animation-basics.md` |
-| Animations (transitions) | `references/animation-transitions.md` |
-| Animations (advanced) | `references/animation-advanced.md` |
-| Accessibility | `references/accessibility-patterns.md` |
-| Swift Charts | `references/charts.md` |
-| Charts accessibility | `references/charts-accessibility.md` |
-| Image optimization and display scale | `references/image-optimization.md` |
-| Toolbars | `references/toolbar-patterns.md` |
-| Document-based apps | `references/document-apps.md` |
-| WebKit | `references/webkit-integration.md` |
-| Styled text editing | `references/styled-text-editing.md` |
-| Liquid Glass (iOS 26+) | `references/liquid-glass.md` |
-| macOS scenes | `references/macos-scenes.md` |
-| macOS window styling | `references/macos-window-styling.md` |
-| macOS views | `references/macos-views.md` |
-| Text patterns | `references/text-patterns.md` |
-| Localization | `references/localization.md` |
-| Deprecated API lookup | `references/latest-apis.md` |
-| Handling soft-deprecated APIs | `references/soft-deprecation.md` |
-| Previews | `references/previews.md` |
-| Instruments trace analysis | `references/trace-analysis.md` |
-| Instruments trace recording | `references/trace-recording.md` |
+| State management | `swiftui-expert-skill/references/state-management.md` |
+| Environment and `@Entry` | `swiftui-expert-skill/references/environment-patterns.md` |
+| View composition | `swiftui-expert-skill/references/view-structure.md` |
+| View modifiers and identity | `swiftui-expert-skill/references/modifier-patterns.md` |
+| Performance | `swiftui-expert-skill/references/performance-patterns.md` |
+| Lists and ForEach | `swiftui-expert-skill/references/list-patterns.md` |
+| Resizable layout, safe areas, two-column reflow, foldable grids, arrangements, and reserved regions | `swiftui-expert-skill/references/layout-best-practices.md` |
+| iPhone Duo, foldable, or large-display screens (read first to choose the technique) | `swiftui-expert-skill/references/iphone-duo.md` |
+| Sheets, navigation, `NavigationSplitView` on large displays, and tab bar/sidebar (`sidebarAdaptable`) | `swiftui-expert-skill/references/sheet-navigation-patterns.md` |
+| ScrollView, scroll position, and scroll geometry | `swiftui-expert-skill/references/scroll-patterns.md` |
+| Focus management | `swiftui-expert-skill/references/focus-patterns.md` |
+| Animations (basics) | `swiftui-expert-skill/references/animation-basics.md` |
+| Animations (transitions) | `swiftui-expert-skill/references/animation-transitions.md` |
+| Animations (advanced) | `swiftui-expert-skill/references/animation-advanced.md` |
+| Accessibility | `swiftui-expert-skill/references/accessibility-patterns.md` |
+| Swift Charts | `swiftui-expert-skill/references/charts.md` |
+| Charts accessibility | `swiftui-expert-skill/references/charts-accessibility.md` |
+| Image optimization and display scale | `swiftui-expert-skill/references/image-optimization.md` |
+| Toolbars | `swiftui-expert-skill/references/toolbar-patterns.md` |
+| Document-based apps | `swiftui-expert-skill/references/document-apps.md` |
+| WebKit | `swiftui-expert-skill/references/webkit-integration.md` |
+| Styled text editing | `swiftui-expert-skill/references/styled-text-editing.md` |
+| Liquid Glass (iOS 26+) | `swiftui-expert-skill/references/liquid-glass.md` |
+| macOS scenes | `swiftui-expert-skill/references/macos-scenes.md` |
+| macOS window styling | `swiftui-expert-skill/references/macos-window-styling.md` |
+| macOS views | `swiftui-expert-skill/references/macos-views.md` |
+| Text patterns | `swiftui-expert-skill/references/text-patterns.md` |
+| Localization | `swiftui-expert-skill/references/localization.md` |
+| Deprecated API lookup | `swiftui-expert-skill/references/latest-apis.md` |
+| Handling soft-deprecated APIs | `swiftui-expert-skill/references/soft-deprecation.md` |
+| Previews | `swiftui-expert-skill/references/previews.md` |
+| Instruments trace analysis | `swiftui-expert-skill/references/trace-analysis.md` |
+| Instruments trace recording | `swiftui-expert-skill/references/trace-recording.md` |
 
 ## Correctness Checklist
 

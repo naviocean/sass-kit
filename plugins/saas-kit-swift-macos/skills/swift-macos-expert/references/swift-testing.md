@@ -85,7 +85,7 @@ let first = try #require(items.first)
 
 ## `@Suite` and Test Organization
 
-See [references/testing-patterns.md](references/testing-patterns.md) for suite organization, confirmation patterns, known-issue handling, and execution-model details.
+See [swift-testing/references/testing-patterns.md](swift-testing/references/testing-patterns.md) for suite organization, confirmation patterns, known-issue handling, and execution-model details.
 
 ## Execution Model
 
@@ -118,7 +118,7 @@ suite at a time, compare discovery/pass/fail/skip counts, and keep UI automation
 performance benchmarks, and common snapshot flows on XCTest/XCUITest or snapshot
 tooling. Separate files or targets when that makes runner expectations clearer.
 
-For Xcode 27-era mixed helpers, check the configured interoperability mode rather than claiming cross-framework APIs are forbidden. Older test plans inherit `limited`; new projects use `complete`; `strict` and `none` are also available. Prefer `complete` or `strict` during migration and use `SWIFT_TESTING_XCTEST_INTEROP_MODE` for SwiftPM when needed. See [references/testing-advanced.md](references/testing-advanced.md) for the mode matrix and toolchain gates.
+For Xcode 27-era mixed helpers, check the configured interoperability mode rather than claiming cross-framework APIs are forbidden. Older test plans inherit `limited`; new projects use `complete`; `strict` and `none` are also available. Prefer `complete` or `strict` during migration and use `SWIFT_TESTING_XCTEST_INTEROP_MODE` for SwiftPM when needed. See [swift-testing/references/testing-advanced.md](swift-testing/references/testing-advanced.md) for the mode matrix and toolchain gates.
 
 Do not mechanically replace every XCTest assertion with `#expect`; preserve
 required unwraps and unconditional failures with these migration defaults:
@@ -128,7 +128,7 @@ required unwraps and unconditional failures with these migration defaults:
 - UI tests, performance benchmarks, and common snapshot-test flows stay on XCTest/XCUITest or snapshot tooling.
 - Put `@available` on individual `@Test` functions, not on suite types or their containing types.
 
-See [references/testing-patterns.md](references/testing-patterns.md) for migration examples and [references/testing-advanced.md](references/testing-advanced.md) for Swift/Xcode version gates.
+See [swift-testing/references/testing-patterns.md](swift-testing/references/testing-patterns.md) for migration examples and [swift-testing/references/testing-advanced.md](swift-testing/references/testing-advanced.md) for Swift/Xcode version gates.
 
 ## Known Issues
 
@@ -156,11 +156,11 @@ If no known issues are recorded, Swift Testing records a distinct issue notifyin
 
 ## Additional Patterns
 
-See [references/testing-patterns.md](references/testing-patterns.md) for parameterized tests, tags and suites, async testing, traits, and execution-model details.
+See [swift-testing/references/testing-patterns.md](swift-testing/references/testing-patterns.md) for parameterized tests, tags and suites, async testing, traits, and execution-model details.
 
 ## Test Attachments
 
-Attach diagnostic data to test results for debugging failures. See [references/testing-patterns.md](references/testing-patterns.md) for full examples.
+Attach diagnostic data to test results for debugging failures. See [swift-testing/references/testing-patterns.md](swift-testing/references/testing-patterns.md) for full examples.
 
 ```swift
 @Test func generateReport() async throws {
@@ -190,7 +190,7 @@ when correcting exit-test code.
 ## Version-Gated APIs
 
 For advanced APIs, state the exact toolchain and runtime gate beside the
-correction. This is the canonical summary; [references/testing-advanced.md](references/testing-advanced.md)
+correction. This is the canonical summary; [swift-testing/references/testing-advanced.md](swift-testing/references/testing-advanced.md)
 contains the detailed matrix and examples.
 
 ```swift
@@ -238,5 +238,5 @@ contains the detailed matrix and examples.
 
 ## References
 
-- Testing patterns: [references/testing-patterns.md](references/testing-patterns.md)
-- Advanced testing (warnings, cancellation, image attachments): [references/testing-advanced.md](references/testing-advanced.md)
+- Testing patterns: [swift-testing/references/testing-patterns.md](swift-testing/references/testing-patterns.md)
+- Advanced testing (warnings, cancellation, image attachments): [swift-testing/references/testing-advanced.md](swift-testing/references/testing-advanced.md)

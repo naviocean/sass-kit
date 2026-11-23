@@ -109,7 +109,7 @@ print(result.explanation)
 
 ## Detailed patterns and worked examples
 
-Detailed pattern documentation lives in `references/details.md`. Read that file when the navigation tier above is insufficient.
+Detailed pattern documentation lives in `prompt-engineering-patterns/references/details.md`. Read that file when the navigation tier above is insufficient.
 
 ## Best Practices
 

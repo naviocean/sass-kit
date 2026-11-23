@@ -260,7 +260,7 @@ let elapsed = continuous.now - continuous.epoch  // Duration since system boot
    exhausted safer alternatives. It is an unsafe audit boundary, not a
    synchronization primitive. For the narrow unsafe-pointer capture pattern in
    a synchronous parallel loop, follow the proof requirements in
-   [bridging and interop](references/bridging-interop.md#synchronous-parallel-for-concurrentperform-versus-task-groups).
+   [bridging and interop](swift-concurrency/references/bridging-interop.md#synchronous-parallel-for-concurrentperform-versus-task-groups).
    Disjoint per-iteration access can eliminate conflicting concurrent access
    and the need for synchronization; disjointness is not itself synchronization.
 6. Never add manual locks (`NSLock`, `DispatchSemaphore`) inside actors.
@@ -414,7 +414,7 @@ paths, or bridging C/ObjC — use low-level synchronization primitives:
 **Key rule:** Never put locks inside actors (double synchronization), and never
 hold a lock across `await` (blocks a thread through suspension and can starve
 the cooperative pool or deadlock). See
-[references/synchronization-primitives.md](references/synchronization-primitives.md) for full API details, code examples,
+[swift-concurrency/references/synchronization-primitives.md](swift-concurrency/references/synchronization-primitives.md) for full API details, code examples,
 and a decision guide for choosing locks vs actors.
 `Mutex.withLock` and `OSAllocatedUnfairLock.withLock` use synchronous closures;
 that API shape is what keeps critical sections non-suspending.
@@ -452,7 +452,7 @@ escape, and no lock is held across `await`.
     `DispatchQueue.concurrentPerform`; a task group is an async design
     alternative, not a drop-in replacement for a synchronous API. Follow the
     capture and memory-safety audit in
-    [bridging and interop](references/bridging-interop.md#synchronous-parallel-for-concurrentperform-versus-task-groups).
+    [bridging and interop](swift-concurrency/references/bridging-interop.md#synchronous-parallel-for-concurrentperform-versus-task-groups).
     In every review of this diagnostic, explicitly connect its `@Sendable`
     operation to both non-`Sendable` unsafe buffer views, and confine any
     opt-out to proven local base-pointer bindings. Every review that retains the
@@ -476,10 +476,10 @@ escape, and no lock is held across `await`.
 
 ## References
 
-- [references/concurrency-patterns.md](references/concurrency-patterns.md) — detailed concurrency patterns and migration examples
-- [references/approachable-concurrency.md](references/approachable-concurrency.md) — approachable concurrency mode quick-reference
-- [references/swiftui-concurrency.md](references/swiftui-concurrency.md) — SwiftUI-specific concurrency guidance
-- [references/synchronization-primitives.md](references/synchronization-primitives.md) — Mutex, OSAllocatedUnfairLock, locks vs actors
-- [references/bridging-interop.md](references/bridging-interop.md) — checked continuations, delegate bridging, GCD migration table
-- [references/diagnostics.md](references/diagnostics.md) — compiler diagnostic → fix reference, strict concurrency adoption
-- [references/async-algorithms.md](references/async-algorithms.md) — swift-async-algorithms: debounce, throttle, merge, combineLatest, chunks
+- [swift-concurrency/references/concurrency-patterns.md](swift-concurrency/references/concurrency-patterns.md) — detailed concurrency patterns and migration examples
+- [swift-concurrency/references/approachable-concurrency.md](swift-concurrency/references/approachable-concurrency.md) — approachable concurrency mode quick-reference
+- [swift-concurrency/references/swiftui-concurrency.md](swift-concurrency/references/swiftui-concurrency.md) — SwiftUI-specific concurrency guidance
+- [swift-concurrency/references/synchronization-primitives.md](swift-concurrency/references/synchronization-primitives.md) — Mutex, OSAllocatedUnfairLock, locks vs actors
+- [swift-concurrency/references/bridging-interop.md](swift-concurrency/references/bridging-interop.md) — checked continuations, delegate bridging, GCD migration table
+- [swift-concurrency/references/diagnostics.md](swift-concurrency/references/diagnostics.md) — compiler diagnostic → fix reference, strict concurrency adoption
+- [swift-concurrency/references/async-algorithms.md](swift-concurrency/references/async-algorithms.md) — swift-async-algorithms: debounce, throttle, merge, combineLatest, chunks

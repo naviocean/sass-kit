@@ -38,7 +38,7 @@ This skill provides detailed guidance through progressive disclosure. Load speci
 
 ### Unit Testing Resources
 
-**File**: `resources/unit-testing.md`
+**File**: `temporal-python-testing/resources/unit-testing.md`
 **When to load**: Testing individual workflows or activities in isolation
 **Contains**:
 
@@ -50,7 +50,7 @@ This skill provides detailed guidance through progressive disclosure. Load speci
 
 ### Integration Testing Resources
 
-**File**: `resources/integration-testing.md`
+**File**: `temporal-python-testing/resources/integration-testing.md`
 **When to load**: Testing workflows with mocked external dependencies
 **Contains**:
 
@@ -62,7 +62,7 @@ This skill provides detailed guidance through progressive disclosure. Load speci
 
 ### Replay Testing Resources
 
-**File**: `resources/replay-testing.md`
+**File**: `temporal-python-testing/resources/replay-testing.md`
 **When to load**: Validating determinism or deploying workflow changes
 **Contains**:
 
@@ -73,7 +73,7 @@ This skill provides detailed guidance through progressive disclosure. Load speci
 
 ### Local Development Resources
 
-**File**: `resources/local-setup.md`
+**File**: `temporal-python-testing/resources/local-setup.md`
 **When to load**: Setting up development environment
 **Contains**:
 
@@ -146,10 +146,10 @@ async def test_activity():
 
 **Load specific resource when needed**:
 
-- "Show me unit testing patterns" → Load `resources/unit-testing.md`
-- "How do I mock activities?" → Load `resources/integration-testing.md`
-- "Setup local Temporal server" → Load `resources/local-setup.md`
-- "Validate determinism" → Load `resources/replay-testing.md`
+- "Show me unit testing patterns" → Load `temporal-python-testing/resources/unit-testing.md`
+- "How do I mock activities?" → Load `temporal-python-testing/resources/integration-testing.md`
+- "Setup local Temporal server" → Load `temporal-python-testing/resources/local-setup.md`
+- "Validate determinism" → Load `temporal-python-testing/resources/replay-testing.md`
 
 ## Additional References
 

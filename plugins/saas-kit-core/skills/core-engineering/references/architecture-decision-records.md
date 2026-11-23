@@ -44,9 +44,9 @@ Proposed → Accepted → Deprecated → Superseded
            Rejected
 ```
 
-Before drafting a standard, lightweight, or Y-statement ADR, read [decision templates](references/decision-templates.md).
+Before drafting a standard, lightweight, or Y-statement ADR, read [decision templates](architecture-decision-records/references/decision-templates.md).
 
-Before drafting a deprecation ADR or RFC, read [deprecation and RFC templates](references/deprecation-rfc-templates.md).
+Before drafting a deprecation ADR or RFC, read [deprecation and RFC templates](architecture-decision-records/references/deprecation-rfc-templates.md).
 
 ## ADR Management
 

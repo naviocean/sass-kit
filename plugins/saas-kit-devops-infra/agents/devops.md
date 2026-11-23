@@ -103,6 +103,15 @@ Store operational learnings and infrastructure decisions:
 | `secrets-management` | When configuring secrets rotation, Vault integration, or CI/CD secret injection. |
 | `database-migration` | When planning zero-downtime database deployment strategies and rollback procedures. |
 
+### Shared Core & Standards
+
+| Skill | When to Load |
+|---|---|
+| `coding-standards` | Always — clean YAML/HCL/Docker conventions, linting, error handling. |
+| `git-workflow` | Always — conventional commits, release tags, PR workflows. |
+| `gitnexus-exploring` | When tracing workspace build targets and service dependencies. |
+| `continuous-learning` | When an infra/CI pattern repeats 3+ times — record as instinct. |
+
 ## Key Principles
 
 ### Containerization Standards

@@ -54,7 +54,7 @@ The build tool plugin runs SwiftLint automatically on every build. No run script
 
 > **First build**: Xcode prompts to trust the plugin. Select "Trust & Enable All" for the SwiftLintPlugins package.
 
-For alternatives (run scripts, command plugin, Homebrew CLI), see [references/plugins-run-scripts-and-integrations.md](references/plugins-run-scripts-and-integrations.md).
+For alternatives (run scripts, command plugin, Homebrew CLI), see [swiftlint/references/plugins-run-scripts-and-integrations.md](swiftlint/references/plugins-run-scripts-and-integrations.md).
 
 ## Configuration
 
@@ -116,7 +116,7 @@ Key configuration options:
 | `allow_zero_lintable_files` | Suppress the error when no Swift files are found |
 | `reporter` | Output format: `xcode` (default), `json`, `checkstyle`, `sarif`, `csv`, `emoji`, etc. |
 
-For full configuration details including severity tuning, environment-variable interpolation, and nested/remote configs, see [references/adoption-and-configuration.md](references/adoption-and-configuration.md).
+For full configuration details including severity tuning, environment-variable interpolation, and nested/remote configs, see [swiftlint/references/adoption-and-configuration.md](swiftlint/references/adoption-and-configuration.md).
 
 ## Rule Selection Strategy
 
@@ -180,7 +180,7 @@ Disable all rules (use sparingly):
 - For generated code, prefer `excluded` paths in `.swiftlint.yml` over inline suppressions.
 - For test targets with different tolerance, use a child configuration (see [Multiple Configurations](#multiple-configurations)).
 
-For full suppression syntax, see [references/rules-suppressions-and-baselines.md](references/rules-suppressions-and-baselines.md).
+For full suppression syntax, see [swiftlint/references/rules-suppressions-and-baselines.md](swiftlint/references/rules-suppressions-and-baselines.md).
 
 ## Baselines
 
@@ -202,7 +202,7 @@ swiftlint --baseline .swiftlint.baseline
 
 In CI, pass `--baseline` so only new violations fail the build. Burn down the baseline over time by fixing legacy violations and regenerating.
 
-For baseline workflows and rollout strategy, see [references/rules-suppressions-and-baselines.md](references/rules-suppressions-and-baselines.md).
+For baseline workflows and rollout strategy, see [swiftlint/references/rules-suppressions-and-baselines.md](swiftlint/references/rules-suppressions-and-baselines.md).
 
 ## Autocorrect
 
@@ -252,7 +252,7 @@ locally or in a validation job. On a nonzero exit, inspect and fix the new
 violations, then rerun the same command until it passes; do not regenerate the
 baseline merely to hide the failure.
 
-For full CI recipes and reporter details, see [references/plugins-run-scripts-and-integrations.md](references/plugins-run-scripts-and-integrations.md).
+For full CI recipes and reporter details, see [swiftlint/references/plugins-run-scripts-and-integrations.md](swiftlint/references/plugins-run-scripts-and-integrations.md).
 
 ## Integration Decision Tree
 
@@ -268,7 +268,7 @@ Choose how to run SwiftLint based on project shape:
 
 The build tool plugin is preferred for local development because it requires no PATH configuration, pins the SwiftLint version via package resolution, and runs automatically on build.
 
-For detailed setup instructions for each integration, see [references/plugins-run-scripts-and-integrations.md](references/plugins-run-scripts-and-integrations.md).
+For detailed setup instructions for each integration, see [swiftlint/references/plugins-run-scripts-and-integrations.md](swiftlint/references/plugins-run-scripts-and-integrations.md).
 
 ## Multiple Configurations
 
@@ -298,7 +298,7 @@ swiftlint --config .swiftlint.yml --config .swiftlint-extra.yml
 
 Later configs override earlier ones for overlapping keys.
 
-For nested config resolution, remote configs, and CLI multi-config details, see [references/adoption-and-configuration.md](references/adoption-and-configuration.md).
+For nested config resolution, remote configs, and CLI multi-config details, see [swiftlint/references/adoption-and-configuration.md](swiftlint/references/adoption-and-configuration.md).
 
 ## Common Mistakes
 
@@ -312,7 +312,7 @@ For nested config resolution, remote configs, and CLI multi-config details, see 
 
 5. **Excluding too broadly.** Excluding `Tests/` entirely means test code gets no linting. Use a child config with relaxed rules instead.
 
-6. **Ignoring the toolchain mismatch.** SwiftLint must be built with (or compatible with) the same Swift toolchain used to compile your project. Mismatches cause parsing errors. See [references/plugins-run-scripts-and-integrations.md](references/plugins-run-scripts-and-integrations.md) for multi-toolchain guidance.
+6. **Ignoring the toolchain mismatch.** SwiftLint must be built with (or compatible with) the same Swift toolchain used to compile your project. Mismatches cause parsing errors. See [swiftlint/references/plugins-run-scripts-and-integrations.md](swiftlint/references/plugins-run-scripts-and-integrations.md) for multi-toolchain guidance.
 
 7. **Adopting too many opt-in rules at once in a large codebase.** This creates an overwhelming number of violations. Add rules incrementally and use baselines.
 
@@ -335,11 +335,11 @@ For nested config resolution, remote configs, and CLI multi-config details, see 
 
 ## References
 
-- [references/adoption-and-configuration.md](references/adoption-and-configuration.md) — Installation paths, `.swiftlint.yml` deep dive, severity tuning, environment variables, nested/remote configs, rollout strategy
-- [references/plugins-run-scripts-and-integrations.md](references/plugins-run-scripts-and-integrations.md) — Build tool plugin, command plugin, run scripts, CI recipes, multi-toolchain guidance, VS Code, Fastlane, Docker, pre-commit
-- [references/rules-suppressions-and-baselines.md](references/rules-suppressions-and-baselines.md) — Default vs opt-in vs analyzer rules, suppression syntax, baseline workflows, false-positive handling
-- [references/rule-reference.md](references/rule-reference.md) — Bundled exhaustive rule index for local lookup; verify current details with `swiftlint rules` or the official rule directory
-- [references/custom-rules-and-analyze.md](references/custom-rules-and-analyze.md) — Regex custom rules, Swift custom rules (brief), `swiftlint analyze`, compiler-log workflow
+- [swiftlint/references/adoption-and-configuration.md](swiftlint/references/adoption-and-configuration.md) — Installation paths, `.swiftlint.yml` deep dive, severity tuning, environment variables, nested/remote configs, rollout strategy
+- [swiftlint/references/plugins-run-scripts-and-integrations.md](swiftlint/references/plugins-run-scripts-and-integrations.md) — Build tool plugin, command plugin, run scripts, CI recipes, multi-toolchain guidance, VS Code, Fastlane, Docker, pre-commit
+- [swiftlint/references/rules-suppressions-and-baselines.md](swiftlint/references/rules-suppressions-and-baselines.md) — Default vs opt-in vs analyzer rules, suppression syntax, baseline workflows, false-positive handling
+- [swiftlint/references/rule-reference.md](swiftlint/references/rule-reference.md) — Bundled exhaustive rule index for local lookup; verify current details with `swiftlint rules` or the official rule directory
+- [swiftlint/references/custom-rules-and-analyze.md](swiftlint/references/custom-rules-and-analyze.md) — Regex custom rules, Swift custom rules (brief), `swiftlint analyze`, compiler-log workflow
 - [SwiftLint documentation](https://realm.github.io/SwiftLint/) — Official docs
 - [SwiftLint rule directory](https://realm.github.io/SwiftLint/rule-directory.html) — Full categorized rule list
 - [SimplyDanny/SwiftLintPlugins](https://github.com/SimplyDanny/SwiftLintPlugins) — Recommended plugin package

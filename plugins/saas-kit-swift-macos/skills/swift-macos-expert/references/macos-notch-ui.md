@@ -39,14 +39,14 @@ Using `screen.frame` (not `screen.visibleFrame`) is critical -- `visibleFrame` e
 
 ## Reference Files
 
-- `references/NotchWindow.swift` -- Drop-in NSPanel subclass with show/hide and positioning
-- `references/NotchShape.swift` -- The Dynamic Island shape with animatable corner radii
+- `macos-notch-ui/references/NotchWindow.swift` -- Drop-in NSPanel subclass with show/hide and positioning
+- `macos-notch-ui/references/NotchShape.swift` -- The Dynamic Island shape with animatable corner radii
 
 ## Step-by-Step Integration
 
 ### 1. Add the NotchShape
 
-Copy `references/NotchShape.swift`. This is a SwiftUI `Shape` with two configurable corner radii:
+Copy `macos-notch-ui/references/NotchShape.swift`. This is a SwiftUI `Shape` with two configurable corner radii:
 
 - `topCornerRadius` (default 10) -- the concave "ear" curves at the top that mimic the hardware notch's inverse corners
 - `bottomCornerRadius` (default 16) -- the standard convex rounded corners at the bottom
@@ -81,7 +81,7 @@ struct NotchContentView: View {
 
 ### 3. Add the NotchWindow
 
-Copy `references/NotchWindow.swift`. This is a generic NSPanel that:
+Copy `macos-notch-ui/references/NotchWindow.swift`. This is a generic NSPanel that:
 
 - Creates a borderless, transparent, non-activating panel
 - Positions at `CGShieldingWindowLevel` (above everything)

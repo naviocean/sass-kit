@@ -199,7 +199,7 @@ env | grep -o '^DB_[A-Za-z0-9_]*'
 
 ## Detailed worked examples and patterns
 
-Detailed sections (starting with `## Advanced Patterns`) live in `references/details.md`. Read that file when the navigation summary above is insufficient.
+Detailed sections (starting with `## Advanced Patterns`) live in `python-configuration/references/details.md`. Read that file when the navigation summary above is insufficient.
 
 ## Best Practices Summary
 

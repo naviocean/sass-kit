@@ -13,7 +13,7 @@ A .docx file is a ZIP archive containing XML files. A .dotx file is a Word templ
 
 | Task | Guide |
 |------|-------|
-| Edit or fill a template | Read [editing.md](editing.md) — **read this first when a template is attached** |
+| Edit or fill a template | Read [editing.md](docx/editing.md) — **read this first when a template is attached** |
 | Create from scratch | Read below (Creating New Documents) |
 | Read/analyze content | `pandoc` or unpack for raw XML |
 
@@ -21,7 +21,7 @@ A .docx file is a ZIP archive containing XML files. A .dotx file is a Word templ
 
 ## When Given a Template — Read editing.md
 
-**If a .docx or .dotx template is attached, you MUST read [editing.md](editing.md) before doing anything.** It contains the full workflow, all scripts, and pitfalls.
+**If a .docx or .dotx template is attached, you MUST read [editing.md](docx/editing.md) before doing anything.** It contains the full workflow, all scripts, and pitfalls.
 
 Key points:
 - **Edit the template directly** — unpack, use scripts to replace text, repack

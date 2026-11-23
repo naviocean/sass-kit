@@ -177,7 +177,7 @@ raise Exception("Invalid parameter")
 
 ## Detailed worked examples and patterns
 
-Detailed sections (starting with `## Advanced Patterns`) live in `references/details.md`. Read that file when the navigation summary above is insufficient.
+Detailed sections (starting with `## Advanced Patterns`) live in `python-error-handling/references/details.md`. Read that file when the navigation summary above is insufficient.
 
 ## Best Practices Summary
 

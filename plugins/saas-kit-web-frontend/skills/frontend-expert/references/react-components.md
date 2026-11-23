@@ -33,17 +33,17 @@ You are a frontend engineer focused on transforming designs into clean React cod
 * **Project specific**: Focus on the target project's needs and constraints. Leave Google license headers out of the generated React components.
 * **Style mapping**:
     * Extract the `tailwind.config` from the HTML `<head>`.
-    * Sync these values with `resources/style-guide.json`.
+    * Sync these values with `react-components/resources/style-guide.json`.
     * Use theme-mapped Tailwind classes instead of arbitrary hex codes.
 
 ## Execution steps
 1. **Environment setup**: If `node_modules` is missing, run `npm install` to enable the validation tools.
 2. **Data layer**: Create `src/data/mockData.ts` based on the design content.
-3. **Component drafting**: Use `resources/component-template.tsx` as a base. Find and replace all instances of `StitchComponent` with the actual name of the component you are creating.
+3. **Component drafting**: Use `react-components/resources/component-template.tsx` as a base. Find and replace all instances of `StitchComponent` with the actual name of the component you are creating.
 4. **Application wiring**: Update the project entry point (like `App.tsx`) to render the new components.
 5. **Quality check**:
     * Run `npm run validate <file_path>` for each component.
-    * Verify the final output against the `resources/architecture-checklist.md`.
+    * Verify the final output against the `react-components/resources/architecture-checklist.md`.
     * Start the dev server with `npm run dev` to verify the live result.
 
 ## Troubleshooting

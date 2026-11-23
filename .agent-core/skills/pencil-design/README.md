@@ -76,15 +76,15 @@ This skill enforces 6 rules that prevent common agent mistakes:
 ### 5. Reuse Existing Assets (Logos, Icons, Images)
 **Never generate a new logo when one exists.** Search the document and copy existing assets with `C()` instead of regenerating.
 
-### 6. Always Load the `frontend-design` Skill
-**Never design without aesthetic direction.** Load the `frontend-design` skill first to get bold, intentional design guidelines and avoid generic AI aesthetics.
+### 6. Always Load the `design-taste-frontend` Skill
+**Never design without aesthetic direction.** Load the `design-taste-frontend` skill (`references/aesthetic-philosophies.md`) first to get bold, intentional design guidelines and avoid generic AI aesthetics.
 
 ## Workflow
 
 ### Starting a New Design
 
 ```
-0. Load `frontend-design` skill   -> Get aesthetic direction
+0. Load `design-taste-frontend` skill   -> Get aesthetic direction
 1. pencil_get_editor_state        -> Understand file state
 2. pencil_batch_get (reusable)    -> Discover components
 3. pencil_get_variables           -> Read design tokens
@@ -96,13 +96,13 @@ This skill enforces 6 rules that prevent common agent mistakes:
 
 ### Design-to-Code
 
-1. Load the `frontend-design` skill
+1. Load the `design-taste-frontend` skill (`references/aesthetic-philosophies.md`)
 2. Call `pencil_get_guidelines` with topic `"code"` and `"tailwind"`
 3. Call `pencil_get_variables` to map tokens to Tailwind `@theme`
 4. Read the design tree with `pencil_batch_get`
 5. Map Pencil components to shadcn/ui components
 6. Generate code using semantic Tailwind classes
-7. Apply `frontend-design` guidelines for typography, color, motion
+7. Apply `design-taste-frontend` guidelines for typography, color, motion
 
 ## Target Stack
 

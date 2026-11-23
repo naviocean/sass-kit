@@ -86,12 +86,12 @@ Before generating any image or logo:
 
 See [references/asset-reuse.md](references/asset-reuse.md) for detailed workflow.
 
-### Rule 6: Always Load the `frontend-design` Skill
+### Rule 6: Always Load the `design-taste-frontend` Skill
 
-**NEVER design in Pencil or generate code from Pencil without first loading the `frontend-design` skill.**
+**NEVER design in Pencil or generate code from Pencil without first loading the `design-taste-frontend` skill (`references/aesthetic-philosophies.md`).**
 
-The `frontend-design` skill provides the aesthetic direction and design quality standards that prevent generic, cookie-cutter UI. You MUST:
-1. Load the `frontend-design` skill at the start of any Pencil design or code generation task
+The `design-taste-frontend` skill provides the aesthetic direction and design quality standards that prevent generic, cookie-cutter UI. You MUST:
+1. Load the `design-taste-frontend` skill (`references/aesthetic-philosophies.md`) at the start of any Pencil design or code generation task
 2. Follow its design thinking process: understand purpose, commit to a bold aesthetic direction, consider differentiation
 3. Apply its guidelines on typography, color, motion, spatial composition, and visual details — both when designing in Pencil and when generating code from Pencil designs
 4. Never produce generic AI aesthetics (overused fonts, cliched color schemes, predictable layouts)
@@ -105,7 +105,7 @@ This applies to both directions:
 ### Starting a New Design
 
 ```
-0. Load `frontend-design` skill   -> Get aesthetic direction and design quality standards
+0. Load `design-taste-frontend` skill   -> Get aesthetic direction and design quality standards
 1. pencil_get_editor_state        -> Understand file state, get schema
 2. pencil_batch_get (reusable)    -> Discover design system components
 3. pencil_get_variables           -> Read design tokens
@@ -135,13 +135,13 @@ See [references/tailwind-shadcn-mapping.md](references/tailwind-shadcn-mapping.m
 See [references/responsive-breakpoints.md](references/responsive-breakpoints.md) for multi-artboard responsive code generation.
 
 Summary:
-1. Load the `frontend-design` skill for aesthetic direction
+1. Load the `design-taste-frontend` skill (`references/aesthetic-philosophies.md`) for aesthetic direction
 2. Call `pencil_get_guidelines` with topic `"code"` and `"tailwind"`
 3. Call `pencil_get_variables` to map design tokens to Tailwind `@theme` declarations
 4. Read the design tree with `pencil_batch_get`
 5. Map reusable Pencil components to shadcn/ui components (Button, Card, Input, etc.)
 6. Generate code using semantic Tailwind classes (`bg-primary`, `rounded-md`), never arbitrary values
-7. Apply `frontend-design` guidelines: distinctive typography, intentional color, motion, spatial composition
+7. Apply `design-taste-frontend` guidelines: distinctive typography, intentional color, motion, spatial composition
 8. Use CVA for custom component variants, `cn()` for class merging, Lucide for icons
 
 ## MCP Tool Quick Reference
@@ -181,8 +181,8 @@ Summary:
 | Ignoring `pencil_get_guidelines` | Always call it for the relevant topic before starting |
 | Using `tailwind.config.ts` | Use CSS `@theme` block (Tailwind v4) |
 | Using Material Icons in code | Map to Lucide icons (`<Search />`, `<ArrowRight />`, etc.) |
-| Skipping `frontend-design` skill | Always load it before designing in Pencil or generating code |
-| Generic AI aesthetics (Inter font, purple gradients) | Follow `frontend-design` guidelines for distinctive, intentional design |
+| Skipping `design-taste-frontend` skill | Always load it before designing in Pencil or generating code |
+| Generic AI aesthetics (Inter font, purple gradients) | Follow `design-taste-frontend` guidelines for distinctive, intentional design |
 
 ## Resources
 

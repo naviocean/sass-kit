@@ -14,10 +14,10 @@ Guide projects from source scaffolding to a publication-ready PDF without leavin
   - `compile.sh` — Runs `quick` (single pass) or `full` (4-pass compile + bibliography resolution) and extracts concise `!` / `file:line:` errors instead of flooding context with full logs.
 - **`assets/`** — Minimal starter templates (`main.tex`, `abstract.tex`), structured chapter skeletons (`chapters/`), and sample `references.bib`.
 - **`references/`** — On-demand guides (load ONLY the relevant guide when needed):
-  - `references/writing-guide.md` — Section-by-section structure and clarity checklist.
-  - `references/venue-style.md` — Venue class rules, margins, table/figure placement, double-blind anonymization.
-  - `references/bibtex-guide.md` — Citation integrity, `.bib` syntax rules, debugging `[?]` / undefined citations.
-  - `references/common-errors.md` — Common LaTeX error messages, cascading fixes, and clean aux rebuild commands.
+  - `latex-paper-writing/references/writing-guide.md` — Section-by-section structure and clarity checklist.
+  - `latex-paper-writing/references/venue-style.md` — Venue class rules, margins, table/figure placement, double-blind anonymization.
+  - `latex-paper-writing/references/bibtex-guide.md` — Citation integrity, `.bib` syntax rules, debugging `[?]` / undefined citations.
+  - `latex-paper-writing/references/common-errors.md` — Common LaTeX error messages, cascading fixes, and clean aux rebuild commands.
 
 ## Workflow A: Initialize & Verify Environment
 
@@ -45,7 +45,7 @@ Guide projects from source scaffolding to a publication-ready PDF without leavin
 
 - Maintain all bibliographic entries in `references.bib`.
 - **Never fabricate citations or DOIs.** If exact metadata (authors, venue, year, DOI/eprint) is unverified, add a `% TODO: verify` comment above the entry and surface it explicitly to the user.
-- Read `references/bibtex-guide.md` for entry types, acronym bracing (`{IEEE}`, `{LLM}`), and author-separator formatting (`and`).
+- Read `latex-paper-writing/references/bibtex-guide.md` for entry types, acronym bracing (`{IEEE}`, `{LLM}`), and author-separator formatting (`and`).
 - Whenever adding new `.bib` entries or `\cite{...}` calls, run a **full compile**:
   ```bash
   bash scripts/compile.sh <target-dir> full
@@ -65,7 +65,7 @@ Environment overrides supported by `compile.sh`:
 
 On failure:
 1. Inspect the **first** reported error only — LaTeX errors cascade; fixing error #1 frequently clears errors #2–N.
-2. Consult `references/common-errors.md` for common triggers (`Extra alignment tab`, `Undefined control sequence`, font issues).
+2. Consult `latex-paper-writing/references/common-errors.md` for common triggers (`Extra alignment tab`, `Undefined control sequence`, font issues).
 3. If an edit caused poisoned `.aux`/`.bbl` state, run a clean rebuild (remove `*.aux *.bbl *.blg *.log *.out *.toc *.fls *.fdb_latexmk *.synctex.gz` and re-run `compile.sh <dir> full`).
 
 ## Workflow E: Pre-Submission & Visual QA
@@ -73,6 +73,6 @@ On failure:
 Before marking a LaTeX deliverable complete:
 1. Run full compile (`compile.sh <dir> full`) and confirm zero `undefined references` / `Citation .* undefined` warnings.
 2. Search for leftover placeholders (`TODO`, `placeholder`, `Your Paper Title Here`, `example.com`, `XXX`).
-3. If double-blind submission is required, verify every item in the anonymization checklist (`references/venue-style.md` § Anonymization).
+3. If double-blind submission is required, verify every item in the anonymization checklist (`latex-paper-writing/references/venue-style.md` § Anonymization).
 4. Optional visual layout inspection without desktop office suites: rasterize critical pages via `pdftoppm -png -r 150 main.pdf preview_page` and inspect visually for overfull boxes, overflowing tables, or clipped figures.
 

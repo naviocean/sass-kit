@@ -40,7 +40,7 @@ Or add it to `Package.swift` if your project uses one:
 
 ## Step 2: Create UpdaterManager.swift
 
-Copy `references/UpdaterManager.swift` into your project. This is a singleton that:
+Copy `macos-auto-update/references/UpdaterManager.swift` into your project. This is a singleton that:
 
 - Creates `SPUStandardUpdaterController` early (before `applicationDidFinishLaunching` returns)
 - Publishes `canCheckForUpdates` for UI binding

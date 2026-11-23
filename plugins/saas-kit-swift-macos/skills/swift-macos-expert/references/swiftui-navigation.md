@@ -60,7 +60,7 @@ path = []                        // Pop to root
 
 **Router pattern:** For apps with complex navigation, use a router object that owns the path and sheet state. Each tab gets its own router instance injected via `.environment()`. Centralize destination mapping with a single `.navigationDestination(for:)` block or a shared `withAppRouter()` modifier.
 
-See [references/navigationstack.md](references/navigationstack.md) for full router examples including per-tab stacks, centralized destination mapping, and generic tab routing.
+See [swiftui-navigation/references/navigationstack.md](swiftui-navigation/references/navigationstack.md) for full router examples including per-tab stacks, centralized destination mapping, and generic tab routing.
 
 ## NavigationSplitView (Multi-Column)
 
@@ -159,7 +159,7 @@ Fine-tuning: `.fitted(horizontal:vertical:)` constrains fitting axes; `.sticky(h
 Route every programmatic close through the same save/validate/discard gate;
 `interactiveDismissDisabled` guards interactive dismissal only.
 
-**Enum-driven sheet routing:** Define a `SheetDestination` enum that is `Identifiable`, store it on the router, and map it with a shared view modifier. This lets any child view present sheets without prop-drilling. See [references/sheets.md](references/sheets.md) for the full centralized sheet routing pattern.
+**Enum-driven sheet routing:** Define a `SheetDestination` enum that is `Identifiable`, store it on the router, and map it with a shared view modifier. This lets any child view present sheets without prop-drilling. See [swiftui-navigation/references/sheets.md](swiftui-navigation/references/sheets.md) for the full centralized sheet routing pattern.
 
 ## Tab-Based Navigation
 
@@ -196,7 +196,7 @@ struct MainTabView: View {
 - **`.tabViewBottomAccessory { }`** -- attach content below the tab bar (e.g., Now Playing bar)
 - **`TabSection`** -- group tabs into sidebar sections with `.tabPlacement(.sidebarOnly)`
 
-See [references/tabview.md](references/tabview.md) for full TabView patterns including custom bindings, dynamic tabs, and sidebar customization.
+See [swiftui-navigation/references/tabview.md](swiftui-navigation/references/tabview.md) for full TabView patterns including custom bindings, dynamic tabs, and sidebar customization.
 
 ## Deep Links
 
@@ -236,7 +236,7 @@ Register schemes in `Info.plist` under `CFBundleURLTypes`. Handle with `.onOpenU
 
 Advertise activities with `.userActivity()` and receive Handoff or other user activities with `.onContinueUserActivity()`. Declare activity types in `Info.plist` under `NSUserActivityTypes`. Set `isEligibleForHandoff = true` and provide a `webpageURL` as fallback.
 
-See [references/deeplinks.md](references/deeplinks.md) for full examples of AASA configuration, router URL handling, custom URL schemes, and NSUserActivity continuation.
+See [swiftui-navigation/references/deeplinks.md](swiftui-navigation/references/deeplinks.md) for full examples of AASA configuration, router URL handling, custom URL schemes, and NSUserActivity continuation.
 
 ## Common Mistakes
 
@@ -266,9 +266,9 @@ See [references/deeplinks.md](references/deeplinks.md) for full examples of AASA
 
 ## References
 
-- NavigationStack and router patterns: [references/navigationstack.md](references/navigationstack.md)
-- Sheet presentation and routing: [references/sheets.md](references/sheets.md)
-- TabView patterns and iOS 26 API: [references/tabview.md](references/tabview.md)
-- Deep links, universal links, and Handoff: [references/deeplinks.md](references/deeplinks.md)
+- NavigationStack and router patterns: [swiftui-navigation/references/navigationstack.md](swiftui-navigation/references/navigationstack.md)
+- Sheet presentation and routing: [swiftui-navigation/references/sheets.md](swiftui-navigation/references/sheets.md)
+- TabView patterns and iOS 26 API: [swiftui-navigation/references/tabview.md](swiftui-navigation/references/tabview.md)
+- Deep links, universal links, and Handoff: [swiftui-navigation/references/deeplinks.md](swiftui-navigation/references/deeplinks.md)
 - Architecture and state management: see `swiftui-patterns` skill
 - Layout and components: see `swiftui-layout-components` skill

@@ -75,7 +75,7 @@ Use MCP tools directly (no need to load skills first). These are non-negotiable:
 
 ## Skills
 
-Load these skills when their context matches:
+Load these skills when their context matches (for shared Python core skills, also read `skills/python-backend-expert/SKILL.md` in `saas-kit-python-ai`, and `core-engineering` for cross-squad collaboration):
 
 ### AI Foundation (Always)
 
@@ -85,6 +85,10 @@ Load these skills when their context matches:
 | `python-type-safety`      | Always — Pydantic models for structured output & tools.      |
 | `python-testing-patterns` | Always — pytest patterns, mocking, fixtures, TDD for AI.     |
 | `python-code-style`       | Always — ruff conventions, idiomatic Python, formatting.     |
+| `coding-standards`        | Always — strict typing, naming conventions, clean code.      |
+| `git-workflow`            | Always — branch naming, conventional commits, PR format.     |
+| `gitnexus-exploring`      | When navigating unfamiliar modules or call graphs.           |
+| `continuous-learning`     | When a pattern repeats 3+ times — record instinct.           |
 
 ### LangGraph & Agent Workflows
 

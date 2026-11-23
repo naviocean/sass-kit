@@ -158,7 +158,7 @@ Match the error type to the right handler:
 
 If writing, modifying, or debugging LangGraph code, determine the project's language from its existing files, then read the applicable reference before implementing:
 
-- For Python, read [references/python.md](references/python.md).
-- For TypeScript, read [references/typescript.md](references/typescript.md).
+- For Python, read [langgraph-fundamentals/references/python.md](langgraph-fundamentals/references/python.md).
+- For TypeScript, read [langgraph-fundamentals/references/typescript.md](langgraph-fundamentals/references/typescript.md).
 
 Read both only when the task covers both languages. For conceptual questions that require no code, do not load either reference.

@@ -146,3 +146,43 @@ test('build-plugins: bundles skill helper scripts and embeds Mandatory Router Sk
 test('build-plugins --check passes immediately after fresh build', () => {
   execFileSync(process.execPath, [BUILD_SCRIPT, '--check'], { cwd: ROOT, encoding: 'utf8' });
 });
+
+test('build-plugins: explicit router split gives frontend-expert Tailwind/Responsive/Design-Taste and preserves companion dirs', () => {
+  const feRefsDir = join(PLUGINS_DIR, 'saas-kit-web-frontend', 'skills', 'frontend-expert', 'references');
+  for (const expected of [
+    'tailwind-design-system.md',
+    'responsive-design.md',
+    'design-taste-frontend.md',
+    'nextjs-app-router-patterns.md',
+    'shadcn.md',
+  ]) {
+    assert.ok(existsSync(join(feRefsDir, expected)), `frontend-expert missing ${expected}`);
+  }
+
+  // Companion directories & top-level files preserved
+  const companionTargets = [
+    join(PLUGINS_DIR, 'saas-kit-document-office', 'skills', 'document-specialist-expert', 'references', 'latex-paper-writing', 'references', 'writing-guide.md'),
+    join(PLUGINS_DIR, 'saas-kit-devops-infra', 'skills', 'devops-expert', 'references', 'k8s-security-policies', 'assets', 'network-policy-template.yaml'),
+    join(PLUGINS_DIR, 'saas-kit-swift-macos', 'skills', 'swift-macos-expert', 'references', 'macos-notch-ui', 'references', 'NotchWindow.swift'),
+    join(PLUGINS_DIR, 'saas-kit-web-frontend', 'skills', 'frontend-expert', 'references', 'vercel-react-best-practices', 'rules', 'async-parallel.md'),
+    join(PLUGINS_DIR, 'saas-kit-document-office', 'skills', 'document-specialist-expert', 'references', 'pptx', 'creating.md'),
+    join(PLUGINS_DIR, 'saas-kit-rust-systems', 'skills', 'rustacean-expert', 'references', 'axum-web-framework', 'references', 'routing-and-extractors.md'),
+  ];
+  for (const target of companionTargets) {
+    assert.ok(existsSync(target), `Missing compiled companion file: ${target}`);
+  }
+
+  // Rewritten links resolve inside compiled references
+  const latexRef = readFileSync(
+    join(PLUGINS_DIR, 'saas-kit-document-office', 'skills', 'document-specialist-expert', 'references', 'latex-paper-writing.md'),
+    'utf8',
+  );
+  assert.match(latexRef, /latex-paper-writing\/references\/writing-guide\.md/);
+
+  const tddRef = readFileSync(
+    join(PLUGINS_DIR, 'saas-kit-core', 'skills', 'qa-security-expert', 'references', 'test-driven-development.md'),
+    'utf8',
+  );
+  assert.match(tddRef, /test-driven-development\/writing-good-tests\.md/);
+  assert.match(tddRef, /test-driven-development\/references\/seams-and-mocking\.md/);
+});

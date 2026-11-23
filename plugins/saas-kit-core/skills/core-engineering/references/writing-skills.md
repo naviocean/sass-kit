@@ -17,7 +17,7 @@ You write test cases (pressure scenarios with subagents), watch them fail (basel
 
 **REQUIRED BACKGROUND:** You MUST understand superpowers:test-driven-development before using this skill. That skill defines the fundamental RED-GREEN-REFACTOR cycle. This skill adapts TDD to documentation.
 
-**Official guidance:** For Anthropic's official skill authoring best practices, see references/anthropic-best-practices.md. This document provides additional patterns and guidelines that complement the TDD-focused approach in this skill.
+**Official guidance:** For Anthropic's official skill authoring best practices, see writing-skills/references/anthropic-best-practices.md. This document provides additional patterns and guidelines that complement the TDD-focused approach in this skill.
 
 ## What is a Skill?
 
@@ -98,14 +98,14 @@ workflow, because an agent that reads a workflow summary follows it instead
 of reading the skill.
 
 When you write or change a skill's frontmatter, name or description, or
-need to cut its size, read [references/discovery.md](references/discovery.md):
+need to cut its size, read [writing-skills/references/discovery.md](writing-skills/references/discovery.md):
 the SKILL.md template, description and keyword guidance, naming, token
 budgets, and cross-referencing other skills.
 
 ## Flowcharts
 
 When you add or change a flowchart in a skill, read
-[references/flowcharts.md](references/flowcharts.md) first: when a flowchart
+[writing-skills/references/flowcharts.md](writing-skills/references/flowcharts.md) first: when a flowchart
 earns its place, the graphviz conventions, and how to render one.
 
 ## Code Examples
@@ -251,7 +251,7 @@ Before writing guidance, classify the baseline failure. The form that bulletproo
 
 | Baseline failure | Right form | Wrong form |
 |---|---|---|
-| Skips/violates a rule under pressure (knows better, does it anyway) | Prohibition + rationalization table + red flags (see references/bulletproofing.md) | Soft guidance ("prefer...", "consider...") |
+| Skips/violates a rule under pressure (knows better, does it anyway) | Prohibition + rationalization table + red flags (see writing-skills/references/bulletproofing.md) | Soft guidance ("prefer...", "consider...") |
 | Complies, but output has the wrong shape (bloated prompt, buried verdict, restated spec) | Positive recipe or contract: state what the output IS — its parts, in order | Prohibition list ("don't restate", "never narrate") |
 | Omits a required element from something they already produce | Structural: REQUIRED field or slot in the template they fill in | Prose reminders near the template |
 | Behavior should depend on a condition | Conditional keyed to an observable predicate ("if the brief exists, reference it") | Unconditional rule + exemption clauses |
@@ -265,7 +265,7 @@ Before writing guidance, classify the baseline failure. The form that bulletproo
 ## Bulletproofing Against Rationalization
 
 When the baseline failure is a discipline failure, read
-[references/bulletproofing.md](references/bulletproofing.md) before you write
+[writing-skills/references/bulletproofing.md](writing-skills/references/bulletproofing.md) before you write
 the guidance: closing loopholes, the spirit-vs-letter line, the
 rationalization table, and the red-flags list.
 
@@ -304,7 +304,7 @@ Full pressure-scenario runs are the final gate, but they are slow and expensive 
 
 Micro-tests verify wording; they do not replace pressure scenarios for discipline skills.
 
-**Testing methodology:** See [references/testing-skills-with-subagents.md](references/testing-skills-with-subagents.md) for the complete testing methodology:
+**Testing methodology:** See [writing-skills/references/testing-skills-with-subagents.md](writing-skills/references/testing-skills-with-subagents.md) for the complete testing methodology:
 - How to write pressure scenarios
 - Pressure types (time, sunk cost, authority, exhaustion)
 - Plugging holes systematically

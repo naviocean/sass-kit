@@ -6,9 +6,9 @@ Pencil enables a two-way sync between design and code. This reference covers the
 
 **Target stack**: React/Next.js, TypeScript, Tailwind CSS v4, shadcn/ui, Lucide icons, CVA for variants.
 
-## Step 1: Load the `frontend-design` Skill
+## Step 1: Load `design-taste-frontend` (`references/aesthetic-philosophies.md`)
 
-**MANDATORY.** Before any design or code generation work, load the `frontend-design` skill. This provides:
+**MANDATORY.** Before any design or code generation work, load `design-taste-frontend` and `references/aesthetic-philosophies.md`. This provides:
 
 - Aesthetic direction: bold, intentional design choices (not generic AI slop)
 - Typography guidelines: distinctive font pairings, not overused defaults
@@ -369,7 +369,7 @@ See [tailwind-shadcn-mapping.md](tailwind-shadcn-mapping.md) for the full quick-
 
 ### Always Do
 
-- Load the `frontend-design` skill and apply its aesthetic guidelines to the generated code
+- Load `design-taste-frontend` (`references/aesthetic-philosophies.md`) and apply its aesthetic guidelines to the generated code
 - Use semantic Tailwind utilities (`bg-primary`, `text-foreground`, `rounded-lg`)
 - Map Pencil reusable components to shadcn/ui components where a match exists
 - Use CVA for custom components with variants
@@ -391,7 +391,7 @@ See [tailwind-shadcn-mapping.md](tailwind-shadcn-mapping.md) for the full quick-
 - Use `tailwind.config.ts` (Tailwind v4 uses CSS `@theme`)
 - Use `@tailwind base/components/utilities` (v4 uses `@import "tailwindcss"`)
 - Use `forwardRef` (React 19 passes ref as a regular prop)
-- Skip the `frontend-design` skill — it is mandatory for both design and code generation
+- Skip `design-taste-frontend` — it is mandatory for both design and code generation
 - Produce generic AI aesthetics (overused fonts, cliched color schemes, predictable layouts)
 
 ## Icon Library Mapping

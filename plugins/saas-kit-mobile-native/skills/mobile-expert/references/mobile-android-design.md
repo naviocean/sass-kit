@@ -20,7 +20,7 @@ Master Material Design 3 (Material You) and Jetpack Compose to build modern, ada
 
 ## Detailed section: Core Concepts
 
-Originally a 9201-byte section in this SKILL.md. Moved to `references/details.md` to fit Codex's 8 KB skill body cap.
+Originally a 9201-byte section in this SKILL.md. Moved to `mobile-android-design/references/details.md` to fit Codex's 8 KB skill body cap.
 
 ## Quick Start Component
 

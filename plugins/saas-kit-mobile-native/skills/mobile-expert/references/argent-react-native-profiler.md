@@ -163,4 +163,4 @@ If the user stated that they do not wish for changes, present the profiling repo
   - Profiler overhead inflates CPU measurements. If iOS Instruments shows `JSLexer`, `JSONEmitter`, or Hermes internals dominating the JS thread, that reflects profiler instrumentation cost — not app work. Discount those entries.
   - Runs are not perfectly reproducible. Small variations (under ~10-15%) in commit duration may be noise; only treat consistent, directional changes as signal.
 
-For standalone diagnostic tools (live render stats, fiber tree, CPU summary), see `references/diagnostic-tools.md`.
+For standalone diagnostic tools (live render stats, fiber tree, CPU summary), see `argent-react-native-profiler/references/diagnostic-tools.md`.

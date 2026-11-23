@@ -21,27 +21,27 @@ Consult these references based on what you're doing:
 
 | Activity                            | Reference Files                                                                                                                               |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Writing E2E tests**               | [test-suite-structure.md](core/test-suite-structure.md), [locators.md](core/locators.md), [assertions-waiting.md](core/assertions-waiting.md) |
-| **Writing component tests**         | [component-testing.md](testing-patterns/component-testing.md), [test-suite-structure.md](core/test-suite-structure.md)                        |
-| **Writing API tests**               | [api-testing.md](testing-patterns/api-testing.md), [test-suite-structure.md](core/test-suite-structure.md)                                    |
-| **Writing GraphQL tests**           | [graphql-testing.md](testing-patterns/graphql-testing.md), [api-testing.md](testing-patterns/api-testing.md)                                  |
-| **Writing visual regression tests** | [visual-regression.md](testing-patterns/visual-regression.md), [canvas-webgl.md](testing-patterns/canvas-webgl.md)                            |
-| **Structuring test code with POM**  | [page-object-model.md](core/page-object-model.md), [test-suite-structure.md](core/test-suite-structure.md)                                    |
-| **Setting up test data/fixtures**   | [fixtures-hooks.md](core/fixtures-hooks.md), [test-data.md](core/test-data.md)                                                                |
-| **Handling authentication**         | [authentication.md](advanced/authentication.md), [authentication-flows.md](advanced/authentication-flows.md)                                  |
-| **Testing date/time features**      | [clock-mocking.md](advanced/clock-mocking.md)                                                                                                 |
-| **Testing file upload/download**    | [file-operations.md](testing-patterns/file-operations.md), [file-upload-download.md](testing-patterns/file-upload-download.md)                |
-| **Testing forms/validation**        | [forms-validation.md](testing-patterns/forms-validation.md)                                                                                   |
-| **Testing drag and drop**           | [drag-drop.md](testing-patterns/drag-drop.md)                                                                                                 |
-| **Testing accessibility**           | [accessibility.md](testing-patterns/accessibility.md)                                                                                         |
-| **Testing security (XSS, CSRF)**    | [security-testing.md](testing-patterns/security-testing.md)                                                                                   |
-| **Using test annotations**          | [annotations.md](core/annotations.md)                                                                                                         |
-| **Using test tags**                 | [test-tags.md](core/test-tags.md)                                                                                                             |
-| **Testing iframes**                 | [iframes.md](browser-apis/iframes.md)                                                                                                         |
-| **Testing canvas/WebGL**            | [canvas-webgl.md](testing-patterns/canvas-webgl.md)                                                                                           |
-| **Internationalization (i18n)**     | [i18n.md](testing-patterns/i18n.md)                                                                                                           |
-| **Testing Electron apps**           | [electron.md](testing-patterns/electron.md)                                                                                                   |
-| **Testing browser extensions**      | [browser-extensions.md](testing-patterns/browser-extensions.md)                                                                               |
+| **Writing E2E tests**               | [test-suite-structure.md](playwright-best-practices/core/test-suite-structure.md), [locators.md](playwright-best-practices/core/locators.md), [assertions-waiting.md](playwright-best-practices/core/assertions-waiting.md) |
+| **Writing component tests**         | [component-testing.md](playwright-best-practices/testing-patterns/component-testing.md), [test-suite-structure.md](playwright-best-practices/core/test-suite-structure.md)                        |
+| **Writing API tests**               | [api-testing.md](playwright-best-practices/testing-patterns/api-testing.md), [test-suite-structure.md](playwright-best-practices/core/test-suite-structure.md)                                    |
+| **Writing GraphQL tests**           | [graphql-testing.md](playwright-best-practices/testing-patterns/graphql-testing.md), [api-testing.md](playwright-best-practices/testing-patterns/api-testing.md)                                  |
+| **Writing visual regression tests** | [visual-regression.md](playwright-best-practices/testing-patterns/visual-regression.md), [canvas-webgl.md](playwright-best-practices/testing-patterns/canvas-webgl.md)                            |
+| **Structuring test code with POM**  | [page-object-model.md](playwright-best-practices/core/page-object-model.md), [test-suite-structure.md](playwright-best-practices/core/test-suite-structure.md)                                    |
+| **Setting up test data/fixtures**   | [fixtures-hooks.md](playwright-best-practices/core/fixtures-hooks.md), [test-data.md](playwright-best-practices/core/test-data.md)                                                                |
+| **Handling authentication**         | [authentication.md](playwright-best-practices/advanced/authentication.md), [authentication-flows.md](playwright-best-practices/advanced/authentication-flows.md)                                  |
+| **Testing date/time features**      | [clock-mocking.md](playwright-best-practices/advanced/clock-mocking.md)                                                                                                 |
+| **Testing file upload/download**    | [file-operations.md](playwright-best-practices/testing-patterns/file-operations.md), [file-upload-download.md](playwright-best-practices/testing-patterns/file-upload-download.md)                |
+| **Testing forms/validation**        | [forms-validation.md](playwright-best-practices/testing-patterns/forms-validation.md)                                                                                   |
+| **Testing drag and drop**           | [drag-drop.md](playwright-best-practices/testing-patterns/drag-drop.md)                                                                                                 |
+| **Testing accessibility**           | [accessibility.md](playwright-best-practices/testing-patterns/accessibility.md)                                                                                         |
+| **Testing security (XSS, CSRF)**    | [security-testing.md](playwright-best-practices/testing-patterns/security-testing.md)                                                                                   |
+| **Using test annotations**          | [annotations.md](playwright-best-practices/core/annotations.md)                                                                                                         |
+| **Using test tags**                 | [test-tags.md](playwright-best-practices/core/test-tags.md)                                                                                                             |
+| **Testing iframes**                 | [iframes.md](playwright-best-practices/browser-apis/iframes.md)                                                                                                         |
+| **Testing canvas/WebGL**            | [canvas-webgl.md](playwright-best-practices/testing-patterns/canvas-webgl.md)                                                                                           |
+| **Internationalization (i18n)**     | [i18n.md](playwright-best-practices/testing-patterns/i18n.md)                                                                                                           |
+| **Testing Electron apps**           | [electron.md](playwright-best-practices/testing-patterns/electron.md)                                                                                                   |
+| **Testing browser extensions**      | [browser-extensions.md](playwright-best-practices/testing-patterns/browser-extensions.md)                                                                               |
 
 ### Mobile & Responsive Testing
 
@@ -49,10 +49,10 @@ Consult these references based on what you're doing:
 
 | Activity                        | Reference Files                                                                  |
 | ------------------------------- | -------------------------------------------------------------------------------- |
-| **Device emulation**            | [mobile-testing.md](advanced/mobile-testing.md)                                  |
-| **Touch gestures (swipe, tap)** | [mobile-testing.md](advanced/mobile-testing.md)                                  |
-| **Viewport/breakpoint testing** | [mobile-testing.md](advanced/mobile-testing.md)                                  |
-| **Mobile-specific UI**          | [mobile-testing.md](advanced/mobile-testing.md), [locators.md](core/locators.md) |
+| **Device emulation**            | [mobile-testing.md](playwright-best-practices/advanced/mobile-testing.md)                                  |
+| **Touch gestures (swipe, tap)** | [mobile-testing.md](playwright-best-practices/advanced/mobile-testing.md)                                  |
+| **Viewport/breakpoint testing** | [mobile-testing.md](playwright-best-practices/advanced/mobile-testing.md)                                  |
+| **Mobile-specific UI**          | [mobile-testing.md](playwright-best-practices/advanced/mobile-testing.md), [locators.md](playwright-best-practices/core/locators.md) |
 
 ### Real-Time & Browser APIs
 
@@ -60,13 +60,13 @@ Consult these references based on what you're doing:
 
 | Activity                        | Reference Files                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------- |
-| **WebSocket/real-time testing** | [websockets.md](browser-apis/websockets.md)                                              |
-| **Geolocation mocking**         | [browser-apis.md](browser-apis/browser-apis.md)                                          |
-| **Permission handling**         | [browser-apis.md](browser-apis/browser-apis.md)                                          |
-| **Clipboard testing**           | [browser-apis.md](browser-apis/browser-apis.md)                                          |
-| **Camera/microphone mocking**   | [browser-apis.md](browser-apis/browser-apis.md)                                          |
-| **Multi-tab/popup flows**       | [multi-context.md](advanced/multi-context.md)                                            |
-| **OAuth popup handling**        | [third-party.md](advanced/third-party.md), [multi-context.md](advanced/multi-context.md) |
+| **WebSocket/real-time testing** | [websockets.md](playwright-best-practices/browser-apis/websockets.md)                                              |
+| **Geolocation mocking**         | [browser-apis.md](playwright-best-practices/browser-apis/browser-apis.md)                                          |
+| **Permission handling**         | [browser-apis.md](playwright-best-practices/browser-apis/browser-apis.md)                                          |
+| **Clipboard testing**           | [browser-apis.md](playwright-best-practices/browser-apis/browser-apis.md)                                          |
+| **Camera/microphone mocking**   | [browser-apis.md](playwright-best-practices/browser-apis/browser-apis.md)                                          |
+| **Multi-tab/popup flows**       | [multi-context.md](playwright-best-practices/advanced/multi-context.md)                                            |
+| **OAuth popup handling**        | [third-party.md](playwright-best-practices/advanced/third-party.md), [multi-context.md](playwright-best-practices/advanced/multi-context.md) |
 
 ### Debugging & Troubleshooting
 
@@ -74,15 +74,15 @@ Consult these references based on what you're doing:
 
 | Activity                                          | Reference Files                                                                                                                                |
 | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Debugging test failures**                       | [debugging.md](debugging/debugging.md), [assertions-waiting.md](core/assertions-waiting.md)                                                    |
-| **Fixing flaky tests**                            | [flaky-tests.md](debugging/flaky-tests.md), [debugging.md](debugging/debugging.md), [assertions-waiting.md](core/assertions-waiting.md)        |
-| **Debugging flaky parallel runs**                 | [flaky-tests.md](debugging/flaky-tests.md), [performance.md](infrastructure-ci-cd/performance.md), [fixtures-hooks.md](core/fixtures-hooks.md) |
-| **Ensuring test isolation / avoiding state leak** | [flaky-tests.md](debugging/flaky-tests.md), [fixtures-hooks.md](core/fixtures-hooks.md), [performance.md](infrastructure-ci-cd/performance.md) |
-| **Fixing selector issues**                        | [locators.md](core/locators.md), [debugging.md](debugging/debugging.md)                                                                        |
-| **Investigating timeout issues**                  | [assertions-waiting.md](core/assertions-waiting.md), [debugging.md](debugging/debugging.md)                                                    |
-| **Using trace viewer**                            | [debugging.md](debugging/debugging.md)                                                                                                         |
-| **Debugging race conditions**                     | [flaky-tests.md](debugging/flaky-tests.md), [debugging.md](debugging/debugging.md), [assertions-waiting.md](core/assertions-waiting.md)        |
-| **Debugging console/JS errors**                   | [console-errors.md](debugging/console-errors.md), [debugging.md](debugging/debugging.md)                                                       |
+| **Debugging test failures**                       | [debugging.md](playwright-best-practices/debugging/debugging.md), [assertions-waiting.md](playwright-best-practices/core/assertions-waiting.md)                                                    |
+| **Fixing flaky tests**                            | [flaky-tests.md](playwright-best-practices/debugging/flaky-tests.md), [debugging.md](playwright-best-practices/debugging/debugging.md), [assertions-waiting.md](playwright-best-practices/core/assertions-waiting.md)        |
+| **Debugging flaky parallel runs**                 | [flaky-tests.md](playwright-best-practices/debugging/flaky-tests.md), [performance.md](playwright-best-practices/infrastructure-ci-cd/performance.md), [fixtures-hooks.md](playwright-best-practices/core/fixtures-hooks.md) |
+| **Ensuring test isolation / avoiding state leak** | [flaky-tests.md](playwright-best-practices/debugging/flaky-tests.md), [fixtures-hooks.md](playwright-best-practices/core/fixtures-hooks.md), [performance.md](playwright-best-practices/infrastructure-ci-cd/performance.md) |
+| **Fixing selector issues**                        | [locators.md](playwright-best-practices/core/locators.md), [debugging.md](playwright-best-practices/debugging/debugging.md)                                                                        |
+| **Investigating timeout issues**                  | [assertions-waiting.md](playwright-best-practices/core/assertions-waiting.md), [debugging.md](playwright-best-practices/debugging/debugging.md)                                                    |
+| **Using trace viewer**                            | [debugging.md](playwright-best-practices/debugging/debugging.md)                                                                                                         |
+| **Debugging race conditions**                     | [flaky-tests.md](playwright-best-practices/debugging/flaky-tests.md), [debugging.md](playwright-best-practices/debugging/debugging.md), [assertions-waiting.md](playwright-best-practices/core/assertions-waiting.md)        |
+| **Debugging console/JS errors**                   | [console-errors.md](playwright-best-practices/debugging/console-errors.md), [debugging.md](playwright-best-practices/debugging/debugging.md)                                                       |
 
 ### Error & Edge Case Testing
 
@@ -90,12 +90,12 @@ Consult these references based on what you're doing:
 
 | Activity                       | Reference Files                                                                                       |
 | ------------------------------ | ----------------------------------------------------------------------------------------------------- |
-| **Error boundary testing**     | [error-testing.md](debugging/error-testing.md)                                                        |
-| **Network failure simulation** | [error-testing.md](debugging/error-testing.md), [network-advanced.md](advanced/network-advanced.md)   |
-| **Offline mode testing**       | [error-testing.md](debugging/error-testing.md), [service-workers.md](browser-apis/service-workers.md) |
-| **Service worker testing**     | [service-workers.md](browser-apis/service-workers.md)                                                 |
-| **Loading state testing**      | [error-testing.md](debugging/error-testing.md)                                                        |
-| **Form validation testing**    | [error-testing.md](debugging/error-testing.md)                                                        |
+| **Error boundary testing**     | [error-testing.md](playwright-best-practices/debugging/error-testing.md)                                                        |
+| **Network failure simulation** | [error-testing.md](playwright-best-practices/debugging/error-testing.md), [network-advanced.md](playwright-best-practices/advanced/network-advanced.md)   |
+| **Offline mode testing**       | [error-testing.md](playwright-best-practices/debugging/error-testing.md), [service-workers.md](playwright-best-practices/browser-apis/service-workers.md) |
+| **Service worker testing**     | [service-workers.md](playwright-best-practices/browser-apis/service-workers.md)                                                 |
+| **Loading state testing**      | [error-testing.md](playwright-best-practices/debugging/error-testing.md)                                                        |
+| **Form validation testing**    | [error-testing.md](playwright-best-practices/debugging/error-testing.md)                                                        |
 
 ### Multi-User & Collaboration Testing
 
@@ -103,10 +103,10 @@ Consult these references based on what you're doing:
 
 | Activity                       | Reference Files                                                                      |
 | ------------------------------ | ------------------------------------------------------------------------------------ |
-| **Multiple users in one test** | [multi-user.md](advanced/multi-user.md)                                              |
-| **Real-time collaboration**    | [multi-user.md](advanced/multi-user.md), [websockets.md](browser-apis/websockets.md) |
-| **Role-based access testing**  | [multi-user.md](advanced/multi-user.md)                                              |
-| **Concurrent action testing**  | [multi-user.md](advanced/multi-user.md)                                              |
+| **Multiple users in one test** | [multi-user.md](playwright-best-practices/advanced/multi-user.md)                                              |
+| **Real-time collaboration**    | [multi-user.md](playwright-best-practices/advanced/multi-user.md), [websockets.md](playwright-best-practices/browser-apis/websockets.md) |
+| **Role-based access testing**  | [multi-user.md](playwright-best-practices/advanced/multi-user.md)                                              |
+| **Concurrent action testing**  | [multi-user.md](playwright-best-practices/advanced/multi-user.md)                                              |
 
 ### Architecture Decisions
 
@@ -114,10 +114,10 @@ Consult these references based on what you're doing:
 
 | Activity                     | Reference Files                                           |
 | ---------------------------- | --------------------------------------------------------- |
-| **POM vs fixtures decision** | [pom-vs-fixtures.md](architecture/pom-vs-fixtures.md)     |
-| **Test type selection**      | [test-architecture.md](architecture/test-architecture.md) |
-| **Mock vs real services**    | [when-to-mock.md](architecture/when-to-mock.md)           |
-| **Test suite structure**     | [test-suite-structure.md](core/test-suite-structure.md)   |
+| **POM vs fixtures decision** | [pom-vs-fixtures.md](playwright-best-practices/architecture/pom-vs-fixtures.md)     |
+| **Test type selection**      | [test-architecture.md](playwright-best-practices/architecture/test-architecture.md) |
+| **Mock vs real services**    | [when-to-mock.md](playwright-best-practices/architecture/when-to-mock.md)           |
+| **Test suite structure**     | [test-suite-structure.md](playwright-best-practices/core/test-suite-structure.md)   |
 
 ### Framework-Specific Testing
 
@@ -125,10 +125,10 @@ Consult these references based on what you're doing:
 
 | Activity                  | Reference Files                     |
 | ------------------------- | ----------------------------------- |
-| **Testing React apps**    | [react.md](frameworks/react.md)     |
-| **Testing Angular apps**  | [angular.md](frameworks/angular.md) |
-| **Testing Vue/Nuxt apps** | [vue.md](frameworks/vue.md)         |
-| **Testing Next.js apps**  | [nextjs.md](frameworks/nextjs.md)   |
+| **Testing React apps**    | [react.md](playwright-best-practices/frameworks/react.md)     |
+| **Testing Angular apps**  | [angular.md](playwright-best-practices/frameworks/angular.md) |
+| **Testing Vue/Nuxt apps** | [vue.md](playwright-best-practices/frameworks/vue.md)         |
+| **Testing Next.js apps**  | [nextjs.md](playwright-best-practices/frameworks/nextjs.md)   |
 
 ### Refactoring & Maintenance
 
@@ -136,13 +136,13 @@ Consult these references based on what you're doing:
 
 | Activity                             | Reference Files                                                                                            |
 | ------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
-| **Refactoring to Page Object Model** | [page-object-model.md](core/page-object-model.md), [test-suite-structure.md](core/test-suite-structure.md) |
-| **Improving test organization**      | [test-suite-structure.md](core/test-suite-structure.md), [page-object-model.md](core/page-object-model.md) |
-| **Extracting common setup/teardown** | [fixtures-hooks.md](core/fixtures-hooks.md)                                                                |
-| **Replacing brittle selectors**      | [locators.md](core/locators.md)                                                                            |
-| **Removing explicit waits**          | [assertions-waiting.md](core/assertions-waiting.md)                                                        |
-| **Creating test data factories**     | [test-data.md](core/test-data.md)                                                                          |
-| **Configuration setup**              | [configuration.md](core/configuration.md)                                                                  |
+| **Refactoring to Page Object Model** | [page-object-model.md](playwright-best-practices/core/page-object-model.md), [test-suite-structure.md](playwright-best-practices/core/test-suite-structure.md) |
+| **Improving test organization**      | [test-suite-structure.md](playwright-best-practices/core/test-suite-structure.md), [page-object-model.md](playwright-best-practices/core/page-object-model.md) |
+| **Extracting common setup/teardown** | [fixtures-hooks.md](playwright-best-practices/core/fixtures-hooks.md)                                                                |
+| **Replacing brittle selectors**      | [locators.md](playwright-best-practices/core/locators.md)                                                                            |
+| **Removing explicit waits**          | [assertions-waiting.md](playwright-best-practices/core/assertions-waiting.md)                                                        |
+| **Creating test data factories**     | [test-data.md](playwright-best-practices/core/test-data.md)                                                                          |
+| **Configuration setup**              | [configuration.md](playwright-best-practices/core/configuration.md)                                                                  |
 
 ### Infrastructure & Configuration
 
@@ -150,19 +150,19 @@ Consult these references based on what you're doing:
 
 | Activity                                | Reference Files                                                                                                          |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| **Configuring Playwright project**      | [configuration.md](core/configuration.md), [projects-dependencies.md](core/projects-dependencies.md)                     |
-| **Setting up CI/CD pipelines**          | [ci-cd.md](infrastructure-ci-cd/ci-cd.md), [github-actions.md](infrastructure-ci-cd/github-actions.md)                   |
-| **GitHub Actions setup**                | [github-actions.md](infrastructure-ci-cd/github-actions.md)                                                              |
-| **GitLab CI setup**                     | [gitlab.md](infrastructure-ci-cd/gitlab.md)                                                                              |
-| **Other CI providers**                  | [other-providers.md](infrastructure-ci-cd/other-providers.md)                                                            |
-| **Docker/container setup**              | [docker.md](infrastructure-ci-cd/docker.md)                                                                              |
-| **Global setup & teardown**             | [global-setup.md](core/global-setup.md)                                                                                  |
-| **Project dependencies**                | [projects-dependencies.md](core/projects-dependencies.md)                                                                |
-| **Optimizing test performance**         | [performance.md](infrastructure-ci-cd/performance.md), [test-suite-structure.md](core/test-suite-structure.md)           |
-| **Configuring parallel execution**      | [parallel-sharding.md](infrastructure-ci-cd/parallel-sharding.md), [performance.md](infrastructure-ci-cd/performance.md) |
-| **Isolating test data between workers** | [fixtures-hooks.md](core/fixtures-hooks.md), [performance.md](infrastructure-ci-cd/performance.md)                       |
-| **Test coverage**                       | [test-coverage.md](infrastructure-ci-cd/test-coverage.md)                                                                |
-| **Test reporting/artifacts**            | [reporting.md](infrastructure-ci-cd/reporting.md)                                                                        |
+| **Configuring Playwright project**      | [configuration.md](playwright-best-practices/core/configuration.md), [projects-dependencies.md](playwright-best-practices/core/projects-dependencies.md)                     |
+| **Setting up CI/CD pipelines**          | [ci-cd.md](playwright-best-practices/infrastructure-ci-cd/ci-cd.md), [github-actions.md](playwright-best-practices/infrastructure-ci-cd/github-actions.md)                   |
+| **GitHub Actions setup**                | [github-actions.md](playwright-best-practices/infrastructure-ci-cd/github-actions.md)                                                              |
+| **GitLab CI setup**                     | [gitlab.md](playwright-best-practices/infrastructure-ci-cd/gitlab.md)                                                                              |
+| **Other CI providers**                  | [other-providers.md](playwright-best-practices/infrastructure-ci-cd/other-providers.md)                                                            |
+| **Docker/container setup**              | [docker.md](playwright-best-practices/infrastructure-ci-cd/docker.md)                                                                              |
+| **Global setup & teardown**             | [global-setup.md](playwright-best-practices/core/global-setup.md)                                                                                  |
+| **Project dependencies**                | [projects-dependencies.md](playwright-best-practices/core/projects-dependencies.md)                                                                |
+| **Optimizing test performance**         | [performance.md](playwright-best-practices/infrastructure-ci-cd/performance.md), [test-suite-structure.md](playwright-best-practices/core/test-suite-structure.md)           |
+| **Configuring parallel execution**      | [parallel-sharding.md](playwright-best-practices/infrastructure-ci-cd/parallel-sharding.md), [performance.md](playwright-best-practices/infrastructure-ci-cd/performance.md) |
+| **Isolating test data between workers** | [fixtures-hooks.md](playwright-best-practices/core/fixtures-hooks.md), [performance.md](playwright-best-practices/infrastructure-ci-cd/performance.md)                       |
+| **Test coverage**                       | [test-coverage.md](playwright-best-practices/infrastructure-ci-cd/test-coverage.md)                                                                |
+| **Test reporting/artifacts**            | [reporting.md](playwright-best-practices/infrastructure-ci-cd/reporting.md)                                                                        |
 
 ### Advanced Patterns
 
@@ -170,22 +170,22 @@ Consult these references based on what you're doing:
 
 | Activity                             | Reference Files                                                                                              |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| **Mocking API responses**            | [test-suite-structure.md](core/test-suite-structure.md), [network-advanced.md](advanced/network-advanced.md) |
-| **Network interception**             | [network-advanced.md](advanced/network-advanced.md), [assertions-waiting.md](core/assertions-waiting.md)     |
-| **GraphQL mocking**                  | [network-advanced.md](advanced/network-advanced.md)                                                          |
-| **HAR recording/playback**           | [network-advanced.md](advanced/network-advanced.md)                                                          |
-| **Custom fixtures**                  | [fixtures-hooks.md](core/fixtures-hooks.md)                                                                  |
-| **Advanced waiting strategies**      | [assertions-waiting.md](core/assertions-waiting.md)                                                          |
-| **OAuth/SSO mocking**                | [third-party.md](advanced/third-party.md), [multi-context.md](advanced/multi-context.md)                     |
-| **Payment gateway mocking**          | [third-party.md](advanced/third-party.md)                                                                    |
-| **Email/SMS verification mocking**   | [third-party.md](advanced/third-party.md)                                                                    |
-| **Failing on console errors**        | [console-errors.md](debugging/console-errors.md)                                                             |
-| **Security testing (XSS, CSRF)**     | [security-testing.md](testing-patterns/security-testing.md)                                                  |
-| **Performance budgets & Web Vitals** | [performance-testing.md](testing-patterns/performance-testing.md)                                            |
-| **Lighthouse integration**           | [performance-testing.md](testing-patterns/performance-testing.md)                                            |
-| **Test annotations (skip, fixme)**   | [annotations.md](core/annotations.md)                                                                        |
-| **Test tags (@smoke, @fast)**        | [test-tags.md](core/test-tags.md)                                                                            |
-| **Test steps for reporting**         | [annotations.md](core/annotations.md)                                                                        |
+| **Mocking API responses**            | [test-suite-structure.md](playwright-best-practices/core/test-suite-structure.md), [network-advanced.md](playwright-best-practices/advanced/network-advanced.md) |
+| **Network interception**             | [network-advanced.md](playwright-best-practices/advanced/network-advanced.md), [assertions-waiting.md](playwright-best-practices/core/assertions-waiting.md)     |
+| **GraphQL mocking**                  | [network-advanced.md](playwright-best-practices/advanced/network-advanced.md)                                                          |
+| **HAR recording/playback**           | [network-advanced.md](playwright-best-practices/advanced/network-advanced.md)                                                          |
+| **Custom fixtures**                  | [fixtures-hooks.md](playwright-best-practices/core/fixtures-hooks.md)                                                                  |
+| **Advanced waiting strategies**      | [assertions-waiting.md](playwright-best-practices/core/assertions-waiting.md)                                                          |
+| **OAuth/SSO mocking**                | [third-party.md](playwright-best-practices/advanced/third-party.md), [multi-context.md](playwright-best-practices/advanced/multi-context.md)                     |
+| **Payment gateway mocking**          | [third-party.md](playwright-best-practices/advanced/third-party.md)                                                                    |
+| **Email/SMS verification mocking**   | [third-party.md](playwright-best-practices/advanced/third-party.md)                                                                    |
+| **Failing on console errors**        | [console-errors.md](playwright-best-practices/debugging/console-errors.md)                                                             |
+| **Security testing (XSS, CSRF)**     | [security-testing.md](playwright-best-practices/testing-patterns/security-testing.md)                                                  |
+| **Performance budgets & Web Vitals** | [performance-testing.md](playwright-best-practices/testing-patterns/performance-testing.md)                                            |
+| **Lighthouse integration**           | [performance-testing.md](playwright-best-practices/testing-patterns/performance-testing.md)                                            |
+| **Test annotations (skip, fixme)**   | [annotations.md](playwright-best-practices/core/annotations.md)                                                                        |
+| **Test tags (@smoke, @fast)**        | [test-tags.md](playwright-best-practices/core/test-tags.md)                                                                            |
+| **Test steps for reporting**         | [annotations.md](playwright-best-practices/core/annotations.md)                                                                        |
 
 ## Quick Decision Tree
 
@@ -193,101 +193,101 @@ Consult these references based on what you're doing:
 What are you doing?
 │
 ├─ Writing a new test?
-│  ├─ E2E test → core/test-suite-structure.md, core/locators.md, core/assertions-waiting.md
-│  ├─ Component test → testing-patterns/component-testing.md
-│  ├─ API test → testing-patterns/api-testing.md, core/test-suite-structure.md
-│  ├─ GraphQL test → testing-patterns/graphql-testing.md
-│  ├─ Visual regression → testing-patterns/visual-regression.md
-│  ├─ Visual/canvas test → testing-patterns/canvas-webgl.md, core/test-suite-structure.md
-│  ├─ Accessibility test → testing-patterns/accessibility.md
-│  ├─ Mobile/responsive test → advanced/mobile-testing.md
-│  ├─ i18n/locale test → testing-patterns/i18n.md
-│  ├─ Electron app test → testing-patterns/electron.md
-│  ├─ Browser extension test → testing-patterns/browser-extensions.md
-│  ├─ Multi-user test → advanced/multi-user.md
-│  ├─ Form validation test → testing-patterns/forms-validation.md
-│  └─ Drag and drop test → testing-patterns/drag-drop.md
+│  ├─ E2E test → playwright-best-practices/core/test-suite-structure.md, playwright-best-practices/core/locators.md, playwright-best-practices/core/assertions-waiting.md
+│  ├─ Component test → playwright-best-practices/testing-patterns/component-testing.md
+│  ├─ API test → playwright-best-practices/testing-patterns/api-testing.md, playwright-best-practices/core/test-suite-structure.md
+│  ├─ GraphQL test → playwright-best-practices/testing-patterns/graphql-testing.md
+│  ├─ Visual regression → playwright-best-practices/testing-patterns/visual-regression.md
+│  ├─ Visual/canvas test → playwright-best-practices/testing-patterns/canvas-webgl.md, playwright-best-practices/core/test-suite-structure.md
+│  ├─ Accessibility test → playwright-best-practices/testing-patterns/accessibility.md
+│  ├─ Mobile/responsive test → playwright-best-practices/advanced/mobile-testing.md
+│  ├─ i18n/locale test → playwright-best-practices/testing-patterns/i18n.md
+│  ├─ Electron app test → playwright-best-practices/testing-patterns/electron.md
+│  ├─ Browser extension test → playwright-best-practices/testing-patterns/browser-extensions.md
+│  ├─ Multi-user test → playwright-best-practices/advanced/multi-user.md
+│  ├─ Form validation test → playwright-best-practices/testing-patterns/forms-validation.md
+│  └─ Drag and drop test → playwright-best-practices/testing-patterns/drag-drop.md
 │
 ├─ Testing specific features?
-│  ├─ File upload/download → testing-patterns/file-operations.md, testing-patterns/file-upload-download.md
-│  ├─ Date/time dependent → advanced/clock-mocking.md
-│  ├─ WebSocket/real-time → browser-apis/websockets.md
-│  ├─ Geolocation/permissions → browser-apis/browser-apis.md
-│  ├─ OAuth/SSO mocking → advanced/third-party.md, advanced/multi-context.md
-│  ├─ Payments/email/SMS → advanced/third-party.md
-│  ├─ iFrames → browser-apis/iframes.md
-│  ├─ Canvas/WebGL/charts → testing-patterns/canvas-webgl.md
-│  ├─ Service workers/PWA → browser-apis/service-workers.md
-│  ├─ i18n/localization → testing-patterns/i18n.md
-│  ├─ Security (XSS, CSRF) → testing-patterns/security-testing.md
-│  └─ Performance/Web Vitals → testing-patterns/performance-testing.md
+│  ├─ File upload/download → playwright-best-practices/testing-patterns/file-operations.md, playwright-best-practices/testing-patterns/file-upload-download.md
+│  ├─ Date/time dependent → playwright-best-practices/advanced/clock-mocking.md
+│  ├─ WebSocket/real-time → playwright-best-practices/browser-apis/websockets.md
+│  ├─ Geolocation/permissions → playwright-best-practices/browser-apis/browser-apis.md
+│  ├─ OAuth/SSO mocking → playwright-best-practices/advanced/third-party.md, playwright-best-practices/advanced/multi-context.md
+│  ├─ Payments/email/SMS → playwright-best-practices/advanced/third-party.md
+│  ├─ iFrames → playwright-best-practices/browser-apis/iframes.md
+│  ├─ Canvas/WebGL/charts → playwright-best-practices/testing-patterns/canvas-webgl.md
+│  ├─ Service workers/PWA → playwright-best-practices/browser-apis/service-workers.md
+│  ├─ i18n/localization → playwright-best-practices/testing-patterns/i18n.md
+│  ├─ Security (XSS, CSRF) → playwright-best-practices/testing-patterns/security-testing.md
+│  └─ Performance/Web Vitals → playwright-best-practices/testing-patterns/performance-testing.md
 │
 ├─ Architecture decisions?
-│  ├─ POM vs fixtures → architecture/pom-vs-fixtures.md
-│  ├─ Test type selection → architecture/test-architecture.md
-│  ├─ Mock vs real services → architecture/when-to-mock.md
-│  └─ Test suite structure → core/test-suite-structure.md
+│  ├─ POM vs fixtures → playwright-best-practices/architecture/pom-vs-fixtures.md
+│  ├─ Test type selection → playwright-best-practices/architecture/test-architecture.md
+│  ├─ Mock vs real services → playwright-best-practices/architecture/when-to-mock.md
+│  └─ Test suite structure → playwright-best-practices/core/test-suite-structure.md
 │
 ├─ Framework-specific testing?
-│  ├─ React app → frameworks/react.md
-│  ├─ Angular app → frameworks/angular.md
-│  ├─ Vue/Nuxt app → frameworks/vue.md
-│  └─ Next.js app → frameworks/nextjs.md
+│  ├─ React app → playwright-best-practices/frameworks/react.md
+│  ├─ Angular app → playwright-best-practices/frameworks/angular.md
+│  ├─ Vue/Nuxt app → playwright-best-practices/frameworks/vue.md
+│  └─ Next.js app → playwright-best-practices/frameworks/nextjs.md
 │
 ├─ Authentication testing?
-│  ├─ Basic auth patterns → advanced/authentication.md
-│  └─ Complex flows (MFA, reset) → advanced/authentication-flows.md
+│  ├─ Basic auth patterns → playwright-best-practices/advanced/authentication.md
+│  └─ Complex flows (MFA, reset) → playwright-best-practices/advanced/authentication-flows.md
 │
 ├─ Test is failing/flaky?
-│  ├─ Flaky test investigation → debugging/flaky-tests.md
-│  ├─ Element not found → core/locators.md, debugging/debugging.md
-│  ├─ Timeout issues → core/assertions-waiting.md, debugging/debugging.md
-│  ├─ Race conditions → debugging/flaky-tests.md, debugging/debugging.md
-│  ├─ Flaky only with multiple workers → debugging/flaky-tests.md, infrastructure-ci-cd/performance.md
-│  ├─ State leak / isolation → debugging/flaky-tests.md, core/fixtures-hooks.md
-│  ├─ Console/JS errors → debugging/console-errors.md, debugging/debugging.md
-│  └─ General debugging → debugging/debugging.md
+│  ├─ Flaky test investigation → playwright-best-practices/debugging/flaky-tests.md
+│  ├─ Element not found → playwright-best-practices/core/locators.md, playwright-best-practices/debugging/debugging.md
+│  ├─ Timeout issues → playwright-best-practices/core/assertions-waiting.md, playwright-best-practices/debugging/debugging.md
+│  ├─ Race conditions → playwright-best-practices/debugging/flaky-tests.md, playwright-best-practices/debugging/debugging.md
+│  ├─ Flaky only with multiple workers → playwright-best-practices/debugging/flaky-tests.md, playwright-best-practices/infrastructure-ci-cd/performance.md
+│  ├─ State leak / isolation → playwright-best-practices/debugging/flaky-tests.md, playwright-best-practices/core/fixtures-hooks.md
+│  ├─ Console/JS errors → playwright-best-practices/debugging/console-errors.md, playwright-best-practices/debugging/debugging.md
+│  └─ General debugging → playwright-best-practices/debugging/debugging.md
 │
 ├─ Testing error scenarios?
-│  ├─ Network failures → debugging/error-testing.md, advanced/network-advanced.md
-│  ├─ Offline (unexpected) → debugging/error-testing.md
-│  ├─ Offline-first/PWA → browser-apis/service-workers.md
-│  ├─ Error boundaries → debugging/error-testing.md
-│  └─ Form validation → testing-patterns/forms-validation.md, debugging/error-testing.md
+│  ├─ Network failures → playwright-best-practices/debugging/error-testing.md, playwright-best-practices/advanced/network-advanced.md
+│  ├─ Offline (unexpected) → playwright-best-practices/debugging/error-testing.md
+│  ├─ Offline-first/PWA → playwright-best-practices/browser-apis/service-workers.md
+│  ├─ Error boundaries → playwright-best-practices/debugging/error-testing.md
+│  └─ Form validation → playwright-best-practices/testing-patterns/forms-validation.md, playwright-best-practices/debugging/error-testing.md
 │
 ├─ Refactoring existing code?
-│  ├─ Implementing POM → core/page-object-model.md
-│  ├─ Improving selectors → core/locators.md
-│  ├─ Extracting fixtures → core/fixtures-hooks.md
-│  ├─ Creating data factories → core/test-data.md
-│  └─ Configuration setup → core/configuration.md
+│  ├─ Implementing POM → playwright-best-practices/core/page-object-model.md
+│  ├─ Improving selectors → playwright-best-practices/core/locators.md
+│  ├─ Extracting fixtures → playwright-best-practices/core/fixtures-hooks.md
+│  ├─ Creating data factories → playwright-best-practices/core/test-data.md
+│  └─ Configuration setup → playwright-best-practices/core/configuration.md
 │
 ├─ Setting up infrastructure?
-│  ├─ CI/CD → infrastructure-ci-cd/ci-cd.md
-│  ├─ GitHub Actions → infrastructure-ci-cd/github-actions.md
-│  ├─ GitLab CI → infrastructure-ci-cd/gitlab.md
-│  ├─ Other CI providers → infrastructure-ci-cd/other-providers.md
-│  ├─ Docker/containers → infrastructure-ci-cd/docker.md
-│  ├─ Sharding/parallel → infrastructure-ci-cd/parallel-sharding.md
-│  ├─ Reporting/artifacts → infrastructure-ci-cd/reporting.md
-│  ├─ Global setup/teardown → core/global-setup.md
-│  ├─ Project dependencies → core/projects-dependencies.md
-│  ├─ Test performance → infrastructure-ci-cd/performance.md
-│  ├─ Test coverage → infrastructure-ci-cd/test-coverage.md
-│  └─ Project config → core/configuration.md, core/projects-dependencies.md
+│  ├─ CI/CD → playwright-best-practices/infrastructure-ci-cd/ci-cd.md
+│  ├─ GitHub Actions → playwright-best-practices/infrastructure-ci-cd/github-actions.md
+│  ├─ GitLab CI → playwright-best-practices/infrastructure-ci-cd/gitlab.md
+│  ├─ Other CI providers → playwright-best-practices/infrastructure-ci-cd/other-providers.md
+│  ├─ Docker/containers → playwright-best-practices/infrastructure-ci-cd/docker.md
+│  ├─ Sharding/parallel → playwright-best-practices/infrastructure-ci-cd/parallel-sharding.md
+│  ├─ Reporting/artifacts → playwright-best-practices/infrastructure-ci-cd/reporting.md
+│  ├─ Global setup/teardown → playwright-best-practices/core/global-setup.md
+│  ├─ Project dependencies → playwright-best-practices/core/projects-dependencies.md
+│  ├─ Test performance → playwright-best-practices/infrastructure-ci-cd/performance.md
+│  ├─ Test coverage → playwright-best-practices/infrastructure-ci-cd/test-coverage.md
+│  └─ Project config → playwright-best-practices/core/configuration.md, playwright-best-practices/core/projects-dependencies.md
 │
 ├─ Organizing tests?
-│  ├─ Skip/fixme/slow tests → core/annotations.md
-│  ├─ Test tags (@smoke, @fast) → core/test-tags.md
-│  ├─ Filtering tests (--grep) → core/test-tags.md
-│  ├─ Test steps → core/annotations.md
-│  └─ Conditional execution → core/annotations.md
+│  ├─ Skip/fixme/slow tests → playwright-best-practices/core/annotations.md
+│  ├─ Test tags (@smoke, @fast) → playwright-best-practices/core/test-tags.md
+│  ├─ Filtering tests (--grep) → playwright-best-practices/core/test-tags.md
+│  ├─ Test steps → playwright-best-practices/core/annotations.md
+│  └─ Conditional execution → playwright-best-practices/core/annotations.md
 │
 └─ Running subset of tests?
-   ├─ By tag (@smoke, @critical) → core/test-tags.md
-   ├─ Exclude slow/flaky tests → core/test-tags.md
-   ├─ PR vs nightly tests → core/test-tags.md, infrastructure-ci-cd/ci-cd.md
-   └─ Project-specific filtering → core/test-tags.md, core/configuration.md
+   ├─ By tag (@smoke, @critical) → playwright-best-practices/core/test-tags.md
+   ├─ Exclude slow/flaky tests → playwright-best-practices/core/test-tags.md
+   ├─ PR vs nightly tests → playwright-best-practices/core/test-tags.md, playwright-best-practices/infrastructure-ci-cd/ci-cd.md
+   └─ Project-specific filtering → playwright-best-practices/core/test-tags.md, playwright-best-practices/core/configuration.md
 ```
 
 ## Test Validation Loop

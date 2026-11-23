@@ -196,7 +196,7 @@ Prisma blocks destructive commands when it detects an AI agent until the agent h
 - If automation needs the consent variable, set `PRISMA_USER_CONSENT_FOR_DANGEROUS_AI_ACTION` to the user's exact consent message. Do not invent the text.
 - The Prisma MCP server deliberately has no `migrate-reset` tool.
 
-Read `references/agent-safety.md` before any destructive Prisma command.
+Read `prisma-cli/references/agent-safety.md` before any destructive Prisma command.
 
 ## Current Prisma CLI Setup
 
@@ -240,26 +240,26 @@ import 'dotenv/config'
 See individual rule files for detailed command documentation:
 
 ```
-references/init.md           - Project initialization
-references/generate.md       - Client generation
-references/dev.md            - Local development database
-references/db-pull.md        - Database introspection
-references/db-push.md        - Schema push
-references/db-seed.md        - Database seeding
-references/db-execute.md     - Raw SQL execution
-references/migrate-dev.md    - Development migrations
-references/migrate-deploy.md - Production migrations
-references/migrate-reset.md  - Database reset
-references/migrate-status.md - Migration status
-references/migrate-resolve.md - Migration resolution
-references/migrate-diff.md   - Schema diffing
-references/studio.md         - Database GUI
-references/mcp.md            - Prisma MCP server
-references/complete.md       - Shell completion generation
-references/agent-safety.md   - AI consent checkpoint for destructive commands
-references/validate.md       - Schema validation
-references/format.md         - Schema formatting
-references/debug.md          - Debug info
+prisma-cli/references/init.md           - Project initialization
+prisma-cli/references/generate.md       - Client generation
+prisma-cli/references/dev.md            - Local development database
+prisma-cli/references/db-pull.md        - Database introspection
+prisma-cli/references/db-push.md        - Schema push
+prisma-cli/references/db-seed.md        - Database seeding
+prisma-cli/references/db-execute.md     - Raw SQL execution
+prisma-cli/references/migrate-dev.md    - Development migrations
+prisma-cli/references/migrate-deploy.md - Production migrations
+prisma-cli/references/migrate-reset.md  - Database reset
+prisma-cli/references/migrate-status.md - Migration status
+prisma-cli/references/migrate-resolve.md - Migration resolution
+prisma-cli/references/migrate-diff.md   - Schema diffing
+prisma-cli/references/studio.md         - Database GUI
+prisma-cli/references/mcp.md            - Prisma MCP server
+prisma-cli/references/complete.md       - Shell completion generation
+prisma-cli/references/agent-safety.md   - AI consent checkpoint for destructive commands
+prisma-cli/references/validate.md       - Schema validation
+prisma-cli/references/format.md         - Schema formatting
+prisma-cli/references/debug.md          - Debug info
 ```
 
 ## How to Use

@@ -158,9 +158,11 @@ For each file:
 4. Offer to pair if complex
 ```
 
-Before writing review feedback, read `references/review-techniques.md` for checklists, question framing, collaboration, and severity techniques.
+Before writing review feedback, read `code-review-excellence/references/review-techniques.md` for checklists, question framing, collaboration, and severity techniques.
 
-Before language-specific, architectural, test-quality, or security review, read `references/review-patterns.md` for review patterns and checklists.
+Before language-specific, architectural, test-quality, or security review, read `code-review-excellence/references/review-patterns.md` for review patterns and checklists.
+
+When dispatching a code reviewer subagent or responding to review feedback without performative agreement, read `code-review-excellence/references/requesting-and-receiving.md` and use the template in `code-review-excellence/references/code-reviewer-prompt.md`.
 
 ## Giving Difficult Feedback
 

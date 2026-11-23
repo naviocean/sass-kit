@@ -73,7 +73,7 @@ print(f"Average time: {execution_time/100:.6f} seconds")
 
 ## Detailed patterns and worked examples
 
-Detailed pattern documentation lives in `references/details.md`. Read that file when the navigation tier above is insufficient.
+Detailed pattern documentation lives in `python-performance-optimization/references/details.md`. Read that file when the navigation tier above is insufficient.
 
 ## Best Practices
 

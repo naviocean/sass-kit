@@ -379,3 +379,5 @@ Each line names its checks: `consistency.mjs` ids in brackets, `check.mjs` findi
 ## References
 
 All in `references/`; section 3 names the one each asset needs.
+- Aesthetic directions & dark-mode/mobile-first philosophies (Dieter Rams, Swiss, Ma, Brutalist, Scandinavian, Art Deco, Neo-Memphis, Editorial): [references/aesthetic-philosophies.md](references/aesthetic-philosophies.md)
+- Agency-tier component & motion choreography (Double-Bezel containers, Button-in-Button CTAs, fluid cubic-bezier dynamics): [references/haptic-micro-aesthetics.md](references/haptic-micro-aesthetics.md)

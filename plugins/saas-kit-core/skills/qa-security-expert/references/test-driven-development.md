@@ -213,9 +213,11 @@ Next failing test for next feature.
 | **Clear** | Name describes behavior | `test('test1')` |
 | **Shows intent** | Demonstrates desired API | Obscures what code should do |
 
-When writing or changing any test, read [writing-good-tests.md](writing-good-tests.md) for the rules that keep tests honest:
+When writing or changing any test, read [writing-good-tests.md](test-driven-development/writing-good-tests.md) and [test-driven-development/references/seams-and-mocking.md](test-driven-development/references/seams-and-mocking.md) for the rules that keep tests honest:
+- Test at pre-agreed **seams** (public boundaries), never implementation details; work in vertical tracer-bullet slices rather than horizontal test-all-first slicing
 - Name the production change that would make the test fail — before writing it
-- Assert on real behavior, never on mock behavior
+- Assert on real behavior, never on mock behavior or tautological expectations
+- Mock only at system boundaries (external APIs, DBs, time/FS); prefer DI and SDK-style interfaces
 - Keep test-only code in test utilities, out of production classes
 - Understand a dependency's side effects before mocking it
 

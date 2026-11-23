@@ -20,7 +20,7 @@
       "prompt": "Design a Playwright E2E regression test plan and Feature Map verification strategy for a checkout flow.",
       "expectedExpert": "qa",
       "expectedRouterSkill": "qa-security-expert",
-      "expectedReferenceAny": ["playwright-testing.md", "create-verification-skill.md", "tdd-workflow.md"]
+      "expectedReferenceAny": ["playwright-best-practices.md", "create-verification-skill.md", "test-driven-development.md"]
     },
     {
       "id": "web-01-nextjs-rsc",
@@ -40,7 +40,7 @@
       "prompt": "Create a DESIGN.md token specification with Tailwind CSS v4 color/typography scale and WCAG AA contrast guidelines.",
       "expectedExpert": "designer",
       "expectedRouterSkill": "designer-expert",
-      "expectedReferenceAny": ["tailwind-design-system.md", "design-system-patterns.md", "accessibility-design.md"]
+      "expectedReferenceAny": ["visual-design-foundations.md", "stitch-design-taste.md", "stitch-extract-design-md.md"]
     },
     {
       "id": "nestjs-01-prisma-nplus1",
@@ -50,7 +50,7 @@
       "prompt": "Fix an N+1 query in a NestJS InvoicesService using Prisma ORM and add proper PostgreSQL composite indexes.",
       "expectedExpert": "nestjs",
       "expectedRouterSkill": "nestjs-expert",
-      "expectedReferenceAny": ["nestjs-best-practices.md", "prisma-database-setup.md", "postgresql-table-design.md"]
+      "expectedReferenceAny": ["nestjs-best-practices.md", "prisma-postgres-setup.md", "postgresql-table-design.md"]
     },
     {
       "id": "nestjs-02-jwt-auth",
@@ -60,7 +60,7 @@
       "prompt": "Implement JWT refresh token rotation with NestJS Guards and strict class-validator DTOs.",
       "expectedExpert": "nestjs",
       "expectedRouterSkill": "nestjs-expert",
-      "expectedReferenceAny": ["nestjs-best-practices.md", "auth-implementation-patterns.md"]
+      "expectedReferenceAny": ["nestjs-best-practices.md", "jwt-auth.md"]
     },
     {
       "id": "python-ai-01-langgraph",
@@ -120,7 +120,7 @@
       "prompt": "Configure Fastlane lanes for automated TestFlight iOS and Google Play Android release builds.",
       "expectedExpert": "mobile",
       "expectedRouterSkill": "mobile-expert",
-      "expectedReferenceAny": ["fastlane-ios-android.md", "react-native-best-practices.md"]
+      "expectedReferenceAny": ["react-native-architecture.md", "react-native-best-practices.md"]
     },
     {
       "id": "swift-01-concurrency-menubar",
@@ -130,7 +130,7 @@
       "prompt": "Build a native macOS menu bar app using NSStatusItem, SwiftUI Settings scene, and Swift 6 strict concurrency.",
       "expectedExpert": "swift-macos",
       "expectedRouterSkill": "swift-macos-expert",
-      "expectedReferenceAny": ["swift-concurrency.md", "swiftui-expert-skill.md", "macos-menubar-app.md"]
+      "expectedReferenceAny": ["swift-concurrency.md", "swiftui-expert-skill.md", "macos-patterns.md"]
     },
     {
       "id": "swift-02-swiftdata-sparkle",
@@ -160,7 +160,7 @@
       "prompt": "Create a GitHub Actions CI/CD pipeline deploying a Terraform module with remote state locking and Docker multi-stage builds.",
       "expectedExpert": "devops",
       "expectedRouterSkill": "devops-expert",
-      "expectedReferenceAny": ["github-actions-templates.md", "terraform-module-library.md", "docker-expert.md"]
+      "expectedReferenceAny": ["github-actions-templates.md", "terraform-module-library.md", "deployment-pipeline-design.md"]
     },
     {
       "id": "doc-01-xlsx-formulas",

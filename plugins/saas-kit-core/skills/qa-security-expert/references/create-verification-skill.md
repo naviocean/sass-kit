@@ -91,7 +91,7 @@ Runtime URL / Surface: [e.g. http://localhost:3000]
 | FEAT-02 | Dashboard Load | GET /dashboard with valid session | Header text "Welcome Back", Stats cards render | VERIFIED | docs/verification/evidence/2026-10-19-FEAT-02.png |
 ```
 
-For reference and detailed syntax, see [references/feature-map-example.md](./references/feature-map-example.md).
+For reference and detailed syntax, see [create-verification-skill/references/feature-map-example.md](create-verification-skill/references/feature-map-example.md).
 
 ---
 

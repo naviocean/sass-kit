@@ -21,7 +21,7 @@ Configure Prometheus for comprehensive metric collection, alerting, and monitori
 
 ## Detailed patterns and worked examples
 
-Detailed pattern documentation lives in `references/details.md`. Read that file when the navigation tier above is insufficient.
+Detailed pattern documentation lives in `prometheus-configuration/references/details.md`. Read that file when the navigation tier above is insufficient.
 
 ## Best Practices
 

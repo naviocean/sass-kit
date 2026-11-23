@@ -7,6 +7,9 @@ description: Configure and optimize Nx monorepo workspaces. Use when setting up 
 
 Production patterns for Nx monorepo management.
 
+For read-only workspace exploration (`nx show projects`, `nx graph`), affected targeting, plugin discovery (`nx list`/`nx add`), and task execution (`nx run`, `nx run-many`, `nx affected`), read [nx-workspace-patterns/references/exploration-and-tasks.md](nx-workspace-patterns/references/exploration-and-tasks.md) and [nx-workspace-patterns/references/AFFECTED.md](nx-workspace-patterns/references/AFFECTED.md).
+For importing or merging external repositories into an Nx workspace (`nx import`), read [nx-workspace-patterns/references/nx-import.md](nx-workspace-patterns/references/nx-import.md).
+
 ## When to Use This Skill
 
 - Setting up new Nx workspaces

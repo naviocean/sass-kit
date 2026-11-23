@@ -18,8 +18,8 @@ description: >
 
 Check `@testing-library/react-native` version in the user's `package.json`:
 
-- **v14.x** → load [references/api-reference-v14.md](references/api-reference-v14.md) (React 19+, async APIs, `test-renderer`)
-- **v13.x** → load [references/api-reference-v13.md](references/api-reference-v13.md) (React 18+, sync APIs, `react-test-renderer`)
+- **v14.x** → load [react-native-testing/references/api-reference-v14.md](react-native-testing/references/api-reference-v14.md) (React 19+, async APIs, `test-renderer`)
+- **v13.x** → load [react-native-testing/references/api-reference-v13.md](react-native-testing/references/api-reference-v13.md) (React 18+, sync APIs, `react-test-renderer`)
 
 Use the version-specific reference for render patterns, fireEvent sync/async behavior, screen API, configuration, and dependencies.
 
@@ -156,6 +156,6 @@ function renderWithProviders(ui: React.ReactElement) {
 
 ## References
 
-- [v13 API Reference](references/api-reference-v13.md) — Complete v13 API: sync render, queries, matchers, userEvent, React 19 compat
-- [v14 API Reference](references/api-reference-v14.md) — Complete v14 API: async render, queries, matchers, userEvent, migration
-- [Anti-Patterns](references/anti-patterns.md) — Common mistakes to avoid
+- [v13 API Reference](react-native-testing/references/api-reference-v13.md) — Complete v13 API: sync render, queries, matchers, userEvent, React 19 compat
+- [v14 API Reference](react-native-testing/references/api-reference-v14.md) — Complete v14 API: async render, queries, matchers, userEvent, migration
+- [Anti-Patterns](react-native-testing/references/anti-patterns.md) — Common mistakes to avoid

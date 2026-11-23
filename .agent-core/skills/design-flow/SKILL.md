@@ -76,7 +76,7 @@ Read the `brief-to-tasks` skill (brief-to-tasks/SKILL.md) and follow its instruc
 
 ### Phase 6: Frontend Design
 
-Read the `frontend-design` skill (frontend-design/SKILL.md) and follow its instructions.
+Read the `design-taste-frontend` skill (`references/aesthetic-philosophies.md`) and follow its instructions.
 Work through the tasks from `TASKS.md` in order. After completing each task, check it off and confirm with the designer before moving to the next task.
 **Produces**: Built components and pages.
 **Transition**: "The flow is complete. Your brief, IA, tokens, and tasks are all saved in the project. When you're ready for a design review, run `/design-review` and I'll critique the build against the brief."

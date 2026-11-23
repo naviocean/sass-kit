@@ -134,8 +134,8 @@ Reference these guidelines when:
 Read individual rule files for detailed explanations and code examples:
 
 ```
-rules/async-parallel.md
-rules/bundle-barrel-imports.md
+vercel-react-best-practices/rules/async-parallel.md
+vercel-react-best-practices/rules/bundle-barrel-imports.md
 ```
 
 Each rule file contains:

@@ -68,7 +68,7 @@ def test_add_negative():
 
 ## Detailed patterns and worked examples
 
-Detailed pattern documentation lives in `references/details.md`. Read that file when the navigation tier above is insufficient.
+Detailed pattern documentation lives in `python-testing-patterns/references/details.md`. Read that file when the navigation tier above is insufficient.
 
 ## Testing Best Practices
 
@@ -275,4 +275,4 @@ pytest --cov=myapp --cov-fail-under=80 tests/
 pytest --cov=myapp --cov-report=term-missing tests/
 ```
 
-For advanced patterns (async testing, monkeypatching, property-based testing, database testing, CI/CD integration, and configuration), see [references/advanced-patterns.md](references/advanced-patterns.md)
+For advanced patterns (async testing, monkeypatching, property-based testing, database testing, CI/CD integration, and configuration), see [python-testing-patterns/references/advanced-patterns.md](python-testing-patterns/references/advanced-patterns.md)

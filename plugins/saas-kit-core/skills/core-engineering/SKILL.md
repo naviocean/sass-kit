@@ -23,10 +23,6 @@ Consolidated domain router for **SaaS Kit Core (Orchestration & Quality Gate)** 
 | `coding-standards` | `references/coding-standards.md` | — | TypeScript coding standards — strict mode, naming conventions, imports, error handling for all agents |
 | `continuous-learning` | `references/continuous-learning.md` | — | Auto-extract patterns from sessions with confidence scoring — instincts evolve into reusable skills over time |
 | `database-migration` | `references/database-migration.md` | — | Execute database migrations across ORMs and platforms with zero-downtime strategies, data transformation, and  |
-| `design-brief` | `references/design-brief.md` | — | Create a design brief through an interactive interview, codebase exploration, and experience design decisions. |
-| `design-flow` | `references/design-flow.md` | — | Run the full design-to-build workflow as a guided sequence. Orchestrates all designer skills in order, from gr |
-| `design-md` | `references/design-md.md` | — | Analyze Stitch projects and synthesize a semantic design system into DESIGN.md files |
-| `design-review` | `references/design-review.md` | — | Run a structured design critique against the brief and codebase. Checks visual hierarchy, consistency, respons |
 | `design-tokens` | `references/design-tokens.md` | — | Generate a design tokens file (CSS variables or Tailwind config) based on a chosen aesthetic philosophy, with  |
 | `dispatching-parallel-agents` | `references/dispatching-parallel-agents.md` | — | Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies |
 | `enhance-prompt` | `references/enhance-prompt.md` | — | Transforms vague UI ideas into polished, Stitch-optimized prompts. Enhances specificity, adds UI/UX keywords,  |
@@ -38,31 +34,19 @@ Consolidated domain router for **SaaS Kit Core (Orchestration & Quality Gate)** 
 | `gitnexus-cli` | `references/gitnexus-cli.md` | — | Use when the user needs to run GitNexus CLI commands like analyze/index a repo, check status, clean the index, |
 | `gitnexus-exploring` | `references/gitnexus-exploring.md` | — | Use when the user asks how code works, wants to understand architecture, trace execution flows, or explore unf |
 | `gitnexus-guide` | `references/gitnexus-guide.md` | — | Use when the user asks about GitNexus itself — available tools, how to query the knowledge graph, MCP resource |
-| `gitnexus-impact-analysis` | `references/gitnexus-impact-analysis.md` | — | Use when the user wants to know what will break if they change something, or needs safety analysis before edit |
 | `gitnexus-pr-review` | `references/gitnexus-pr-review.md` | — | Use when the user wants to review a pull request, understand what a PR changes, assess risk of merging, or che |
 | `gitnexus-refactoring` | `references/gitnexus-refactoring.md` | — | Use when the user wants to rename, extract, split, move, or restructure code safely. Examples: \"Rename this f |
 | `handoff` | `references/handoff.md` | — | Compact the current conversation into a handoff document for another agent to pick up. |
-| `information-architecture` | `references/information-architecture.md` | — | Define the structural layer of a product or site before visual design begins. Covers navigation, content hiera |
 | `link-workspace-packages` | `references/link-workspace-packages.md` | — | Link workspace packages in monorepos (npm, yarn, pnpm, bun). USE WHEN: (1) you just created or generated new p |
 | `monitor-ci` | `references/monitor-ci.md` | `scripts/monitor-ci/` | Monitor Nx Cloud CI pipeline and handle self-healing fixes. USE WHEN user says "monitor ci", "watch ci", "ci m |
 | `monorepo-management` | `references/monorepo-management.md` | — | Master monorepo management with Turborepo, Nx, and pnpm workspaces to build efficient, scalable multi-package  |
 | `nx-generate` | `references/nx-generate.md` | — | Generate code using nx generators. INVOKE IMMEDIATELY when user mentions scaffolding, setup, structure, creati |
-| `nx-import` | `references/nx-import.md` | — | Import, merge, or combine repositories into an Nx workspace using nx import. USE WHEN the user asks to adopt N |
-| `nx-plugins` | `references/nx-plugins.md` | — | Find and add Nx plugins. USE WHEN user wants to discover available plugins, install a new plugin, or add suppo |
-| `nx-run-tasks` | `references/nx-run-tasks.md` | — | Helps with running tasks in an Nx workspace. USE WHEN the user wants to execute build, test, lint, serve, or r |
-| `nx-workspace` | `references/nx-workspace.md` | — | Explore and understand Nx workspaces. USE WHEN answering questions about the workspace, projects, or tasks. AL |
 | `nx-workspace-patterns` | `references/nx-workspace-patterns.md` | — | Configure and optimize Nx monorepo workspaces. Use when setting up Nx, configuring project boundaries, optimiz |
 | `orchestrate` | `references/orchestrate.md` | — | Tech Lead work breakdown and coordination. Analyzes tasks, dispatches subagents with Task, plans execution ord |
-| `prototype` | `references/prototype.md` | — | Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a sta |
 | `react-state-management` | `references/react-state-management.md` | — | Master modern React state management with Redux Toolkit, Zustand, Jotai, and React Query. Use when setting up  |
-| `receiving-code-review` | `references/receiving-code-review.md` | — | Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear |
-| `requesting-code-review` | `references/requesting-code-review.md` | — | Use when completing tasks, implementing major features, or before merging to verify work meets requirements |
 | `review-agent-setup` | `references/review-agent-setup.md` | — | Configure human-in-the-loop gating for AI agent review actions in Claude Code. Use when setting up a project w |
 | `scan` | `references/scan.md` | — | Scans the codebase to generate project-doc.md and AGENTS.md. Runs a full scan on first use and a smart delta s |
 | `socratic-planning` | `references/socratic-planning.md` | — | Socratic method for ALL requests. Asks clarifying questions before coding. Scales from 1 question (small fixes |
-| `stitch-extract-design-md` | `references/stitch-extract-design-md.md` | — | Extract a comprehensive design system (DESIGN.md) directly from frontend source |
-| `stitch-generate-design` | `references/stitch-generate-design.md` | — | Generate new screens from text prompts or images, edit existing screens |
-| `stitch-loop` | `references/stitch-loop.md` | — | Teaches agents to iteratively build websites using Stitch with an autonomous baton-passing loop pattern |
 | `subagent-driven-development` | `references/subagent-driven-development.md` | `scripts/subagent-driven-development/` | Use when executing implementation plans with independent tasks in the current session |
 | `to-issues` | `references/to-issues.md` | — | Break a plan, spec, or PRD into independently-grabbable issues on the project issue tracker using tracer-bulle |
 | `to-prd` | `references/to-prd.md` | — | Turn the current conversation context into a PRD and publish it to the project issue tracker. Use when user wa |

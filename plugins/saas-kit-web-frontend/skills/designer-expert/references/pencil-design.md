@@ -34,7 +34,7 @@ Before inserting any element, you MUST:
 4. Customize the instance by updating its descendants with `U(instanceId + "/childId", { ... })`
 5. Only create a new component from scratch if no suitable reusable component exists
 
-See [references/design-system-components.md](references/design-system-components.md) for detailed workflow.
+See [pencil-design/references/design-system-components.md](pencil-design/references/design-system-components.md) for detailed workflow.
 
 ### Rule 2: Always Use Variables Instead of Hardcoded Values
 
@@ -46,7 +46,7 @@ Before applying any style value, you MUST:
 3. Apply values using variable references, not raw values
 4. When generating code, use Tailwind v4 semantic utility classes (e.g., `bg-primary`, `text-foreground`, `rounded-md`). NEVER use arbitrary value syntax (`bg-[#3b82f6]`, `text-[var(--primary)]`, `rounded-[6px]`)
 
-See [references/variables-and-tokens.md](references/variables-and-tokens.md) for detailed workflow.
+See [pencil-design/references/variables-and-tokens.md](pencil-design/references/variables-and-tokens.md) for detailed workflow.
 
 ### Rule 3: Prevent Text and Content Overflow
 
@@ -59,7 +59,7 @@ For every text element and container:
 4. After inserting content, call `pencil_snapshot_layout` with `problemsOnly: true` to detect clipping/overflow
 5. Fix any reported issues before proceeding
 
-See [references/layout-and-text-overflow.md](references/layout-and-text-overflow.md) for detailed workflow.
+See [pencil-design/references/layout-and-text-overflow.md](pencil-design/references/layout-and-text-overflow.md) for detailed workflow.
 
 ### Rule 4: Visually Verify Every Section
 
@@ -72,7 +72,7 @@ After completing each logical section (header, hero, sidebar, form, card grid, e
 4. Fix any issues found before moving to the next section
 5. Take a final full-screen screenshot when the entire design is complete
 
-See [references/visual-verification.md](references/visual-verification.md) for detailed workflow.
+See [pencil-design/references/visual-verification.md](pencil-design/references/visual-verification.md) for detailed workflow.
 
 ### Rule 5: Reuse Existing Assets (Logos, Icons, Images)
 
@@ -84,14 +84,14 @@ Before generating any image or logo:
 3. Only use the `G()` (Generate) operation for genuinely new images that don't exist anywhere in the document
 4. For logos specifically: always copy from an existing instance, never regenerate
 
-See [references/asset-reuse.md](references/asset-reuse.md) for detailed workflow.
+See [pencil-design/references/asset-reuse.md](pencil-design/references/asset-reuse.md) for detailed workflow.
 
-### Rule 6: Always Load the `frontend-design` Skill
+### Rule 6: Always Load the `design-taste-frontend` Skill
 
-**NEVER design in Pencil or generate code from Pencil without first loading the `frontend-design` skill.**
+**NEVER design in Pencil or generate code from Pencil without first loading the `design-taste-frontend` skill (`pencil-design/references/aesthetic-philosophies.md`).**
 
-The `frontend-design` skill provides the aesthetic direction and design quality standards that prevent generic, cookie-cutter UI. You MUST:
-1. Load the `frontend-design` skill at the start of any Pencil design or code generation task
+The `design-taste-frontend` skill provides the aesthetic direction and design quality standards that prevent generic, cookie-cutter UI. You MUST:
+1. Load the `design-taste-frontend` skill (`pencil-design/references/aesthetic-philosophies.md`) at the start of any Pencil design or code generation task
 2. Follow its design thinking process: understand purpose, commit to a bold aesthetic direction, consider differentiation
 3. Apply its guidelines on typography, color, motion, spatial composition, and visual details — both when designing in Pencil and when generating code from Pencil designs
 4. Never produce generic AI aesthetics (overused fonts, cliched color schemes, predictable layouts)
@@ -105,7 +105,7 @@ This applies to both directions:
 ### Starting a New Design
 
 ```
-0. Load `frontend-design` skill   -> Get aesthetic direction and design quality standards
+0. Load `design-taste-frontend` skill   -> Get aesthetic direction and design quality standards
 1. pencil_get_editor_state        -> Understand file state, get schema
 2. pencil_batch_get (reusable)    -> Discover design system components
 3. pencil_get_variables           -> Read design tokens
@@ -130,18 +130,18 @@ For each section of a screen (header, content area, footer, sidebar, etc.):
 
 ### Design-to-Code Workflow
 
-See [references/design-to-code-workflow.md](references/design-to-code-workflow.md) for the complete workflow.
-See [references/tailwind-shadcn-mapping.md](references/tailwind-shadcn-mapping.md) for the full Pencil-to-Tailwind mapping table.
-See [references/responsive-breakpoints.md](references/responsive-breakpoints.md) for multi-artboard responsive code generation.
+See [pencil-design/references/design-to-code-workflow.md](pencil-design/references/design-to-code-workflow.md) for the complete workflow.
+See [pencil-design/references/tailwind-shadcn-mapping.md](pencil-design/references/tailwind-shadcn-mapping.md) for the full Pencil-to-Tailwind mapping table.
+See [pencil-design/references/responsive-breakpoints.md](pencil-design/references/responsive-breakpoints.md) for multi-artboard responsive code generation.
 
 Summary:
-1. Load the `frontend-design` skill for aesthetic direction
+1. Load the `design-taste-frontend` skill (`pencil-design/references/aesthetic-philosophies.md`) for aesthetic direction
 2. Call `pencil_get_guidelines` with topic `"code"` and `"tailwind"`
 3. Call `pencil_get_variables` to map design tokens to Tailwind `@theme` declarations
 4. Read the design tree with `pencil_batch_get`
 5. Map reusable Pencil components to shadcn/ui components (Button, Card, Input, etc.)
 6. Generate code using semantic Tailwind classes (`bg-primary`, `rounded-md`), never arbitrary values
-7. Apply `frontend-design` guidelines: distinctive typography, intentional color, motion, spatial composition
+7. Apply `design-taste-frontend` guidelines: distinctive typography, intentional color, motion, spatial composition
 8. Use CVA for custom component variants, `cn()` for class merging, Lucide for icons
 
 ## MCP Tool Quick Reference
@@ -181,8 +181,8 @@ Summary:
 | Ignoring `pencil_get_guidelines` | Always call it for the relevant topic before starting |
 | Using `tailwind.config.ts` | Use CSS `@theme` block (Tailwind v4) |
 | Using Material Icons in code | Map to Lucide icons (`<Search />`, `<ArrowRight />`, etc.) |
-| Skipping `frontend-design` skill | Always load it before designing in Pencil or generating code |
-| Generic AI aesthetics (Inter font, purple gradients) | Follow `frontend-design` guidelines for distinctive, intentional design |
+| Skipping `design-taste-frontend` skill | Always load it before designing in Pencil or generating code |
+| Generic AI aesthetics (Inter font, purple gradients) | Follow `design-taste-frontend` guidelines for distinctive, intentional design |
 
 ## Resources
 

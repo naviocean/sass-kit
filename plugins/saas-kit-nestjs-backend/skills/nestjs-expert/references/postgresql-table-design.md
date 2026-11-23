@@ -14,7 +14,7 @@ description: Use this skill when designing or reviewing a PostgreSQL-specific sc
 
 The rules and decision points for a PostgreSQL schema. The full data-type catalog, workload
 patterns (update-heavy, insert-heavy, upsert, schema evolution), extensions, JSONB indexing,
-and worked DDL examples are in `references/details.md`; open it when a section below points there.
+and worked DDL examples are in `postgresql-table-design/references/details.md`; open it when a section below points there.
 
 ## Core Rules
 
@@ -43,7 +43,7 @@ and worked DDL examples are in `references/details.md`; open it when a section b
 - **Booleans**: `BOOLEAN NOT NULL` unless tri-state is required.
 - **Enums**: `CREATE TYPE ... AS ENUM` only for small, stable sets; evolving business values get `TEXT` + `CHECK` or a lookup table.
 - **JSONB** over JSON, indexed with GIN, for optional/semi-structured attributes only.
-- Arrays, ranges, network, geometric, full-text, domain, composite, and vector types, plus TOAST storage and collation control: see `references/details.md`.
+- Arrays, ranges, network, geometric, full-text, domain, composite, and vector types, plus TOAST storage and collation control: see `postgresql-table-design/references/details.md`.
 
 ### Types to avoid
 
@@ -119,7 +119,7 @@ CREATE INDEX profiles_attrs_gin ON profiles USING GIN (attrs);
 
 ## Going deeper
 
-`references/details.md` holds the material this file only names:
+`postgresql-table-design/references/details.md` holds the material this file only names:
 
 - The full data-type catalog: TOAST storage, collations, arrays, ranges, network, geometric, text search, domains, composites, vectors.
 - Table types (`TEMPORARY`, `UNLOGGED`) and row-level security.

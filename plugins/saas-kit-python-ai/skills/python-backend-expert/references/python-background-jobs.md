@@ -225,7 +225,7 @@ class JobRepository:
 
 ## Detailed worked examples and patterns
 
-Detailed sections (starting with `## Advanced Patterns`) live in `references/details.md`. Read that file when the navigation summary above is insufficient.
+Detailed sections (starting with `## Advanced Patterns`) live in `python-background-jobs/references/details.md`. Read that file when the navigation summary above is insufficient.
 
 ## Best Practices Summary
 

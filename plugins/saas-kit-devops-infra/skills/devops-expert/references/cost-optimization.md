@@ -197,7 +197,7 @@ resource "aws_instance" "example" {
 }
 ```
 
-**Reference:** See `references/tagging-standards.md`
+**Reference:** See `cost-optimization/references/tagging-standards.md`
 
 ## Cost Monitoring
 

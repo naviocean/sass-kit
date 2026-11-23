@@ -23,10 +23,10 @@ Check the user's requested ORM or driver, installed packages, database connectio
 | Situation                                    | Action                                                                                                           |
 | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | Existing connection or connected integration | Verify its project, database, and environment; reuse it.                                                         |
-| v0, Vercel Marketplace, or a Vercel project  | Read [Marketplace setup](references/vercel-marketplace.md) and use the native integration flow.                  |
-| No database yet and no provider named        | Offer `npx create-db@latest` for a working database now with no account (it is deleted after 24 hours unless claimed, and claiming needs a free Prisma account; read the create-db section in [provisioning](references/provisioning.md)), or a persistent database through [provisioning](references/provisioning.md). Ask which one when the request does not say. |
-| Standalone persistent database               | Read [provisioning](references/provisioning.md); use an authenticated CLI, MCP tool, Console, or Management API. |
-| Temporary development database requested     | Read the `create-db` section in [provisioning](references/provisioning.md), including expiry and claiming.       |
+| v0, Vercel Marketplace, or a Vercel project  | Read [Marketplace setup](prisma-postgres-setup/references/vercel-marketplace.md) and use the native integration flow.                  |
+| No database yet and no provider named        | Offer `npx create-db@latest` for a working database now with no account (it is deleted after 24 hours unless claimed, and claiming needs a free Prisma account; read the create-db section in [provisioning](prisma-postgres-setup/references/provisioning.md)), or a persistent database through [provisioning](prisma-postgres-setup/references/provisioning.md). Ask which one when the request does not say. |
+| Standalone persistent database               | Read [provisioning](prisma-postgres-setup/references/provisioning.md); use an authenticated CLI, MCP tool, Console, or Management API. |
+| Temporary development database requested     | Read the `create-db` section in [provisioning](prisma-postgres-setup/references/provisioning.md), including expiry and claiming.       |
 
 Resolve the workspace, project, and region before creation. If several resources fit, ask which one to use. If provisioning is blocked by permissions or quota, report the blocker; do not delete another resource or switch workspaces to get around it.
 
@@ -44,4 +44,4 @@ For an explicitly selected alternative, keep that ORM or driver and use its docu
 
 Run a read-only query against the intended database through the application's chosen ORM or driver. Report what was connected, the selected ORM/version, and the query result without secrets. If any step is blocked or untested, say so instead of claiming setup is complete.
 
-For Studio, SDK integrations, or database operations beyond initial setup, read [operations](references/operations.md).
+For Studio, SDK integrations, or database operations beyond initial setup, read [operations](prisma-postgres-setup/references/operations.md).

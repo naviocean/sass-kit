@@ -30,7 +30,7 @@ The JSON above contains the project config and installed components. Use `npx sh
 
 These rules are **always enforced**. Each links to a file with Incorrect/Correct code pairs.
 
-### Styling & Tailwind → [styling.md](./rules/styling.md)
+### Styling & Tailwind → [styling.md](shadcn/rules/styling.md)
 
 - **`className` for layout, not styling.** Never override component colors or typography.
 - **No `space-x-*` or `space-y-*`.** Use `flex` with `gap-*`. For vertical stacks, `flex flex-col gap-*`.
@@ -40,7 +40,7 @@ These rules are **always enforced**. Each links to a file with Incorrect/Correct
 - **Use `cn()` for conditional classes.** Don't write manual template literal ternaries.
 - **No manual `z-index` on overlay components.** Dialog, Sheet, Popover, etc. handle their own stacking.
 
-### Forms & Inputs → [forms.md](./rules/forms.md)
+### Forms & Inputs → [forms.md](shadcn/rules/forms.md)
 
 - **Forms use `FieldGroup` + `Field`.** Never use raw `div` with `space-y-*` or `grid gap-*` for form layout.
 - **`InputGroup` uses `InputGroupInput`/`InputGroupTextarea`.** Never raw `Input`/`Textarea` inside `InputGroup`.
@@ -49,17 +49,17 @@ These rules are **always enforced**. Each links to a file with Incorrect/Correct
 - **`FieldSet` + `FieldLegend` for grouping related checkboxes/radios.** Don't use a `div` with a heading.
 - **Field validation uses `data-invalid` + `aria-invalid`.** `data-invalid` on `Field`, `aria-invalid` on the control. For disabled: `data-disabled` on `Field`, `disabled` on the control.
 
-### Component Structure → [composition.md](./rules/composition.md)
+### Component Structure → [composition.md](shadcn/rules/composition.md)
 
 - **Items always inside their Group.** `SelectItem` → `SelectGroup`. `DropdownMenuItem` → `DropdownMenuGroup`. `CommandItem` → `CommandGroup`.
-- **Use `asChild` (radix) or `render` (base) for custom triggers.** Check `base` field from `npx shadcn@latest info`. → [base-vs-radix.md](./rules/base-vs-radix.md)
+- **Use `asChild` (radix) or `render` (base) for custom triggers.** Check `base` field from `npx shadcn@latest info`. → [base-vs-radix.md](shadcn/rules/base-vs-radix.md)
 - **Dialog, Sheet, and Drawer always need a Title.** `DialogTitle`, `SheetTitle`, `DrawerTitle` required for accessibility. Use `className="sr-only"` if visually hidden.
 - **Use full Card composition.** `CardHeader`/`CardTitle`/`CardDescription`/`CardContent`/`CardFooter`. Don't dump everything in `CardContent`.
 - **Button has no `isPending`/`isLoading`.** Compose with `Spinner` + `data-icon` + `disabled`.
 - **`TabsTrigger` must be inside `TabsList`.** Never render triggers directly in `Tabs`.
 - **`Avatar` always needs `AvatarFallback`.** For when the image fails to load.
 
-### Use Components, Not Custom Markup → [composition.md](./rules/composition.md)
+### Use Components, Not Custom Markup → [composition.md](shadcn/rules/composition.md)
 
 - **Use existing components before custom markup.** Check if a component exists before writing a styled `div`.
 - **Callouts use `Alert`.** Don't build custom styled divs.
@@ -71,13 +71,13 @@ These rules are **always enforced**. Each links to a file with Incorrect/Correct
 - **Use `Skeleton`** for loading placeholders. No custom `animate-pulse` divs.
 - **Use `Badge`** instead of custom styled spans.
 
-### Icons → [icons.md](./rules/icons.md)
+### Icons → [icons.md](shadcn/rules/icons.md)
 
 - **Icons in `Button` use `data-icon`.** `data-icon="inline-start"` or `data-icon="inline-end"` on the icon.
 - **No sizing classes on icons inside components.** Components handle icon sizing via CSS. No `size-4` or `w-4 h-4`.
 - **Pass icons as objects, not string keys.** `icon={CheckIcon}`, not a string lookup.
 
-### Chat & Messaging → [chat.md](./rules/chat.md)
+### Chat & Messaging → [chat.md](shadcn/rules/chat.md)
 
 - **Chat UI composes the chat primitives.** Conversations use `MessageScroller`, rows use `Message`, surfaces use `Bubble`. Never hand-rolled bubble `div`s or a raw scroll container.
 - **`MessageScroller` owns scroll behavior.** Streaming follow, anchoring, and jump-to-latest (`MessageScrollerButton`) are built in. Don't write a `useStickToBottom`/`ResizeObserver` hook.
@@ -163,7 +163,7 @@ The injected project context contains these key fields:
 - **`packageManager`** → use this for any non-shadcn dependency installs (e.g. `pnpm add date-fns` vs `npm install date-fns`).
 - **`preset`** → resolved preset code and values for the current project. Use `npx shadcn@latest preset resolve --json` when you only need preset information.
 
-See [cli.md — `info` command](./cli.md) for the full field reference.
+See [cli.md — `info` command](shadcn/cli.md) for the full field reference.
 
 ## Component Docs, Examples, and Usage
 
@@ -196,13 +196,13 @@ npx shadcn@latest docs button dialog select
 
 ## Design Systems from DESIGN.md
 
-When the user asks for a design system from a `DESIGN.md` (or a brand spec), with or without a preset, follow [design-system.md](./design-system.md) end to end:
+When the user asks for a design system from a `DESIGN.md` (or a brand spec), with or without a preset, follow [design-system.md](shadcn/design-system.md) end to end:
 
 1. `init --preset <code> --template <vite|next> --name <app> --no-monorepo -y`. Without a preset code, pick the closest style and pass `--base base --preset <style>`. Then `add --all -y`.
 2. Read the DESIGN.md frontmatter, Do's and Don'ts, and Known Gaps before editing.
 3. Map its tokens onto the shadcn variables in `tailwindCssFile`. Pin the radius scale, shadows, fonts and `type-*` utilities.
 4. Restyle components by editing their `cva` variants. Change control heights together.
-5. Build the design system page per [design-system-page.md](./design-system-page.md): contrast-checked color roles, type specimens, pinned state matrices, edge cases, do/don't pairs, recipes. Check coverage with `scripts/showcase-coverage.mjs`.
+5. Build the design system page per [design-system-page.md](shadcn/design-system-page.md): contrast-checked color roles, type specimens, pinned state matrices, edge cases, do/don't pairs, recipes. Check coverage with `scripts/showcase-coverage.mjs`.
 6. Verify in a browser: typecheck, no console errors, loads at the top, no horizontal overflow, dark mode.
 
 ## Updating Components
@@ -283,14 +283,14 @@ npx shadcn@latest view owner/repo/item
 
 ## Detailed References
 
-- [rules/forms.md](./rules/forms.md) — FieldGroup, Field, InputGroup, ToggleGroup, FieldSet, validation states
-- [rules/composition.md](./rules/composition.md) — Groups, overlays, Card, Tabs, Avatar, Alert, Empty, Toast, Separator, Skeleton, Badge, Button loading
-- [rules/chat.md](./rules/chat.md) — MessageScroller, Message, Bubble, Attachment, Marker, Trace; streaming, anchoring, jump-to-latest, assistant activity rows
-- [rules/icons.md](./rules/icons.md) — data-icon, icon sizing, passing icons as objects
-- [rules/styling.md](./rules/styling.md) — Semantic colors, variants, className, spacing, size, truncate, dark mode, cn(), z-index
-- [rules/base-vs-radix.md](./rules/base-vs-radix.md) — asChild vs render, Select, ToggleGroup, Slider, Accordion
-- [cli.md](./cli.md) — Commands, flags, presets, templates
-- [registry.md](./registry.md) — Authoring source registries, `include`, item definitions, dependencies, GitHub registry rules
-- [customization.md](./customization.md) — Theming, CSS variables, extending components
-- [design-system.md](./design-system.md): DESIGN.md (with or without a preset) to a themed app: style picking, token mapping, radius, fonts, type scale, control heights, showcase traps, verification
-- [design-system-page.md](./design-system-page.md): What goes on a design system page and how: foundations, component tiers, pinned state matrices, contrast pairs, edge cases, do/don't, recipes
+- [shadcn/rules/forms.md](shadcn/rules/forms.md) — FieldGroup, Field, InputGroup, ToggleGroup, FieldSet, validation states
+- [shadcn/rules/composition.md](shadcn/rules/composition.md) — Groups, overlays, Card, Tabs, Avatar, Alert, Empty, Toast, Separator, Skeleton, Badge, Button loading
+- [shadcn/rules/chat.md](shadcn/rules/chat.md) — MessageScroller, Message, Bubble, Attachment, Marker, Trace; streaming, anchoring, jump-to-latest, assistant activity rows
+- [shadcn/rules/icons.md](shadcn/rules/icons.md) — data-icon, icon sizing, passing icons as objects
+- [shadcn/rules/styling.md](shadcn/rules/styling.md) — Semantic colors, variants, className, spacing, size, truncate, dark mode, cn(), z-index
+- [shadcn/rules/base-vs-radix.md](shadcn/rules/base-vs-radix.md) — asChild vs render, Select, ToggleGroup, Slider, Accordion
+- [cli.md](shadcn/cli.md) — Commands, flags, presets, templates
+- [registry.md](shadcn/registry.md) — Authoring source registries, `include`, item definitions, dependencies, GitHub registry rules
+- [customization.md](shadcn/customization.md) — Theming, CSS variables, extending components
+- [design-system.md](shadcn/design-system.md): DESIGN.md (with or without a preset) to a themed app: style picking, token mapping, radius, fonts, type scale, control heights, showcase traps, verification
+- [design-system-page.md](shadcn/design-system-page.md): What goes on a design system page and how: foundations, component tiers, pinned state matrices, contrast pairs, edge cases, do/don't, recipes

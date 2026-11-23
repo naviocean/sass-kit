@@ -45,7 +45,7 @@ components:
 
 ## Templates and detailed worked examples
 
-Full template library and detailed worked examples live in `references/details.md`. Read that file when you need the concrete templates.
+Full template library and detailed worked examples live in `openapi-spec-generation/references/details.md`. Read that file when you need the concrete templates.
 
 ## Best Practices
 

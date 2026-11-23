@@ -21,6 +21,7 @@ Consolidated domain router for **SaaS Kit Core (Orchestration & Quality Gate)** 
 | `diagnose` | `references/diagnose.md` | `scripts/diagnose/` | Disciplined diagnosis loop for hard bugs and performance regressions. Reproduce → minimise → hypothesise → ins |
 | `e2e-testing-patterns` | `references/e2e-testing-patterns.md` | — | Master end-to-end testing with Playwright and Cypress to build reliable test suites that catch bugs, improve c |
 | `gitnexus-debugging` | `references/gitnexus-debugging.md` | — | Use when the user is debugging a bug, tracing an error, or asking why something fails. Examples: \"Why is X fa |
+| `gitnexus-impact-analysis` | `references/gitnexus-impact-analysis.md` | — | Use when the user wants to know what will break if they change something, or needs safety analysis before edit |
 | `javascript-testing-patterns` | `references/javascript-testing-patterns.md` | — | Implement comprehensive testing strategies using Jest, Vitest, and Testing Library for unit tests, integration |
 | `maintain-verification-skill` | `references/maintain-verification-skill.md` | — | Audit and update an existing Feature Map against code changes, re-verify touched user flows on real runtime su |
 | `playwright-best-practices` | `references/playwright-best-practices.md` | — | Use when writing Playwright tests, fixing flaky tests, debugging failures, implementing Page Object Model, con |
@@ -29,7 +30,6 @@ Consolidated domain router for **SaaS Kit Core (Orchestration & Quality Gate)** 
 | `security-requirement-extraction` | `references/security-requirement-extraction.md` | — | Derive security requirements from threat models and business context. Use when translating threats into action |
 | `security-scan` | `references/security-scan.md` | — | AgentShield security scanning — detect secrets, permission issues, hook vulnerabilities, MCP misconfigs |
 | `systematic-debugging` | `references/systematic-debugging.md` | — | Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes |
-| `tdd` | `references/tdd.md` | — | Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions "red-green |
 | `test-driven-development` | `references/test-driven-development.md` | — | Use when implementing any feature or bugfix, before writing implementation code |
 | `trace-forensics` | `references/trace-forensics.md` | — | Analyze captured profiling and trace artifacts (Chrome tracing JSON, cpuprofile, heap snapshot, spindump, flam |
 | `verification-before-completion` | `references/verification-before-completion.md` | — | Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires runn |

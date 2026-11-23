@@ -86,6 +86,10 @@ Store patterns after solving non-trivial problems:
 | `rust-best-practices`    | Always — Idiomatic Rust, zero-cost abstractions, Result/Option error handling. |
 | `memory-safety-patterns` | Always — RAII, ownership/borrowing, lifetimes, smart pointers, data races.     |
 | `rust-testing`           | Always — Unit tests, integration tests, async testing, mocking, TDD.           |
+| `coding-standards`       | Always — clean module boundaries, strict typing, naming conventions.           |
+| `git-workflow`           | Always — branch naming, conventional commits, PR format.                       |
+| `gitnexus-exploring`     | When tracing crate boundaries, IPC channels, and symbol callers.               |
+| `continuous-learning`    | When a Rust pattern repeats 3+ times — record as persistent instinct.          |
 
 ### Frameworks & Concurrency
 

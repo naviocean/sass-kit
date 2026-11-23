@@ -213,7 +213,7 @@ async def call_downstream_service(endpoint: str, data: dict) -> dict:
 
 ## Detailed worked examples and patterns
 
-Detailed sections (starting with `## Advanced Patterns`) live in `references/details.md`. Read that file when the navigation summary above is insufficient.
+Detailed sections (starting with `## Advanced Patterns`) live in `python-observability/references/details.md`. Read that file when the navigation summary above is insufficient.
 
 ## Best Practices Summary
 

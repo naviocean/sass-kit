@@ -35,18 +35,18 @@ Stitch MCP tools:
 
 ## 🧠 Synthesis from Description
 
-If you need to extract a design system from existing screens, use the `design-md` skill (in the `stitch-utilities` plugin).
+If you need to extract a design system from existing screens, use the `stitch-extract-design-md` skill (see `references/stitch-mcp-extraction.md`).
 
 If there are no existing screens (new project), or the user provides a direct description (e.g., "dark theme, blue and purple, rounded, Inter font"):
 
-1. Map the user's vague terms to precise values using the design mappings (see `design-md` skill in `stitch-utilities` or `generate-design` skill).
+1. Map the user's vague terms to precise values using the design mappings (see `stitch-extract-design-md` or `stitch-generate-design` skill).
 2. Select concrete hex codes, font families, and roundness values.
-3. Generate the `DESIGN.md` file (refer to the `design-md` skill in `stitch-utilities` for structure).
+3. Generate the `DESIGN.md` file (refer to `stitch-extract-design-md` for structure).
 4. Proceed to the "Create or Update Design System in Stitch" step below.
 
 ## 📝 Output Structure
 
-The `DESIGN.md` file should follow the structure defined in the `design-md` skill (in the `stitch-utilities` plugin).
+The `DESIGN.md` file should follow the structure defined in `stitch-extract-design-md`.
 
 ## 🚀 Create or Update Design System in Stitch
 
@@ -124,9 +124,9 @@ See [examples/metadata.json](examples/metadata.json) for the format.
 
 ## Schema Reference
 
-See [reference/tool-schema.md](reference/tool-schema.md) for the full
+See [stitch-manage-design-system/reference/tool-schema.md](stitch-manage-design-system/reference/tool-schema.md) for the full
 `designSystem` object schema with all available options.
 
 ## 💡 Best Practices
 
-Refer to the `design-md` skill (in the `stitch-utilities` plugin) for best practices on describing design elements.
+Refer to `stitch-extract-design-md` (and `references/stitch-mcp-extraction.md`) for best practices on describing design elements.

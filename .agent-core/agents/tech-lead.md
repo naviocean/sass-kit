@@ -230,14 +230,10 @@ Load skills via `skill(name="skill-name")` when their context matches. Organized
 
 | Skill | When to Load |
 |---|---|
-| `nx-workspace` | Workspace setup, project.json configuration, nx.json |
 | `nx-generate` | Generating libraries, apps, components via `nx generate` |
-| `nx-run-tasks` | Running targets, caching, task pipelines |
-| `nx-plugins` | Plugin configuration, executor customization |
-| `nx-import` | Importing external projects into the monorepo |
+| `nx-workspace-patterns` | Monorepo structures, workspace exploration, affected commands, plugins, and `nx import` (`references/exploration-and-tasks.md`, `references/nx-import.md`) |
 | `link-workspace-packages` | Linking internal packages across projects |
 | `monitor-ci` | CI pipeline monitoring, build health checks |
-| `nx-workspace-patterns` | Proven monorepo structures and conventions |
 | `monorepo-management` | Dependency graph, affected commands, boundary rules |
 
 ### GitNexus (Code Intelligence)
@@ -269,9 +265,7 @@ Load skills via `skill(name="skill-name")` when their context matches. Organized
 
 | Skill | When to Load |
 |---|---|
-| `requesting-code-review` | When you need external review of your own architectural decisions |
-| `receiving-code-review` | When processing feedback from review agents |
-| `code-review-excellence` | Review standards, checklists, and quality gates |
+| `code-review-excellence` | Review standards, checklists, requesting/receiving feedback (`references/requesting-and-receiving.md`) |
 | `adversarial-review` | High-risk changes (auth, payment, migrations, concurrency) — targeted adversarial scrutiny |
 
 ### Architecture & Standards

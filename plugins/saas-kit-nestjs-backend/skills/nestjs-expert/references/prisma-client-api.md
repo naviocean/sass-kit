@@ -170,14 +170,14 @@ const [user, post] = await prisma.$transaction([
 Detailed API documentation:
 
 ```
-references/constructor.md        - PrismaClient constructor options
-references/model-queries.md      - CRUD operations
-references/query-options.md      - select, include, omit, where, orderBy
-references/filters.md            - Filter conditions and operators
-references/relations.md          - Relation queries and nested operations
-references/transactions.md       - Transaction API
-references/raw-queries.md        - $queryRaw, $executeRaw
-references/client-methods.md     - $connect, $disconnect, $on, $extends
+prisma-client-api/references/constructor.md        - PrismaClient constructor options
+prisma-client-api/references/model-queries.md      - CRUD operations
+prisma-client-api/references/query-options.md      - select, include, omit, where, orderBy
+prisma-client-api/references/filters.md            - Filter conditions and operators
+prisma-client-api/references/relations.md          - Relation queries and nested operations
+prisma-client-api/references/transactions.md       - Transaction API
+prisma-client-api/references/raw-queries.md        - $queryRaw, $executeRaw
+prisma-client-api/references/client-methods.md     - $connect, $disconnect, $on, $extends
 ```
 
 ## Filter Operators

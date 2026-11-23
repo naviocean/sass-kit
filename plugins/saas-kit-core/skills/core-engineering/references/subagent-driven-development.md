@@ -70,13 +70,13 @@ digraph process {
         "Implementer implements, tests, commits, self-reviews" [shape=box];
         "Generate review package, dispatch task reviewer (./task-reviewer-prompt.md)" [shape=box];
         "Spec ✅ and quality approved?" [shape=diamond];
-        "Fix loop: read references/fix-loop.md before every round" [shape=box];
+        "Fix loop: read subagent-driven-development/references/fix-loop.md before every round" [shape=box];
         "Append completion to ledger, mark todo complete" [shape=box];
     }
 
     "Setup: worktree, ledger check, read plan, pre-flight review" [shape=box];
     "More tasks remain?" [shape=diamond];
-    "Final review and finish: read references/final-review.md" [shape=box];
+    "Final review and finish: read subagent-driven-development/references/final-review.md" [shape=box];
     "Final review clean: delete this plan's workspace" [shape=box];
     "Use superpowers:finishing-a-development-branch" [shape=box style=filled fillcolor=lightgreen];
 
@@ -88,12 +88,12 @@ digraph process {
     "Implementer implements, tests, commits, self-reviews" -> "Generate review package, dispatch task reviewer (./task-reviewer-prompt.md)";
     "Generate review package, dispatch task reviewer (./task-reviewer-prompt.md)" -> "Spec ✅ and quality approved?";
     "Spec ✅ and quality approved?" -> "Append completion to ledger, mark todo complete" [label="yes"];
-    "Spec ✅ and quality approved?" -> "Fix loop: read references/fix-loop.md before every round" [label="no"];
-    "Fix loop: read references/fix-loop.md before every round" -> "Append completion to ledger, mark todo complete" [label="addressed, or parked at the cap"];
+    "Spec ✅ and quality approved?" -> "Fix loop: read subagent-driven-development/references/fix-loop.md before every round" [label="no"];
+    "Fix loop: read subagent-driven-development/references/fix-loop.md before every round" -> "Append completion to ledger, mark todo complete" [label="addressed, or parked at the cap"];
     "Append completion to ledger, mark todo complete" -> "More tasks remain?";
     "More tasks remain?" -> "Dispatch implementer subagent (./implementer-prompt.md)" [label="yes"];
-    "More tasks remain?" -> "Final review and finish: read references/final-review.md" [label="no"];
-    "Final review and finish: read references/final-review.md" -> "Final review clean: delete this plan's workspace";
+    "More tasks remain?" -> "Final review and finish: read subagent-driven-development/references/final-review.md" [label="no"];
+    "Final review and finish: read subagent-driven-development/references/final-review.md" -> "Final review clean: delete this plan's workspace";
     "Final review clean: delete this plan's workspace" -> "Use superpowers:finishing-a-development-branch";
 }
 ```
@@ -117,7 +117,7 @@ a ledger file, not only in todos.
   every artifact for THIS plan: ledger, briefs, reports, review packages.
   Another plan's directory is never yours to read or write.
 - Check for this plan's ledger at `<workspace>/progress.md`. If one exists,
-  read [references/resuming.md](references/resuming.md) before anything
+  read [subagent-driven-development/references/resuming.md](subagent-driven-development/references/resuming.md) before anything
   else: it says whose ledger it is and where to resume.
 - Create the ledger with its identity as the first line:
   `# SDD ledger — plan: <plan file path>`.
@@ -133,7 +133,7 @@ authority the plan argues from, and conflicts inside the plan resolve
 against it. A plan with no reachable spec gets a ledger note saying so —
 rulings made without one are provisional.
 
-Before dispatching Task 1, read [references/preflight.md](references/preflight.md)
+Before dispatching Task 1, read [subagent-driven-development/references/preflight.md](subagent-driven-development/references/preflight.md)
 and run the conflict scan it describes. Its table and rulings go in the
 ledger.
 
@@ -177,7 +177,7 @@ that implementer. Single-file mechanical fixes also take the cheapest tier.
 ## The Task Loop
 
 **Small same-shape work:** when the plan lists several small edits of the
-same kind across files, read [references/batching.md](references/batching.md)
+same kind across files, read [subagent-driven-development/references/batching.md](subagent-driven-development/references/batching.md)
 before dispatching them.
 
 Everything you paste into a dispatch prompt — and everything a subagent
@@ -234,7 +234,7 @@ and fix-round diffs need it.
   fix-loop rounds 1-3 resume this agent.
 - Never dispatch multiple implementation subagents in parallel (conflicts).
 
-Template: [implementer-prompt.md](implementer-prompt.md)
+Template: [implementer-prompt.md](subagent-driven-development/implementer-prompt.md)
 
 ### 2. Handle the report
 
@@ -243,7 +243,7 @@ Implementer subagents report one of four statuses. Handle each appropriately:
 **DONE:** Generate the review package (`bash scripts/review-package PLAN_FILE BASE HEAD` by its absolute path, from the working tree you're executing in — it prints the unique file path it wrote; BASE is the commit you recorded before dispatching the implementer — never `HEAD~1`, which silently drops all but the last commit of a multi-commit task), then dispatch the task reviewer with the printed path.
 
 **Any other status** (DONE_WITH_CONCERNS, NEEDS_CONTEXT, BLOCKED): read
-[references/handling-reports.md](references/handling-reports.md) and follow
+[subagent-driven-development/references/handling-reports.md](subagent-driven-development/references/handling-reports.md) and follow
 it, every time you get one.
 
 If the implementer asks questions — before starting or mid-task — answer
@@ -289,17 +289,17 @@ needed.
   as a defect," "at most Minor," or "the plan chose" — stop: you are
   pre-judging, usually to spare yourself a review loop.
 If the reviewer reports "⚠️ Cannot verify from diff" items, read
-[references/cannot-verify.md](references/cannot-verify.md) before you mark
+[subagent-driven-development/references/cannot-verify.md](subagent-driven-development/references/cannot-verify.md) before you mark
 the task complete.
 
-Template: [task-reviewer-prompt.md](task-reviewer-prompt.md)
+Template: [task-reviewer-prompt.md](subagent-driven-development/task-reviewer-prompt.md)
 
 ### 4. The fix loop
 
 The loop triggers when the review reports spec ❌, any Critical or Important
 finding, or a ⚠️ item you confirmed as a real gap.
 
-When it triggers, read [references/fix-loop.md](references/fix-loop.md) and
+When it triggers, read [subagent-driven-development/references/fix-loop.md](subagent-driven-development/references/fix-loop.md) and
 follow it. Read it again before every round, even if you read it earlier in
 this session: it holds the round cap, the breaker, and the ledger line each
 round writes, and your memory of it does not survive compaction.
@@ -321,7 +321,7 @@ parked-with-ruling at the cap.
 ## Final Review
 
 When every task is complete, read
-[references/final-review.md](references/final-review.md) and follow it. It
+[subagent-driven-development/references/final-review.md](subagent-driven-development/references/final-review.md) and follow it. It
 covers the whole-branch review, its single fix wave, and how you finish.
 
 ## Common Rationalizations

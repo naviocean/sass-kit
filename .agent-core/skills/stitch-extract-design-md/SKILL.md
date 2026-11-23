@@ -26,11 +26,7 @@ files, without needing to build or render the application.
 
 ## Why This Exists
 
-The `design-md` skill works from rendered HTML. But often you have a codebase
-and want to understand its design system before you can even run the app —
-maybe dependencies are missing, the build is broken, or you just want a quick
-audit. This skill reads the source files themselves: stylesheets, component
-files, theme configs, and Tailwind setups. It's faster and works anywhere.
+Use this skill whether you are synthesizing a semantic `DESIGN.md` from an existing Stitch project (via MCP screens/HTML — see [references/stitch-mcp-extraction.md](references/stitch-mcp-extraction.md)) OR reverse-engineering a design system directly from frontend source files (stylesheets, component files, theme configs, and Tailwind setups) without needing to build or render the app.
 
 ## When to Use
 

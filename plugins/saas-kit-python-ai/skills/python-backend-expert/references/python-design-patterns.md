@@ -47,7 +47,7 @@ def get_formatter(name: str) -> Formatter:
 
 ## Detailed patterns and worked examples
 
-Detailed pattern documentation lives in `references/details.md`. Read that file when the navigation tier above is insufficient.
+Detailed pattern documentation lives in `python-design-patterns/references/details.md`. Read that file when the navigation tier above is insufficient.
 
 ## Best Practices Summary
 

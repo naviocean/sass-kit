@@ -378,8 +378,8 @@ struct DetailView: View {
 
 ## References
 
-- [references/swiftdata-advanced.md](references/swiftdata-advanced.md) — custom data stores, history tracking, CloudKit, composite attributes, model inheritance, undo/redo, performance
-- [references/swiftdata-queries.md](references/swiftdata-queries.md) — `@Query` variants, FetchDescriptor deep dive, sectioned queries, dynamic queries, background fetch
-- [references/core-data-coexistence.md](references/core-data-coexistence.md) — Core Data + SwiftData coexistence and migration boundaries
-- [references/predicate-pitfalls.md](references/predicate-pitfalls.md) — #Predicate runtime crashes, unsupported expressions, safe patterns
-- [references/indexing.md](references/indexing.md) — #Index macro, compound indexes, when to index, migration
+- [swiftdata/references/swiftdata-advanced.md](swiftdata/references/swiftdata-advanced.md) — custom data stores, history tracking, CloudKit, composite attributes, model inheritance, undo/redo, performance
+- [swiftdata/references/swiftdata-queries.md](swiftdata/references/swiftdata-queries.md) — `@Query` variants, FetchDescriptor deep dive, sectioned queries, dynamic queries, background fetch
+- [swiftdata/references/core-data-coexistence.md](swiftdata/references/core-data-coexistence.md) — Core Data + SwiftData coexistence and migration boundaries
+- [swiftdata/references/predicate-pitfalls.md](swiftdata/references/predicate-pitfalls.md) — #Predicate runtime crashes, unsupported expressions, safe patterns
+- [swiftdata/references/indexing.md](swiftdata/references/indexing.md) — #Index macro, compound indexes, when to index, migration

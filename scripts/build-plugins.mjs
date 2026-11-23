@@ -97,6 +97,28 @@ function copyDirRecursive(src, dest) {
   }
 }
 
+const EXCLUDED_COMPANION_SUBDIRS = new Set(['scripts', 'evals', 'agents', 'node_modules', '.git']);
+const EXCLUDED_COMPANION_FILES = new Set(['SKILL.md', 'package-lock.json', '.DS_Store']);
+
+function escapeRegExp(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function rewriteCompanionLinks(mdText, skillName, copiedDirs, copiedTopFiles) {
+  let out = mdText;
+  if (copiedDirs.length > 0) {
+    const dirPattern = copiedDirs.map(escapeRegExp).join('|');
+    const dirRegex = new RegExp(`(^|[\\s(\\[\\\`"'])(?:\\.\\/)?((?:${dirPattern})\\/[a-zA-Z0-9._\\/*-]+)`, 'g');
+    out = out.replace(dirRegex, (_, prefix, relPath) => `${prefix}${skillName}/${relPath}`);
+  }
+  if (copiedTopFiles.length > 0) {
+    const filePattern = copiedTopFiles.map(escapeRegExp).join('|');
+    const mdLinkRegex = new RegExp(`(\\]\\(\\s*)(?:\\.\\/)?((?:${filePattern})(?:#[^)\\s]+)?)(\\s*\\))`, 'g');
+    out = out.replace(mdLinkRegex, (_, open, target, close) => `${open}${skillName}/${target}${close}`);
+  }
+  return out;
+}
+
 function buildRouterSkill({ pluginDir, routerSkillName, squadName, squadDescription, expertNames, refSkills }) {
   const skillDir = join(pluginDir, 'skills', routerSkillName);
   const refsDir = join(skillDir, 'references');
@@ -107,7 +129,26 @@ function buildRouterSkill({ pluginDir, routerSkillName, squadName, squadDescript
     const srcSkillDir = join(CORE_DIR, 'skills', skillName);
     const srcSkillMd = join(srcSkillDir, 'SKILL.md');
     if (!existsSync(srcSkillMd)) continue;
-    copyFileSync(srcSkillMd, join(refsDir, `${skillName}.md`));
+
+    const copiedDirs = [];
+    const copiedTopFiles = [];
+    for (const entry of readdirSync(srcSkillDir, { withFileTypes: true })) {
+      const srcEntryPath = join(srcSkillDir, entry.name);
+      if (entry.isDirectory()) {
+        if (EXCLUDED_COMPANION_SUBDIRS.has(entry.name)) continue;
+        copyDirRecursive(srcEntryPath, join(refsDir, skillName, entry.name));
+        copiedDirs.push(entry.name);
+      } else if (entry.isFile()) {
+        if (EXCLUDED_COMPANION_FILES.has(entry.name)) continue;
+        ensureDir(join(refsDir, skillName));
+        copyFileSync(srcEntryPath, join(refsDir, skillName, entry.name));
+        copiedTopFiles.push(entry.name);
+      }
+    }
+
+    const rawSkillMd = readFileSync(srcSkillMd, 'utf8');
+    const compiledSkillMd = rewriteCompanionLinks(rawSkillMd, skillName, copiedDirs, copiedTopFiles);
+    writeText(join(refsDir, `${skillName}.md`), compiledSkillMd);
 
     let scriptNote = '—';
     const srcScriptsDir = join(srcSkillDir, 'scripts');
@@ -120,6 +161,10 @@ function buildRouterSkill({ pluginDir, routerSkillName, squadName, squadDescript
     indexRows.push(`| \`${skillName}\` | \`references/${skillName}.md\` | ${scriptNote} | ${desc.slice(0, 110)} |`);
   }
 
+  const extraNote = routerSkillName === 'ai-engineer-expert'
+    ? `\n> **Shared Python Core**: For \`async-python-patterns\`, \`python-type-safety\`, \`python-testing-patterns\`, \`python-error-handling\`, \`python-observability\`, \`python-resilience\`, and \`python-code-style\`, also read \`../python-backend-expert/SKILL.md\` in this same \`saas-kit-python-ai\` plugin.\n`
+    : '';
+
   const skillMd = `---
 name: ${routerSkillName}
 description: >-
@@ -130,7 +175,7 @@ description: >-
 # ${routerSkillName}
 
 Consolidated domain router for **${squadName}** (experts: ${expertNames.map((e) => `\`${e}\``).join(', ')}).
-
+${extraNote}
 **MANDATORY**: Before writing code or giving domain advice, read the matching reference file(s) below (and use bundled helper scripts where listed):
 
 | Topic | Reference File | Helper Scripts | Summary |
@@ -141,52 +186,25 @@ ${indexRows.join('\n')}
   writeText(join(skillDir, 'SKILL.md'), skillMd);
 }
 
-function splitSquadSkillsForRouters(squadKey, routerSkills, skillsList) {
+function splitSquadSkillsForRouters(squadKey, routerSkills, packCfg) {
+  const skillsList = packCfg?.skills || [];
   if (routerSkills.length === 1) {
-    return new Map([[routerSkills[0], skillsList]]);
+    return new Map([[routerSkills[0], skillsList.filter((s) => s !== 'saas-help' && s !== 'saas-mode')]]);
   }
 
-  if (squadKey === 'core') {
-    const qaSec = [];
-    const coreEng = [];
-    const qaSecPatterns = /(test|vitest|playwright|e2e|tdd|security|secret|auth|verify|verification|forensics|benchmark|diagnose|debug|adversarial|comment-quality)/i;
-    for (const s of skillsList) {
-      if (s === 'saas-help' || s === 'saas-mode') continue;
-      if (qaSecPatterns.test(s)) qaSec.push(s);
-      else coreEng.push(s);
+  if (packCfg?.routers && typeof packCfg.routers === 'object') {
+    const result = new Map();
+    const assigned = new Set();
+    for (const routerName of routerSkills) {
+      const list = packCfg.routers[routerName] || [];
+      result.set(routerName, list);
+      for (const s of list) assigned.add(s);
     }
-    return new Map([
-      ['core-engineering', coreEng],
-      ['qa-security-expert', qaSec],
-    ]);
-  }
-
-  if (squadKey === 'web-frontend') {
-    const designer = [];
-    const frontend = [];
-    const designPatterns = /(design|visual|minimalist|brutalist|stitch|pencil|ux|information-architecture|taste|interaction)/i;
-    for (const s of skillsList) {
-      if (designPatterns.test(s)) designer.push(s);
-      else frontend.push(s);
+    const unassigned = skillsList.filter((s) => s !== 'saas-help' && s !== 'saas-mode' && !assigned.has(s));
+    if (unassigned.length > 0) {
+      throw new Error(`Unassigned skills in ${squadKey} routers mapping: ${unassigned.join(', ')}`);
     }
-    return new Map([
-      ['frontend-expert', frontend],
-      ['designer-expert', designer],
-    ]);
-  }
-
-  if (squadKey === 'python-ai') {
-    const ai = [];
-    const py = [];
-    const aiPatterns = /(langgraph|langchain|rag|llm|prompt|deepagents|pydantic-ai)/i;
-    for (const s of skillsList) {
-      if (aiPatterns.test(s)) ai.push(s);
-      else py.push(s);
-    }
-    return new Map([
-      ['ai-engineer-expert', ai],
-      ['python-backend-expert', py],
-    ]);
+    return result;
   }
 
   return new Map([[routerSkills[0], skillsList]]);
@@ -481,9 +499,9 @@ ${enrichedBody}
   }
 
   // 6. Router Skills + lazy references/
-  const packSkills = skillPacks.packs[squadKey]?.skills || [];
+  const packCfg = skillPacks.packs[squadKey] || { skills: [] };
   const routerList = squad.routerSkills.filter((r) => r !== 'saas-help' && r !== 'saas-mode');
-  const routerMap = splitSquadSkillsForRouters(squadKey, routerList, packSkills);
+  const routerMap = splitSquadSkillsForRouters(squadKey, routerList, packCfg);
   for (const [routerName, refSkills] of routerMap.entries()) {
     buildRouterSkill({
       pluginDir,

@@ -104,13 +104,13 @@ npx prisma generate
 Detailed migration guides for each breaking change:
 
 ```
-references/esm-support.md        - ESM and CommonJS configuration
-references/schema-changes.md     - Generator, output, imports, and generated entrypoints
-references/driver-adapters.md    - Required driver adapter setup
-references/prisma-config.md      - New configuration file
-references/env-variables.md      - Environment variable loading
-references/removed-features.md   - Middleware, metrics, and CLI flags
-references/accelerate-users.md   - Special handling for Accelerate
+prisma-upgrade-v7/references/esm-support.md        - ESM and CommonJS configuration
+prisma-upgrade-v7/references/schema-changes.md     - Generator, output, imports, and generated entrypoints
+prisma-upgrade-v7/references/driver-adapters.md    - Required driver adapter setup
+prisma-upgrade-v7/references/prisma-config.md      - New configuration file
+prisma-upgrade-v7/references/env-variables.md      - Environment variable loading
+prisma-upgrade-v7/references/removed-features.md   - Middleware, metrics, and CLI flags
+prisma-upgrade-v7/references/accelerate-users.md   - Special handling for Accelerate
 ```
 
 ## Step-by-Step Migration
@@ -256,4 +256,4 @@ npx prisma migrate dev  # if needed
 
 ## How to Use
 
-Follow `references/schema-changes.md` and `references/driver-adapters.md` first, then apply the remaining reference files based on your project setup.
+Follow `prisma-upgrade-v7/references/schema-changes.md` and `prisma-upgrade-v7/references/driver-adapters.md` first, then apply the remaining reference files based on your project setup.

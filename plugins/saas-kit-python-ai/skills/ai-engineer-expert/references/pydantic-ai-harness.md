@@ -85,7 +85,7 @@ agent = Agent('anthropic:claude-opus-5-5', capabilities=[ModalSandbox(), Coder()
 ```
 
 `E2BSandbox`, `SpritesSandbox`, and `SmolSandbox` (a local microVM) work the same way. See
-[Coding and Workspaces](./references/CODING-AND-WORKSPACES.md) for credentials, lifetimes, and sharing a
+[Coding and Workspaces](pydantic-ai-harness/references/CODING-AND-WORKSPACES.md) for credentials, lifetimes, and sharing a
 workspace between runs.
 
 ### Compose Your Own Stack
@@ -135,7 +135,7 @@ print(sorted(t.name for t in model.last_model_request_parameters.function_tools)
 ```
 
 The standalone `FileSystem` and `Shell` tool names differ from `Coder`'s six tools; `Coder` selects
-and configures a subset. See [Coding and Workspaces](./references/CODING-AND-WORKSPACES.md).
+and configures a subset. See [Coding and Workspaces](pydantic-ai-harness/references/CODING-AND-WORKSPACES.md).
 
 ### Collapse Many Tool Calls with Code Mode
 
@@ -186,14 +186,14 @@ agent = Agent(
 ```
 
 For named sub-agents (`SubAgents`), planning, and an advisor model, see
-[Delegation and Planning](./references/DELEGATION-AND-PLANNING.md); for memory stores, see
-[Knowledge and Memory](./references/KNOWLEDGE-AND-MEMORY.md).
+[Delegation and Planning](pydantic-ai-harness/references/DELEGATION-AND-PLANNING.md); for memory stores, see
+[Knowledge and Memory](pydantic-ai-harness/references/KNOWLEDGE-AND-MEMORY.md).
 
 ### Test Offline
 
 Script the model with `FunctionModel` (or `TestModel(call_tools=[])`) so tests make no provider
 requests while the capabilities run for real. Plain `TestModel()` calls every tool, including
-network-backed ones. See [Testing and Debugging](./references/TESTING-AND-DEBUGGING.md).
+network-backed ones. See [Testing and Debugging](pydantic-ai-harness/references/TESTING-AND-DEBUGGING.md).
 
 ## Task Routing Table
 
@@ -201,17 +201,17 @@ Load the references for the capabilities the task uses; each is self-contained.
 
 | I want to... | Reference |
 |---|---|
-| Build a coding agent, give an agent file or shell tools, run it in a Modal/E2B/Sprites/smolvm sandbox, or load repo instructions | [Coding and Workspaces](./references/CODING-AND-WORKSPACES.md) |
-| Let the model run Python that calls tools, or sandbox model-written code | [Code Mode](./references/CODE-MODE.md) |
-| Add sub-agents, planning, a model-written workflow over sub-agents, an advisor model, or background tools | [Delegation and Planning](./references/DELEGATION-AND-PLANNING.md) |
-| Keep a long run within its context window, trim or summarize history, limit large tool outputs, or catch prompt-cache busts | [Context Management](./references/CONTEXT-MANAGEMENT.md) |
-| Give the agent persistent memory, conversation search, `SKILL.md` skills, or Pydantic AI docs lookup | [Knowledge and Memory](./references/KNOWLEDGE-AND-MEMORY.md) |
-| Add guardrails, prompt-injection screening, model-based tool-call decisions, spend limits, questions to the user, reminders, or a trajectory judge; repair malformed tool arguments | [Control and Safety](./references/CONTROL-AND-SAFETY.md) |
-| Research the web with Exa or You.com, use the `Researcher` stack, or drive a browser | [Research and Browsing](./references/RESEARCH-AND-BROWSING.md) |
-| Connect GitHub, Linear, Notion, Slack, Google Workspace, PostHog, Logfire, or another hosted service | [Hosted Integrations](./references/HOSTED-INTEGRATIONS.md) |
-| Use or evaluate Render Workflows for background agents with separate model and tool task policies | [Render Workflows](./references/RUNTIME-AND-EXTENSION.md#renderworkflows); retrying the task that calls `agent.run()` starts the agent again |
-| Save, resume, or fork runs; run under AWS Lambda, Absurd, or pgtask; use managed prompts, runtime-created capabilities, ACP, GitHub Agentic Workflows, or agent specs | [Runtime and Extension](./references/RUNTIME-AND-EXTENSION.md) |
-| Test an agent that uses harness capabilities, or debug a failing one | [Testing and Debugging](./references/TESTING-AND-DEBUGGING.md) |
+| Build a coding agent, give an agent file or shell tools, run it in a Modal/E2B/Sprites/smolvm sandbox, or load repo instructions | [Coding and Workspaces](pydantic-ai-harness/references/CODING-AND-WORKSPACES.md) |
+| Let the model run Python that calls tools, or sandbox model-written code | [Code Mode](pydantic-ai-harness/references/CODE-MODE.md) |
+| Add sub-agents, planning, a model-written workflow over sub-agents, an advisor model, or background tools | [Delegation and Planning](pydantic-ai-harness/references/DELEGATION-AND-PLANNING.md) |
+| Keep a long run within its context window, trim or summarize history, limit large tool outputs, or catch prompt-cache busts | [Context Management](pydantic-ai-harness/references/CONTEXT-MANAGEMENT.md) |
+| Give the agent persistent memory, conversation search, `SKILL.md` skills, or Pydantic AI docs lookup | [Knowledge and Memory](pydantic-ai-harness/references/KNOWLEDGE-AND-MEMORY.md) |
+| Add guardrails, prompt-injection screening, model-based tool-call decisions, spend limits, questions to the user, reminders, or a trajectory judge; repair malformed tool arguments | [Control and Safety](pydantic-ai-harness/references/CONTROL-AND-SAFETY.md) |
+| Research the web with Exa or You.com, use the `Researcher` stack, or drive a browser | [Research and Browsing](pydantic-ai-harness/references/RESEARCH-AND-BROWSING.md) |
+| Connect GitHub, Linear, Notion, Slack, Google Workspace, PostHog, Logfire, or another hosted service | [Hosted Integrations](pydantic-ai-harness/references/HOSTED-INTEGRATIONS.md) |
+| Use or evaluate Render Workflows for background agents with separate model and tool task policies | [Render Workflows](pydantic-ai-harness/references/RUNTIME-AND-EXTENSION.md#renderworkflows); retrying the task that calls `agent.run()` starts the agent again |
+| Save, resume, or fork runs; run under AWS Lambda, Absurd, or pgtask; use managed prompts, runtime-created capabilities, ACP, GitHub Agentic Workflows, or agent specs | [Runtime and Extension](pydantic-ai-harness/references/RUNTIME-AND-EXTENSION.md) |
+| Test an agent that uses harness capabilities, or debug a failing one | [Testing and Debugging](pydantic-ai-harness/references/TESTING-AND-DEBUGGING.md) |
 
 ## Install
 
@@ -256,7 +256,7 @@ These mistakes cause confusing errors or wrong behavior at run time.
 - **`FileSystem(root_dir=...)` limits only the file tools.** `Shell` commands can still reach any path the workspace can.
 - **`Coder` must be bound on the agent for delegation.** `delegate_task` re-runs the agent `Coder` is attached to; pass `Coder()` in `Agent(capabilities=[...])`, not to `agent.run(...)`.
 - **Harness files live in the workspace.** Shell job logs and tool-output spills go in `.pydantic-ai-harness/` in the workspace's working directory; in a sandbox they are in the sandbox, not on the host.
-- **Code Mode runs a Python subset.** Monty has no third-party imports and a small stdlib; read [Code Mode](./references/CODE-MODE.md#sandbox-restrictions) before debugging generated code.
+- **Code Mode runs a Python subset.** Monty has no third-party imports and a small stdlib; read [Code Mode](pydantic-ai-harness/references/CODE-MODE.md#sandbox-restrictions) before debugging generated code.
 - **Provider-native tools bypass harness tool wrappers.** Tools executed by the provider (native web search, native MCP) never reach `CodeMode`, `ToolGuardrail`, or `ToolOutputLimits`.
 - **APIs move between 0.x minors.** Breaking changes ship with deprecation warnings where practical; check the installed version and the capability's docs page when an argument is rejected.
 
@@ -267,17 +267,17 @@ any:
 
 | Reference | Capabilities |
 |---|---|
-| [Coding and Workspaces](./references/CODING-AND-WORKSPACES.md) | `Coder` (`.coder`, `[coder]`); `FileSystem` (`.filesystem`); `Shell` (`.shell`); `ModalSandbox` (`.modal_sandbox`, `[modal]`); `E2BSandbox` (`.e2b_sandbox`, `[e2b]`); `SpritesSandbox` (`.sprites_sandbox`, `[sprites]`); `SmolSandbox` (`.smol_sandbox`, `[smol]`); `SSHWorkspace` (`.ssh_workspace`); `BubblewrapSandbox` (`.bubblewrap_sandbox`); `RepoContext` (`.repo_context`); `Macroscope` (`.macroscope`); `LocalStack` (`.localstack`) |
-| [Code Mode](./references/CODE-MODE.md) | `CodeMode` (`.code_mode`, `[codemode]`) |
-| [Delegation and Planning](./references/DELEGATION-AND-PLANNING.md) | `Planning` (`.planning`); `SubAgents`, `SubAgent`, `DelegationReports` (`.subagents`); `DynamicWorkflow` (`.dynamic_workflow`, `[dynamic-workflow]`); `Advisor` (`.advisor`); `BackgroundTools` (`.background_tools`) |
-| [Context Management](./references/CONTEXT-MANAGEMENT.md) | `ClearToolResults`, `SlidingWindowCompaction`, `SummarizingCompaction`, `TieredCompaction`, `FallbackCompaction`, `ClampOversizedMessages`, `DeduplicateFileReads`, `WarnNearLimits`, `ReportContextUsage` (`.compaction`); `ToolOutputLimits` (`.tool_output_limits`); `WarnOnCacheBusts` (`.warn_on_cache_busts`); media stores, not a capability (`.media`) |
-| [Knowledge and Memory](./references/KNOWLEDGE-AND-MEMORY.md) | `Memory` (`.memory`); `ConversationSearch` (`.conversation_search`); `Skills` (`.skills`, `[skills]`); `PydanticAIDocs` (`.pydantic_ai_docs`) |
-| [Control and Safety](./references/CONTROL-AND-SAFETY.md) | `RepairToolArguments` (`.repair_tool_arguments`); `InputGuardrail`, `OutputGuardrail`, `ToolGuardrail` (`.guardrails`); `PromptInjectionDefender` (`.prompt_injection_defender`, `[prompt-injection-defender]`); `ToolCallJudge` (`.tool_call_judge`); `ApprovalReviewer` (`.approval_reviewer`); `SpendLimits` (`.spend`); `AskUser` (`.ask_user`); `SystemReminders` (`.system_reminders`); `TrajectoryJudge` (`.trajectory_judge`) |
-| [Research and Browsing](./references/RESEARCH-AND-BROWSING.md) | `Researcher` (`.researcher`, `[researcher]`); `ExaSearch`, `ExaAgent` (`.exa`, `[exa]`); `YouSearch`, `YouResearch` (`.youdotcom`, `[youdotcom]`); `BrowserUse` (`.browser_use`, `[browser-use]`); `PlaywrightBrowser` (`.playwright`, `[playwright]`) |
-| [Hosted Integrations](./references/HOSTED-INTEGRATIONS.md) | `GitHub` (`.github`, `[github]`); `Linear` (`.linear`, `[linear]`); `Notion` (`.notion`, `[notion]`); `GoogleWorkspace` (`.google_workspace`, `[google-workspace]`); `Slack` (`.slack`, `[slack]`); `StackOne` (`.stackone`, `[stackone]`); `Ordinal` (`.ordinal`, `[ordinal]`); `Grain` (`.grain`, `[grain]`); `DayAI` (`.day_ai`, `[day-ai]`); `PostHog` (`.posthog`, `[posthog]`); `Pylon` (`.pylon`, `[pylon]`); `LogfireMCP` (`.logfire_mcp`, `[logfire-mcp]`) |
-| [Runtime and Extension](./references/RUNTIME-AND-EXTENSION.md) | `StepPersistence` (`.step_persistence`, `[mongodb]` for MongoDB); `AWSLambdaDurability` (`.aws_lambda`, `[aws-lambda]`); `AbsurdDurability` (`.absurd`, `[absurd]`); `PGTaskDurability` (`.pgtask`, `[pgtask]`); `RenderWorkflows` (`.render`, `[render]`); `ManagedPrompt` (`.logfire`, `[logfire]`); `CapabilityCreation` (`.capability_creation`); experimental ACP server `run_acp_stdio` (`.experimental.acp`, `[acp]`) |
+| [Coding and Workspaces](pydantic-ai-harness/references/CODING-AND-WORKSPACES.md) | `Coder` (`.coder`, `[coder]`); `FileSystem` (`.filesystem`); `Shell` (`.shell`); `ModalSandbox` (`.modal_sandbox`, `[modal]`); `E2BSandbox` (`.e2b_sandbox`, `[e2b]`); `SpritesSandbox` (`.sprites_sandbox`, `[sprites]`); `SmolSandbox` (`.smol_sandbox`, `[smol]`); `SSHWorkspace` (`.ssh_workspace`); `BubblewrapSandbox` (`.bubblewrap_sandbox`); `RepoContext` (`.repo_context`); `Macroscope` (`.macroscope`); `LocalStack` (`.localstack`) |
+| [Code Mode](pydantic-ai-harness/references/CODE-MODE.md) | `CodeMode` (`.code_mode`, `[codemode]`) |
+| [Delegation and Planning](pydantic-ai-harness/references/DELEGATION-AND-PLANNING.md) | `Planning` (`.planning`); `SubAgents`, `SubAgent`, `DelegationReports` (`.subagents`); `DynamicWorkflow` (`.dynamic_workflow`, `[dynamic-workflow]`); `Advisor` (`.advisor`); `BackgroundTools` (`.background_tools`) |
+| [Context Management](pydantic-ai-harness/references/CONTEXT-MANAGEMENT.md) | `ClearToolResults`, `SlidingWindowCompaction`, `SummarizingCompaction`, `TieredCompaction`, `FallbackCompaction`, `ClampOversizedMessages`, `DeduplicateFileReads`, `WarnNearLimits`, `ReportContextUsage` (`.compaction`); `ToolOutputLimits` (`.tool_output_limits`); `WarnOnCacheBusts` (`.warn_on_cache_busts`); media stores, not a capability (`.media`) |
+| [Knowledge and Memory](pydantic-ai-harness/references/KNOWLEDGE-AND-MEMORY.md) | `Memory` (`.memory`); `ConversationSearch` (`.conversation_search`); `Skills` (`.skills`, `[skills]`); `PydanticAIDocs` (`.pydantic_ai_docs`) |
+| [Control and Safety](pydantic-ai-harness/references/CONTROL-AND-SAFETY.md) | `RepairToolArguments` (`.repair_tool_arguments`); `InputGuardrail`, `OutputGuardrail`, `ToolGuardrail` (`.guardrails`); `PromptInjectionDefender` (`.prompt_injection_defender`, `[prompt-injection-defender]`); `ToolCallJudge` (`.tool_call_judge`); `ApprovalReviewer` (`.approval_reviewer`); `SpendLimits` (`.spend`); `AskUser` (`.ask_user`); `SystemReminders` (`.system_reminders`); `TrajectoryJudge` (`.trajectory_judge`) |
+| [Research and Browsing](pydantic-ai-harness/references/RESEARCH-AND-BROWSING.md) | `Researcher` (`.researcher`, `[researcher]`); `ExaSearch`, `ExaAgent` (`.exa`, `[exa]`); `YouSearch`, `YouResearch` (`.youdotcom`, `[youdotcom]`); `BrowserUse` (`.browser_use`, `[browser-use]`); `PlaywrightBrowser` (`.playwright`, `[playwright]`) |
+| [Hosted Integrations](pydantic-ai-harness/references/HOSTED-INTEGRATIONS.md) | `GitHub` (`.github`, `[github]`); `Linear` (`.linear`, `[linear]`); `Notion` (`.notion`, `[notion]`); `GoogleWorkspace` (`.google_workspace`, `[google-workspace]`); `Slack` (`.slack`, `[slack]`); `StackOne` (`.stackone`, `[stackone]`); `Ordinal` (`.ordinal`, `[ordinal]`); `Grain` (`.grain`, `[grain]`); `DayAI` (`.day_ai`, `[day-ai]`); `PostHog` (`.posthog`, `[posthog]`); `Pylon` (`.pylon`, `[pylon]`); `LogfireMCP` (`.logfire_mcp`, `[logfire-mcp]`) |
+| [Runtime and Extension](pydantic-ai-harness/references/RUNTIME-AND-EXTENSION.md) | `StepPersistence` (`.step_persistence`, `[mongodb]` for MongoDB); `AWSLambdaDurability` (`.aws_lambda`, `[aws-lambda]`); `AbsurdDurability` (`.absurd`, `[absurd]`); `PGTaskDurability` (`.pgtask`, `[pgtask]`); `RenderWorkflows` (`.render`, `[render]`); `ManagedPrompt` (`.logfire`, `[logfire]`); `CapabilityCreation` (`.capability_creation`); experimental ACP server `run_acp_stdio` (`.experimental.acp`, `[acp]`) |
 
-For offline tests and debugging of any of these, load [Testing and Debugging](./references/TESTING-AND-DEBUGGING.md).
+For offline tests and debugging of any of these, load [Testing and Debugging](pydantic-ai-harness/references/TESTING-AND-DEBUGGING.md).
 
 The full capability list, grouped by what each gives an agent, is on the
 [Pydantic AI Harness overview](https://pydantic.dev/docs/ai/harness/).

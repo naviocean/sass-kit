@@ -126,7 +126,7 @@ The decision script returns one of the following statuses. This table defines th
 | `fix_auto_applying`     | Self-healing is handling it — just record `last_cipe_url`, enter wait mode. No MCP call or local git ops needed. |
 | `error`                 | Wait 60s and loop                                                                                                |
 
-**Statuses requiring action** — when handling these in Step 3, read `references/fix-flows.md` for the detailed flow:
+**Statuses requiring action** — when handling these in Step 3, read `monitor-ci/references/fix-flows.md` for the detailed flow:
 
 | Status                   | Summary                                                                                       |
 | ------------------------ | --------------------------------------------------------------------------------------------- |

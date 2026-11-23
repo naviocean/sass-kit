@@ -66,9 +66,9 @@ NavigationSplitView(columnVisibility: .constant(.all))  // sidebar always visibl
 
 Read the reference files for complete, working code:
 
-- `references/SettingsWindowController.swift` — The window controller (copy as-is, adapt the activation policy calls to your app)
-- `references/SettingsView.swift` — The root view with sidebar, detail routing, and navigation history
-- `references/ExampleDetailPane.swift` — A template detail pane showing common control patterns (Toggle, Picker, Slider, LabeledContent)
+- `macos-settings-ui/references/SettingsWindowController.swift` — The window controller (copy as-is, adapt the activation policy calls to your app)
+- `macos-settings-ui/references/SettingsView.swift` — The root view with sidebar, detail routing, and navigation history
+- `macos-settings-ui/references/ExampleDetailPane.swift` — A template detail pane showing common control patterns (Toggle, Picker, Slider, LabeledContent)
 
 ## Step-by-Step: Adding Settings to a New App
 
@@ -104,14 +104,14 @@ enum SettingsTab: String, CaseIterable, Identifiable {
 
 ### 2. Create the Window Controller
 
-Copy `references/SettingsWindowController.swift` into your project. Adapt:
+Copy `macos-settings-ui/references/SettingsWindowController.swift` into your project. Adapt:
 - The initial `contentRect` size (default `700x540` is good for most apps)
 - The `minSize` (default `620x460`)
 - The activation policy calls (`AppActivationPolicy.enter()/leave()`) — if your app isn't a menu-bar-only app, remove these
 
 ### 3. Create the Root Settings View
 
-Copy `references/SettingsView.swift`. Adapt:
+Copy `macos-settings-ui/references/SettingsView.swift`. Adapt:
 - The `SettingsTab` enum cases to match your categories
 - The `SettingsDetailView` switch to return your panes
 

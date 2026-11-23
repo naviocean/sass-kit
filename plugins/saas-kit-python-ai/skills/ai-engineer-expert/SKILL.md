@@ -9,6 +9,8 @@ description: >-
 
 Consolidated domain router for **Python & AI Engineering Squad** (experts: `ai-engineer`, `python-backend`).
 
+> **Shared Python Core**: For `async-python-patterns`, `python-type-safety`, `python-testing-patterns`, `python-error-handling`, `python-observability`, `python-resilience`, and `python-code-style`, also read `../python-backend-expert/SKILL.md` in this same `saas-kit-python-ai` plugin.
+
 **MANDATORY**: Before writing code or giving domain advice, read the matching reference file(s) below (and use bundled helper scripts where listed):
 
 | Topic | Reference File | Helper Scripts | Summary |

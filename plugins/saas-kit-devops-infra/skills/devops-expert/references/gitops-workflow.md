@@ -42,7 +42,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 
-**Reference:** See `references/argocd-setup.md` for detailed setup
+**Reference:** See `gitops-workflow/references/argocd-setup.md` for detailed setup
 
 ### 2. Repository Structure
 
@@ -194,7 +194,7 @@ spec:
   timeout: 5m
 ```
 
-**Reference:** See `references/sync-policies.md`
+**Reference:** See `gitops-workflow/references/sync-policies.md`
 
 ## Progressive Delivery
 

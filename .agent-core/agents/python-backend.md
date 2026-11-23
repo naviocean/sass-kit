@@ -77,6 +77,10 @@ Load these skills when their context matches:
 | `python-type-safety`      | Always — Pydantic schemas, typed settings, strict type hints.     |
 | `python-testing-patterns` | Always — pytest patterns, httpx.AsyncClient, mocking, fixtures.   |
 | `python-code-style`       | Always — ruff conventions, idiomatic Python, formatting.          |
+| `coding-standards`        | Always — clean architecture, naming, strict error handling.       |
+| `git-workflow`            | Always — branch naming, conventional commits, PR conventions.     |
+| `gitnexus-exploring`      | When tracing existing routes, models, and service dependencies.   |
+| `continuous-learning`     | When a backend pattern repeats 3+ times — record as instinct.     |
 
 ### Architecture & Data
 

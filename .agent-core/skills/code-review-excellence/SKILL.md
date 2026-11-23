@@ -162,6 +162,8 @@ Before writing review feedback, read `references/review-techniques.md` for check
 
 Before language-specific, architectural, test-quality, or security review, read `references/review-patterns.md` for review patterns and checklists.
 
+When dispatching a code reviewer subagent or responding to review feedback without performative agreement, read `references/requesting-and-receiving.md` and use the template in `references/code-reviewer-prompt.md`.
+
 ## Giving Difficult Feedback
 
 ### Pattern: The Sandwich Method (Modified)
