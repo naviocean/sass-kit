@@ -41,20 +41,25 @@ Two-stage review (Superpowers pattern):
 2. Scope check: Does diff match the assigned task? Scope creep = reject.
 3. Pattern check: New patterns without justification = reject.
 
-**Stage 2 — Deep:**
+**Stage 2 — Deep & Code-Quality Audit:**
 - Read changed files. Evaluate against:
   - Patterns: follow codebase conventions
-  - Architecture: respect module boundaries
+  - Architecture: respect module boundaries and canonical layers
   - Quality: no `any`, no `@ts-ignore`, no disabled lint
   - Comment Quality: strip trivial diff comments (`comment-quality`), preserve invariant & security comments
   - Testing: business logic has tests
   - Real-Surface Evidence: verify that touched features in `docs/verification/feature-map.md` have status `VERIFIED` with fresh evidence in `docs/verification/evidence/` (recorded code commit has zero application code diff against `HEAD`, allowing evidence-only commits; zero `REGRESSED` or `BLOCKED`)
   - Security: no hardcoded secrets, proper input validation
+- **Triggered Code-Quality Audit (`thermo-nuclear-code-quality`):**
+  - **Trigger:** Size L/XL PRs, 3+ affected modules, any file pushed past 300 lines (warning) or from <1,000 to >1,000 lines (presumptive blocker), significant new branching/abstractions, or explicit user request ("deep review", "thermo review").
+  - **Action:** Apply the `thermo-nuclear-code-quality` rubric — hunt for "code judo" structural simplifications, reject spaghetti conditionals, thin wrappers, cast/`any` churn, canonical-layer leaks, and non-atomic updates. For large multi-subsystem reviews, write a layered report (`_workspace/thermo-quality/`).
 
-**Stage 3 — Triggered Adversarial Review (`adversarial-review`):**
-- **Trigger:** `gitnexus_impact` reports HIGH/CRITICAL blast radius, or diff touches auth/billing/cryptography/multi-actor concurrency.
-- **Action:** Dispatch an independent, read-only reviewer subagent with the `adversarial-review` skill.
-- **Probing:** Aggressively hunts for race conditions (TOCTOU), state desynchronization, unhandled error paths, and resource leaks.
+**Stage 3 — Triggered Adversarial & Thermo-Nuclear Review (`adversarial-review`):**
+- **Trigger:** `gitnexus_impact` reports HIGH/CRITICAL blast radius, diff touches auth/billing/cryptography/multi-actor concurrency/feature flags/dev-build configs, or explicit user request ("thermo review", "deep audit").
+- **Action:** Dispatch an independent, read-only reviewer (`security-auditor` or read-only review slice) with the `adversarial-review` skill.
+- **Probing:** Diff-scoped audit hunting for race conditions (TOCTOU), state desynchronization, unhandled error paths, resource leaks, **breaking DevEx regressions** (env vars, ports, local scripts), and **feature-gate leaks**.
+- **Empirical Verification Invariant:** Cannot issue `VERDICT: PASS` from abstract code inspection alone — must cite fresh passing runtime/test evidence, otherwise `VERDICT: REJECT (missing empirical verification)`.
+- **Post-Audit Bot Cross-Check:** Only *after* finishing the independent audit, if Medium/High findings exist on an open PR/MR, cross-check PR review-bot comments via `gh`/`glab` CLI.
 - **Verdict Integration:**
   - `MUST-FIX`: Review is **BLOCKED** until fixed.
   - `CONSIDER`: Documented for follow-up.

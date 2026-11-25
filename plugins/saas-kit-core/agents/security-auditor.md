@@ -131,6 +131,7 @@ Load detailed guides from `skills/qa-security-expert/SKILL.md` (and `core-engine
 | Skill                             | When to Load                                                                          |
 | --------------------------------- | ------------------------------------------------------------------------------------- |
 | `security-scan`                   | Always — AgentShield scanning, secret/permission/hook/MCP triage, grading rules       |
+| `adversarial-review`              | High-risk/deep PR audits — race conditions, breaking DevEx, feature-gate leaks, empirical verification invariant |
 | `security-requirement-extraction` | Extracting security requirements and controls from specs/PRDs                         |
 | `secrets-management`              | Auditing env vars, Vault integration, key rotation, git history secret detection      |
 | `auth-implementation-patterns`    | Reviewing JWT flows, refresh rotation, RBAC, OAuth, session management, MFA           |

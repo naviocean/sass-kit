@@ -272,7 +272,8 @@ Load skills via `skill(name="skill-name")` when their context matches. Organized
 | Skill | When to Load |
 |---|---|
 | `code-review-excellence` | Review standards, checklists, requesting/receiving feedback (`references/requesting-and-receiving.md`) |
-| `adversarial-review` | High-risk changes (auth, payment, migrations, concurrency) — targeted adversarial scrutiny |
+| `thermo-nuclear-code-quality` | Size L/XL PRs, file sprawl (>300 warn / >1k blocker), spaghetti branching, or explicit deep code-quality audits — hunts for "code judo" simplifications |
+| `adversarial-review` | High-risk changes (auth, payment, migrations, concurrency, feature flags, DevEx) — targeted adversarial scrutiny with empirical verification invariant |
 
 ### Architecture & Standards
 

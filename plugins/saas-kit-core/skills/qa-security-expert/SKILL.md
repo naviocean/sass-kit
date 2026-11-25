@@ -13,7 +13,7 @@ Consolidated domain router for **SaaS Kit Core (Orchestration & Quality Gate)** 
 
 | Topic | Reference File | Helper Scripts | Summary |
 |---|---|---|---|
-| `adversarial-review` | `references/adversarial-review.md` | — | Adversarial code review targeting high-risk diffs. Actively probes for race conditions, memory leaks, state de |
+| `adversarial-review` | `references/adversarial-review.md` | — | Adversarial and thermo-nuclear diff audit targeting high-risk changes, bugs, breaking changes, DevEx regressio |
 | `auth-implementation-patterns` | `references/auth-implementation-patterns.md` | — | Master authentication and authorization patterns including JWT, OAuth2, session management, and RBAC to build  |
 | `benchmark-checklist` | `references/benchmark-checklist.md` | — | Checklist for performance benchmarking and optimization. Enforces baseline measurement, controlled environment |
 | `comment-quality` | `references/comment-quality.md` | — | Audit code comments in diffs. Eliminates redundant AI code slop while strictly preserving comments documenting |

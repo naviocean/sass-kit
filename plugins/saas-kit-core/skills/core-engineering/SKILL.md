@@ -48,6 +48,7 @@ Consolidated domain router for **SaaS Kit Core (Orchestration & Quality Gate)** 
 | `scan` | `references/scan.md` | — | Scans the codebase to generate project-doc.md and AGENTS.md. Runs a full scan on first use and a smart delta s |
 | `socratic-planning` | `references/socratic-planning.md` | — | Socratic method for ALL requests. Asks clarifying questions before coding. Scales from 1 question (small fixes |
 | `subagent-driven-development` | `references/subagent-driven-development.md` | `scripts/subagent-driven-development/` | Use when executing implementation plans with independent tasks in the current session |
+| `thermo-nuclear-code-quality` | `references/thermo-nuclear-code-quality.md` | — | Strict architectural maintainability and code-judo review rubric for Tech Lead. Audits abstraction quality, fi |
 | `to-issues` | `references/to-issues.md` | — | Break a plan, spec, or PRD into independently-grabbable issues on the project issue tracker using tracer-bulle |
 | `to-prd` | `references/to-prd.md` | — | Turn the current conversation context into a PRD and publish it to the project issue tracker. Use when user wa |
 | `triage` | `references/triage.md` | — | Move issues and external PRs through a state machine of triage roles, categorise, verify, grill if needed, and |
