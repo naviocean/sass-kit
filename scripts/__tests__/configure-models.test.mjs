@@ -93,3 +93,29 @@ test('configure-models CLI: --preset and --set persist to XDG/HOME config path',
     rmSync(tempHome, { recursive: true, force: true });
   }
 });
+
+test('configure-models: antigravity preset maps all 14 experts to Gemini 4 Orchestrator/Neon/Hydrogen models', () => {
+  const tempHome = mkdtempSync(join(tmpdir(), 'saas-kit-agy-'));
+  try {
+    const resolved = resolveActiveModels({ homeDir: tempHome, env: { SAAS_KIT_PRESET: 'antigravity' } });
+    assert.equal(resolved.preset, 'antigravity');
+    assert.equal(Object.keys(resolved.agents).length, 14);
+    assert.equal(resolved.agents['tech-lead'].model, 'gemini-pro-orchestrator-neon');
+    assert.equal(resolved.agents.pm.model, 'gemini-4-neon-high');
+    assert.equal(resolved.agents['security-auditor'].model, 'gemini-4-neon-high');
+    assert.equal(resolved.agents['ai-engineer'].model, 'gemini-4-neon-medium');
+    assert.equal(resolved.agents.rustacean.model, 'gemini-4-neon-medium');
+    assert.equal(resolved.agents.frontend.model, 'gemini-4-hydrogen-high');
+    assert.equal(resolved.agents.qa.model, 'gemini-4-hydrogen-medium');
+
+    for (const [name, cfg] of Object.entries(resolved.agents)) {
+      assert.match(
+        cfg.model,
+        /^(gemini-4-|gemini-pro-orchestrator-)/,
+        `Agent ${name} should use a Gemini 4 or Orchestrator model, got ${cfg.model}`,
+      );
+    }
+  } finally {
+    rmSync(tempHome, { recursive: true, force: true });
+  }
+});
