@@ -249,7 +249,7 @@
         "workspace": "inherit"
       },
       "defaultModelTier": {
-        "antigravity": "flash",
+        "antigravity": "pro",
         "claude": "sonnet",
         "opencode": "pro"
       }
@@ -378,7 +378,7 @@
         "workspace": "branch"
       },
       "defaultModelTier": {
-        "antigravity": "flash",
+        "antigravity": "pro",
         "claude": "sonnet",
         "opencode": "flash"
       }
@@ -442,7 +442,7 @@
         "workspace": "branch"
       },
       "defaultModelTier": {
-        "antigravity": "flash",
+        "antigravity": "pro",
         "claude": "sonnet",
         "opencode": "flash"
       }

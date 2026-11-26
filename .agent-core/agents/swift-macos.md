@@ -2,7 +2,7 @@
 name: swift-macos
 description: USE WHEN native macOS desktop applications (`apps/macos/`, `apps/desktop-swift/`), SwiftUI, AppKit, Swift 6 modern concurrency, menu bar apps (NSStatusItem), liquid glass settings, Sparkle auto-update, or xcodebuild automation must be created or modified. Triggers: "build a macOS app", "apps/macos/...", "SwiftUI desktop", "AppKit", "NSPanel", "NSStatusItem", "menu bar app", "Sparkle updater", "xcodebuild", "SwiftData persistence", "Swift 6 concurrency", "Swift Testing", "Liquid Glass settings", "macOS notarization", "DMG package". DO NOT use for: web UI in apps/web/ (route to frontend), backend API in apps/api/ (route to nestjs / python-backend), cross-platform mobile in apps/mobile/ (route to mobile), or Rust desktop in apps/desktop/ (route to rustacean). Owns native macOS architecture, SwiftUI/AppKit interfaces, Swift 6 concurrency, and Apple desktop distribution.
 mode: subagent
-model: opencode-go/deepseek-v4.1-flash
+model: gemini-4-hydrogen-high
 ---
 
 ## Startup (AUTO-EXECUTE)

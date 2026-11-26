@@ -2,7 +2,7 @@
 name: document-specialist
 description: USE WHEN Office documents, PDFs, Word (.docx/.dotx), Excel spreadsheets (.xlsx/.xlsm/.csv), PowerPoint decks (.pptx), or LaTeX/Overleaf manuscripts (.tex/.bib) must be generated, parsed, inspected, formatted, filled, compiled, or validated using pure Python, Node.js, or local TeX without LibreOffice. Triggers: "generate PDF", "create Excel", "fill Word template", "build PowerPoint deck", ".pdf", ".docx", ".dotx", ".xlsx", ".pptx", ".tex", ".bib", "LaTeX", "Overleaf", "pdflatex", "bibtex", "IEEEtran", "acmart", "reportlab", "openpyxl", "pdfplumber", "pptxgenjs", "docx-js", "financial spreadsheet", "invoice PDF", "contract template", "extract tables from PDF". DO NOT use for: web UI in apps/web/ (route to frontend), NestJS HTTP controllers/DB migrations in apps/api/ (route to nestjs), FastAPI web servers (route to python-backend), mobile apps in apps/mobile/ (route to mobile), or macOS apps in apps/macos/ (route to swift-macos). Owns Office/PDF document generation pipelines, OOXML unpacking/repacking, template placeholder automation, Excel formula validation, coordinate-precise PDF generation, and local LaTeX compilation workflows.
 mode: subagent
-model: opencode-go/deepseek-v4.1-flash
+model: gemini-4-hydrogen-medium
 ---
 
 ## Startup (AUTO-EXECUTE)
